@@ -239,7 +239,7 @@
   }
 
   .glass {
-    background: rgba(255, 255, 255, 0.75);
+    background: rgba(255, 255, 255, 0.93);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
   }
@@ -433,8 +433,9 @@
 
 /* Badges */
 .dark .badge-green {
-  background-color: rgba(13, 47, 61, 0.6);
+  background-color: rgba(13, 47, 61, 0.7);
   color: #7ddced;
+  border: 1px solid rgba(125, 220, 237, 0.25);
 }
 
 .dark .badge-gold {
@@ -481,7 +482,7 @@
 /* Form inputs */
 .dark .form-input {
   background-color: #0c1e25;
-  border-color: #1e3a47;
+  border-color: #2e6070;
   color: #e2e8f0;
 }
 
@@ -578,10 +579,15 @@
   background: linear-gradient(135deg, #071e2d 0%, #0e3d55 100%) !important;
 }
 
-/* About visual card */
-.dark .absolute.-top-4,
-.dark .absolute.-bottom-4 {
-  background-color: #0c1e25 !important;
+/* About visual card — floating badges */
+.dark .floating-badge {
+  background-color: #102a38 !important;
+  border: 1px solid #1e3a47;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+.dark .floating-badge .text-gray-400 {
+  color: #94a3b8 !important;
 }
 
 /* Dark mode toggle button */
@@ -663,16 +669,16 @@
 }
 
 /* Colored icon backgrounds — dark mode adaptations */
-.dark .bg-primary-50  { background-color: rgba(13, 61, 85, 0.60) !important; }
-.dark .bg-primary-100 { background-color: rgba(13, 61, 85, 0.70) !important; }
-.dark .bg-gold-50     { background-color: rgba(90, 60,  5, 0.45) !important; }
-.dark .bg-gold-100    { background-color: rgba(90, 60,  5, 0.60) !important; }
-.dark .bg-blue-50     { background-color: rgba(20, 40, 120, 0.40) !important; }
-.dark .bg-blue-100    { background-color: rgba(20, 40, 120, 0.55) !important; }
-.dark .bg-teal-50     { background-color: rgba( 5, 78,  78, 0.45) !important; }
-.dark .bg-teal-100    { background-color: rgba( 5, 78,  78, 0.60) !important; }
-.dark .bg-rose-50     { background-color: rgba(90, 10,  20, 0.40) !important; }
-.dark .bg-rose-100    { background-color: rgba(90, 10,  20, 0.55) !important; }
+.dark .bg-primary-50  { background-color: rgba(89, 194, 213, 0.12) !important; }
+.dark .bg-primary-100 { background-color: rgba(89, 194, 213, 0.18) !important; }
+.dark .bg-gold-50     { background-color: rgba(245, 158,  11, 0.12) !important; }
+.dark .bg-gold-100    { background-color: rgba(245, 158,  11, 0.20) !important; }
+.dark .bg-blue-50     { background-color: rgba(59, 130, 246, 0.12) !important; }
+.dark .bg-blue-100    { background-color: rgba(59, 130, 246, 0.20) !important; }
+.dark .bg-teal-50     { background-color: rgba(20, 184, 166, 0.12) !important; }
+.dark .bg-teal-100    { background-color: rgba(20, 184, 166, 0.20) !important; }
+.dark .bg-rose-50     { background-color: rgba(244,  63,  94, 0.12) !important; }
+.dark .bg-rose-100    { background-color: rgba(244,  63,  94, 0.20) !important; }
 
 /* Colored icon text — dark mode adaptations */
 .dark .text-primary-600,
