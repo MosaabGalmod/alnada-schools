@@ -494,8 +494,13 @@
   color: #cbd5e1;
 }
 
+/* Logo container must always stay white in dark mode */
+.dark .logo-bg {
+  background-color: #ffffff !important;
+}
+
 /* Generic gray/white backgrounds in blade sections */
-.dark .bg-white {
+.dark .bg-white:not(.logo-bg) {
   background-color: #0e2535 !important;
 }
 
@@ -632,4 +637,62 @@
 .dark .btn-gold:hover {
   background: #ffffff;
   color: #155a6b;
+}
+
+/* ===== Dark Mode Extended Fixes ===== */
+
+/* Override inline colors output by Section::textColor() (#374151) */
+.dark [style*="color: #374151"],
+.dark [style*="color:#374151"] {
+  color: #94a3b8 !important;
+}
+
+/* Override inline colors output by Section::headingColor() (#111827) */
+.dark [style*="color: #111827"],
+.dark [style*="color:#111827"] {
+  color: #f1f5f9 !important;
+}
+
+/* Ensure section titles and descriptions are always readable in dark mode */
+.dark .section-title {
+  color: #f1f5f9 !important;
+}
+
+.dark .section-desc {
+  color: #94a3b8 !important;
+}
+
+/* Colored icon backgrounds — dark mode adaptations */
+.dark .bg-primary-50  { background-color: rgba(13, 61, 85, 0.60) !important; }
+.dark .bg-primary-100 { background-color: rgba(13, 61, 85, 0.70) !important; }
+.dark .bg-gold-50     { background-color: rgba(90, 60,  5, 0.45) !important; }
+.dark .bg-gold-100    { background-color: rgba(90, 60,  5, 0.60) !important; }
+.dark .bg-blue-50     { background-color: rgba(20, 40, 120, 0.40) !important; }
+.dark .bg-blue-100    { background-color: rgba(20, 40, 120, 0.55) !important; }
+.dark .bg-teal-50     { background-color: rgba( 5, 78,  78, 0.45) !important; }
+.dark .bg-teal-100    { background-color: rgba( 5, 78,  78, 0.60) !important; }
+.dark .bg-rose-50     { background-color: rgba(90, 10,  20, 0.40) !important; }
+.dark .bg-rose-100    { background-color: rgba(90, 10,  20, 0.55) !important; }
+
+/* Colored icon text — dark mode adaptations */
+.dark .text-primary-600,
+.dark .text-primary-700 { color: #5ccfe3 !important; }
+.dark .text-primary-800 { color: #7ddced !important; }
+.dark .text-gold-600,
+.dark .text-gold-700    { color: #fbbf24 !important; }
+.dark .text-blue-600,
+.dark .text-blue-700    { color: #93c5fd !important; }
+.dark .text-teal-600,
+.dark .text-teal-700    { color: #5eead4 !important; }
+.dark .text-rose-600,
+.dark .text-rose-700    { color: #fca5a5 !important; }
+
+/* Borders for colored elements in dark mode */
+.dark .border-primary-100 { border-color: rgba(89, 194, 213, 0.30) !important; }
+.dark .border-primary-200 { border-color: rgba(89, 194, 213, 0.40) !important; }
+
+/* News/About wave gradient section bg */
+.dark section[style*="linear-gradient(135deg,#f0f9fd"],
+.dark section[style*="linear-gradient(135deg, #f0f9fd"] {
+  background: linear-gradient(135deg, #061928 0%, #0b3347 100%) !important;
 }

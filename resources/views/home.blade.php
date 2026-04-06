@@ -57,13 +57,13 @@
 				{{-- Logo --}}
 				<a class="group flex items-center gap-3" href="#">
 					<div
-						class="flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-clay transition-all group-hover:shadow-clay-lg">
+						class="logo-bg flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-clay transition-all group-hover:shadow-clay-lg">
 						<img class="h-auto w-9 object-contain" src="{{ asset("logo.svg") }}" alt="شعار مدارس الندى">
 					</div>
 					<div class="leading-tight">
 						<div class="font-heading text-base font-bold transition-colors"
-							:class="scrolled ? 'text-primary-800' : 'text-white'">مدارس الندى</div>
-						<div class="text-xs transition-colors" :class="scrolled ? 'text-gray-500' : 'text-primary-100'">النموذجية الأهلية
+							:class="scrolled ? (document.documentElement.classList.contains('dark') ? 'text-primary-100' : 'text-primary-800') : 'text-white'">مدارس الندى</div>
+						<div class="text-xs transition-colors" :class="scrolled ? (document.documentElement.classList.contains('dark') ? 'text-primary-300' : 'text-gray-500') : 'text-primary-100'">النموذجية الأهلية
 						</div>
 					</div>
 				</a>
