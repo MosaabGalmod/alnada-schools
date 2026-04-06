@@ -1,0 +1,635 @@
+/* ===== Arabic Fonts — Tajawal (headings) + Cairo (body) ===== */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Tajawal:wght@400;500;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ===== Base ===== */
+@layer base {
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: 'Cairo', sans-serif;
+    direction: rtl;
+    @apply text-gray-800 bg-white;
+    -webkit-font-smoothing: antialiased;
+    font-feature-settings: 'kern' 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5 {
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 700;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  p,
+  li,
+  span,
+  td,
+  th,
+  label,
+  input,
+  textarea,
+  select,
+  button {
+    font-family: 'Cairo', sans-serif;
+  }
+}
+
+/* ===== Components ===== */
+@layer components {
+
+  /* Blob decorations */
+  .blob {
+    @apply absolute rounded-full filter blur-3xl opacity-20 animate-blob;
+  }
+
+  /* Section wrapper */
+  .section {
+    @apply py-20 px-4;
+  }
+
+  /* ── Buttons ──────────────────────────────────────── */
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 text-white font-semibold rounded-2xl transition-all duration-200 shadow-clay hover:shadow-clay-lg hover:-translate-y-0.5 active:scale-95 focus:outline-none focus:ring-4 focus:ring-primary-300;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9375rem;
+    letter-spacing: 0.01em;
+    background: linear-gradient(135deg, #59c2d5 0%, #2da0ba 100%);
+  }
+
+  .btn-primary:hover {
+    background: linear-gradient(135deg, #3ab5ce 0%, #1d7f96 100%);
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 font-semibold rounded-2xl transition-all duration-200 hover:-translate-y-0.5 active:scale-95 focus:outline-none focus:ring-4 focus:ring-white/40;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9375rem;
+    background: #ffffff;
+    color: #1e7a91;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.18), 0 2px 8px rgba(0, 0, 0, 0.12);
+  }
+
+  .btn-gold:hover {
+    background: #f0fbfd;
+    color: #155a6b;
+    box-shadow: 0 14px 40px rgba(0, 0, 0, 0.22), 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 border-2 border-white text-white font-semibold rounded-2xl transition-all duration-200 hover:bg-white/10 active:scale-95 focus:outline-none focus:ring-4 focus:ring-white/30;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.9375rem;
+  }
+
+  .btn-sm {
+    @apply inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 active:scale-95;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  /* ── Cards ────────────────────────────────────────── */
+  .card {
+    @apply bg-white rounded-3xl shadow-card border border-gray-50 p-6 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  .clay-card {
+    @apply bg-white rounded-4xl shadow-clay border border-primary-50 p-6 transition-all duration-300 hover:shadow-clay-lg hover:-translate-y-1;
+  }
+
+  /* ── Badges ───────────────────────────────────────── */
+  .badge {
+    @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+
+  .badge-green {
+    @apply bg-primary-100 text-primary-800;
+  }
+
+  .badge-gold {
+    @apply bg-gold-100 text-gold-800;
+  }
+
+  .badge-blue {
+    @apply bg-blue-100 text-blue-800;
+  }
+
+  .badge-red {
+    @apply bg-red-100 text-red-800;
+  }
+
+  .badge-purple {
+    @apply bg-purple-100 text-purple-800;
+  }
+
+  /* ── Section headers ──────────────────────────────── */
+  .section-tag {
+    @apply inline-flex items-center gap-2 px-4 py-1.5 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold mb-4;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 600;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .section-desc {
+    @apply text-gray-500 text-lg leading-loose max-w-2xl;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 400;
+  }
+
+  /* ── Nav ──────────────────────────────────────────── */
+  .nav-link {
+    @apply text-gray-600 hover:text-primary-700 font-medium transition-colors duration-150 px-2 py-1 rounded-lg hover:bg-primary-50 text-sm;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  /* ── Form inputs ──────────────────────────────────── */
+  .form-input {
+    @apply w-full px-4 py-3 border border-gray-200 rounded-2xl text-sm focus:ring-2 focus:ring-primary-400 focus:border-primary-400 outline-none transition-all bg-gray-50 focus:bg-white placeholder:text-gray-400;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .form-label {
+    @apply block text-sm font-semibold text-gray-700 mb-1.5;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  /* ── Admin sidebar ────────────────────────────────── */
+  .admin-nav-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-2xl text-gray-600 hover:bg-primary-50 hover:text-primary-700 transition-all duration-150 font-medium cursor-pointer;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .admin-nav-item.active {
+    background: linear-gradient(135deg, #59c2d5 0%, #2da0ba 100%);
+    @apply text-white shadow-clay;
+  }
+
+  .admin-nav-item.active svg {
+    @apply text-white;
+  }
+
+  /* ── Stats card ───────────────────────────────────── */
+  .stat-card {
+    @apply bg-white rounded-3xl shadow-card p-5 flex items-center gap-4 border border-gray-50;
+  }
+
+  /* ── Table ────────────────────────────────────────── */
+  .data-table {
+    @apply w-full text-sm;
+  }
+
+  .data-table th {
+    @apply text-right px-4 py-3 text-gray-500 font-semibold bg-gray-50 border-b border-gray-100;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .data-table td {
+    @apply px-4 py-3 border-b border-gray-50 text-gray-700;
+  }
+
+  .data-table tr:hover td {
+    @apply bg-primary-50/40;
+  }
+}
+
+/* ===== Utilities ===== */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .animation-delay-200 {
+    animation-delay: 200ms;
+  }
+
+  .animation-delay-400 {
+    animation-delay: 400ms;
+  }
+
+  .animation-delay-600 {
+    animation-delay: 600ms;
+  }
+
+  .rtl-flip {
+    transform: scaleX(-1);
+  }
+
+  .glass {
+    background: rgba(255, 255, 255, 0.75);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
+
+  .glass-dark {
+    background: rgba(13, 47, 61, 0.93);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  /* Hero gradient — built from logo colour #59c2d5 */
+  .hero-bg {
+    background: linear-gradient(150deg,
+        #0d2f3d 0%,
+        #1a5062 20%,
+        #1d7f96 45%,
+        #2da0ba 68%,
+        #3ab5ce 84%,
+        #59c2d5 100%);
+  }
+
+  .dark .hero-bg {
+    background: linear-gradient(150deg,
+        #041018 0%,
+        #082533 25%,
+        #0e4055 55%,
+        #1d7f96 78%,
+        #2da0ba 100%);
+  }
+
+  .section-wave {
+    background: linear-gradient(160deg, #f0fbfd 0%, #d9f5fa 50%, #b3ecf5 100%);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #59c2d5 0%, #2da0ba 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M30 0l30 30-30 30L0 30z'/%3E%3C/g%3E%3C/svg%3E");
+  }
+
+  /* Skip-to-main accessibility link */
+  .skip-link {
+    @apply absolute -top-full right-4 z-[9999] bg-primary-600 text-white px-4 py-2 rounded-b-xl font-semibold text-sm focus:top-0 transition-all duration-150;
+  }
+
+  /* Star rating */
+  .stars-gold {
+    color: #f59e0b;
+  }
+
+  /* Tajawal heading overrides for specific size classes */
+  .font-heading {
+    font-family: 'Tajawal', sans-serif !important;
+  }
+
+  .font-body {
+    font-family: 'Cairo', sans-serif !important;
+  }
+
+  /* Grid safelist helpers (prevents Tailwind purge) */
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .lg\:grid-cols-5 {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+
+  /* Footer social icon — accessible interactive target */
+  .social-icon {
+    @apply w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-all duration-200 motion-reduce:transition-none hover:scale-110 active:scale-95 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-gold-400 focus-visible:ring-offset-2 focus-visible:ring-offset-primary-950;
+  }
+}
+
+/* ===== Reduced Motion ===== */
+@media (prefers-reduced-motion: reduce) {
+
+  .animate-blob,
+  .animate-float,
+  .animate-fade-up,
+  .animate-slide-in {
+    animation: none !important;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  /* Suppress hover/active scale transforms */
+  .hover\:scale-110:hover,
+  .hover\:scale-105:hover,
+  .hover\:-translate-y-1:hover,
+  .hover\:-translate-y-0\.5:hover,
+  .active\:scale-95:active,
+  .active\:scale-90:active {
+    transform: none !important;
+  }
+}
+
+/* ===== Dark Mode ===== */
+/* Applied when <html class="dark"> is set */
+
+.dark body {
+  background-color: #0a2030;
+  color: #e2e8f0;
+}
+
+/* Navbar */
+.dark .glass {
+  background: rgba(8, 46, 55, 0.92);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(21, 88, 105, 0.4);
+}
+
+/* Cards */
+.dark .card {
+  background-color: #0e2535;
+  border-color: #1e3a47;
+  box-shadow: none;
+}
+
+.dark .card:hover {
+  box-shadow: none;
+  border-color: #2da0ba;
+}
+
+.dark .clay-card {
+  background-color: #0e2535;
+  border-color: #1e3a47;
+}
+
+/* Sections */
+.dark .section {
+  color: #e2e8f0;
+}
+
+/* Section backgrounds */
+.dark section[style*="background:#ffffff"],
+.dark section[style*="background: #ffffff"],
+.dark section[style*="background:#fff"],
+.dark section[style*="background:rgb(255,255,255)"] {
+  background: #0a2030 !important;
+}
+
+/* Section tags & titles */
+.dark .section-tag {
+  background-color: rgba(13, 47, 61, 0.6);
+  color: #7ddced;
+}
+
+.dark .section-title {
+  color: #ffffff;
+}
+
+.dark .section-desc {
+  color: #94a3b8;
+}
+
+/* Nav link */
+.dark .nav-link {
+  color: #cbd5e1;
+}
+
+.dark .nav-link:hover {
+  color: #59c2d5;
+  background-color: rgba(13, 47, 61, 0.4);
+}
+
+/* Admin nav */
+.dark .admin-nav-item {
+  color: #cbd5e1;
+}
+
+.dark .admin-nav-item:hover {
+  background-color: #1e293b;
+  color: #59c2d5;
+}
+
+/* Badges */
+.dark .badge-green {
+  background-color: rgba(13, 47, 61, 0.6);
+  color: #7ddced;
+}
+
+.dark .badge-gold {
+  background-color: rgba(120, 53, 15, 0.4);
+  color: #fcd34d;
+}
+
+.dark .badge-blue {
+  background-color: rgba(23, 37, 84, 0.4);
+  color: #93c5fd;
+}
+
+.dark .badge-purple {
+  background-color: rgba(88, 28, 135, 0.35);
+  color: #e9d5ff;
+}
+
+.dark .badge-red {
+  background-color: rgba(69, 10, 10, 0.4);
+  color: #fca5a5;
+}
+
+/* Stat cards & tables */
+.dark .stat-card {
+  background-color: #0c1e25;
+  border-color: #1e3a47;
+}
+
+.dark .data-table th {
+  background-color: #0c1e25;
+  color: #94a3b8;
+  border-color: #1e3a47;
+}
+
+.dark .data-table td {
+  color: #cbd5e1;
+  border-color: #1e3a47;
+}
+
+.dark .data-table tr:hover td {
+  background-color: rgba(13, 47, 61, 0.3);
+}
+
+/* Form inputs */
+.dark .form-input {
+  background-color: #0c1e25;
+  border-color: #1e3a47;
+  color: #e2e8f0;
+}
+
+.dark .form-input:focus {
+  ring-color: #59c2d5;
+  border-color: #59c2d5;
+}
+
+.dark .form-label {
+  color: #cbd5e1;
+}
+
+/* Generic gray/white backgrounds in blade sections */
+.dark .bg-white {
+  background-color: #0e2535 !important;
+}
+
+.dark .bg-gray-50 {
+  background-color: #0a1f2e !important;
+}
+
+.dark .bg-gray-100 {
+  background-color: #0f2838 !important;
+}
+
+/* Text overrides */
+.dark .text-gray-900,
+.dark .text-gray-800 {
+  color: #f1f5f9 !important;
+}
+
+.dark .text-gray-700 {
+  color: #cbd5e1 !important;
+}
+
+.dark .text-gray-600 {
+  color: #94a3b8 !important;
+}
+
+.dark .text-gray-500 {
+  color: #64748b !important;
+}
+
+.dark .text-gray-400 {
+  color: #475569 !important;
+}
+
+/* Border overrides */
+.dark .border-gray-100 {
+  border-color: #1e3a47 !important;
+}
+
+.dark .border-gray-50 {
+  border-color: #172530 !important;
+}
+
+.dark .border-gray-200 {
+  border-color: #1e3a47 !important;
+}
+
+/* Shadow overrides */
+.dark .shadow-card {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+.dark .shadow-card-hover {
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.5);
+}
+
+/* Testimonials */
+.dark .bg-white.p-7,
+.dark .relative.p-7 {
+  background-color: #0c1e25 !important;
+  border-color: #1e3a47 !important;
+}
+
+/* Why-Us hover */
+.dark .hover\:border-primary-200:hover {
+  border-color: #1d7f96 !important;
+}
+
+.dark .hover\:bg-primary-50\/50:hover {
+  background-color: rgba(8, 46, 55, 0.5) !important;
+}
+
+/* Programs section bg */
+.dark [style*="linear-gradient(135deg,#f0f9fd"],
+.dark [style*="linear-gradient(160deg, #f0f9fd"] {
+  background: linear-gradient(135deg, #071e2d 0%, #0e3d55 100%) !important;
+}
+
+/* About visual card */
+.dark .absolute.-top-4,
+.dark .absolute.-bottom-4 {
+  background-color: #0c1e25 !important;
+}
+
+/* Dark mode toggle button */
+.dark-toggle {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.75rem;
+  transition: all 200ms;
+  cursor: pointer;
+}
+
+.dark-toggle:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.dark .dark-toggle:hover {
+  background-color: rgba(29, 127, 150, 0.3);
+}
+
+/* Section wave dark */
+.dark .section-wave {
+  background: linear-gradient(160deg, #071e25 0%, #0d3d4a 50%, #155a6b 100%);
+}
+
+/* Stats section dark */
+.dark .stats-section {
+  background-color: #0d2f3d;
+}
+
+/* Footer dark mode */
+.dark footer {
+  background-color: #041118 !important;
+}
+
+.dark footer .bg-primary-950 {
+  background-color: #041118 !important;
+}
+
+.dark footer .border-white\/10 {
+  border-color: rgba(89, 194, 213, 0.15) !important;
+}
+
+/* btn-gold dark mode: keep white but slightly tinted */
+.dark .btn-gold {
+  background: rgba(255, 255, 255, 0.92);
+  color: #1d7f96;
+}
+
+.dark .btn-gold:hover {
+  background: #ffffff;
+  color: #155a6b;
+}
