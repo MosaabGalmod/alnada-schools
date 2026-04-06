@@ -62,8 +62,13 @@
 					</div>
 					<div class="leading-tight">
 						<div class="font-heading text-base font-bold transition-colors"
-							:class="scrolled ? (document.documentElement.classList.contains('dark') ? 'text-primary-100' : 'text-primary-800') : 'text-white'">مدارس الندى</div>
-						<div class="text-xs transition-colors" :class="scrolled ? (document.documentElement.classList.contains('dark') ? 'text-primary-300' : 'text-gray-500') : 'text-primary-100'">النموذجية الأهلية
+							:class="scrolled ? (document.documentElement.classList.contains('dark') ? 'text-primary-100' : 'text-primary-800') :
+							    'text-white'">
+							مدارس الندى</div>
+						<div class="text-xs transition-colors"
+							:class="scrolled ? (document.documentElement.classList.contains('dark') ? 'text-primary-300' : 'text-gray-500') :
+							    'text-primary-100'">
+							النموذجية الأهلية
 						</div>
 					</div>
 				</a>
