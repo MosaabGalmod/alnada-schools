@@ -96,44 +96,46 @@
 
 					{{-- Dark Mode Toggle (3-state: auto → dark → light → auto) --}}
 					<button class="dark-toggle" aria-label="تبديل الوضع الداكن" x-data="{
-	    get mode() {
-	        const s = localStorage.getItem('theme');
-	        return s === 'dark' ? 'dark' : s === 'light' ? 'light' : 'auto';
-	    },
+	    mode: localStorage.getItem('theme') ?? 'auto',
 	    cycle() {
-	        const current = this.mode;
 	        const html = document.documentElement;
 	        const sysDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-	        if (current === 'auto') {
-	            // auto → dark
-	            html.classList.add('dark');
-	            localStorage.setItem('theme', 'dark');
-	        } else if (current === 'dark') {
-	            // dark → light
+	        if (this.mode === 'auto') {
+	            if (sysDark) {
+	                html.classList.remove('dark');
+	                localStorage.setItem('theme', 'light');
+	                this.mode = 'light';
+	            } else {
+	                html.classList.add('dark');
+	                localStorage.setItem('theme', 'dark');
+	                this.mode = 'dark';
+	            }
+	        } else if (this.mode === 'dark') {
 	            html.classList.remove('dark');
 	            localStorage.setItem('theme', 'light');
+	            this.mode = 'light';
 	        } else {
-	            // light → auto (remove preference, follow system)
 	            localStorage.removeItem('theme');
 	            sysDark ? html.classList.add('dark') : html.classList.remove('dark');
+	            this.mode = 'auto';
 	        }
 	    }
 	}" x-on:click="cycle()"
 						:aria-label="mode === 'auto' ? 'الوضع التلقائي' : mode === 'dark' ? 'الوضع الداكن' : 'الوضع الفاتح'"
 						:class="scrolled ? 'text-gray-600 dark:text-gray-300' : 'text-white/80 hover:text-white'">
-						{{-- Auto icon (shown when mode=auto and system is light) --}}
+						{{-- أيقونة الشاشة (وضع auto) --}}
 						<svg class="h-5 w-5" x-show="mode === 'auto'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 							stroke-width="1.8" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"
 								d="M9 17.25v1.007a3 3 0 0 1-.879 2.122L7.5 21h9l-.621-.621A3 3 0 0 1 15 18.257V17.25m6-12V15a2.25 2.25 0 0 1-2.25 2.25H5.25A2.25 2.25 0 0 1 3 15V5.25A2.25 2.25 0 0 1 5.25 3h13.5A2.25 2.25 0 0 1 21 5.25Z" />
 						</svg>
-						{{-- Sun icon (shown in dark mode) --}}
+						{{-- أيقونة الشمس (وضع dark → اضغط للفاتح) --}}
 						<svg class="h-5 w-5" x-show="mode === 'dark'" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
 							stroke-width="1.8" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"
 								d="M12 3v2.25m6.364.386-1.591 1.591M21 12h-2.25m-.386 6.364-1.591-1.591M12 18.75V21m-4.773-4.227-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636M15.75 12a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0Z" />
 						</svg>
-						{{-- Moon icon (shown in light mode) --}}
+						{{-- أيقونة القمر (وضع light → اضغط للعودة auto) --}}
 						<svg class="h-5 w-5" x-show="mode === 'light'" xmlns="http://www.w3.org/2000/svg" fill="none"
 							viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round"
@@ -218,13 +220,6 @@
 			];
 		@endphp
 		<footer class="relative overflow-hidden bg-primary-950 text-white" aria-label="تذييل الموقع">
-
-			{{-- Decorative blobs (subtle, reduced-motion respected) --}}
-			<div class="pointer-events-none absolute inset-0" aria-hidden="true">
-				<div class="blob -right-32 -top-32 h-96 w-96 bg-primary-800 opacity-30 motion-reduce:animate-none"></div>
-				<div class="blob animation-delay-400 bottom-0 left-0 h-64 w-64 bg-gold-800 opacity-20 motion-reduce:animate-none">
-				</div>
-			</div>
 
 			{{-- Wave separator --}}
 			<div class="relative w-full overflow-hidden leading-none" aria-hidden="true">
@@ -450,37 +445,17 @@
 							</a>
 						</nav>
 
-						{{-- Scroll top on mobile (bottom bar) - desktop uses floating btn --}}
-						<button
-							class="flex items-center gap-1.5 transition-colors duration-150 hover:text-primary-300 focus-visible:text-gold-400 focus-visible:outline-none motion-reduce:transition-none sm:hidden"
-							aria-label="العودة لأعلى الصفحة" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-							<svg class="h-3.5 w-3.5" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-							</svg>
-							أعلى الصفحة
-						</button>
-
 					</div>
 				</div>
 
 			</div>
 		</footer>
 
-		{{-- Floating utilities: back-to-top + admin shortcut --}}
-		<div class="fixed bottom-6 left-6 z-40 flex flex-col-reverse items-center gap-3" x-data="backToTop">
-			{{-- Back to top --}}
-			<button
-				class="flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-500 text-white shadow-clay transition-all duration-200 hover:-translate-y-1 hover:bg-primary-600"
-				aria-label="العودة لأعلى الصفحة" x-show="show" x-transition @click="scrollTop()">
-				<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 15l7-7 7 7" />
-				</svg>
-			</button>
-
-			{{-- Admin shortcut --}}
+		{{-- Admin shortcut (floating) --}}
+		<div class="fixed bottom-6 left-6 z-40">
 			<a
 				class="flex h-12 w-12 items-center justify-center rounded-2xl border border-gray-200 bg-white/90 text-gray-600 shadow-card transition-all duration-200 hover:-translate-y-1 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-700"
-				href="{{ route("admin.login") }}" title="لوحة التحكم" aria-label="لوحة التحكم" x-show="show" x-transition>
+				href="{{ route("admin.login") }}" title="لوحة التحكم" aria-label="لوحة التحكم">
 				<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
 						d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" />

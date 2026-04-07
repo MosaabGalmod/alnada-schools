@@ -12,8 +12,6 @@
 				:class="visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'">
 				<div
 					class="relative overflow-hidden rounded-4xl bg-gradient-to-br from-primary-700 to-primary-900 p-10 text-center shadow-clay-lg">
-					<div class="blob -right-10 -top-10 h-48 w-48 bg-primary-400"></div>
-					<div class="blob animation-delay-400 bottom-0 left-0 h-32 w-32 bg-gold-200 opacity-60"></div>
 					<div class="relative z-10">
 						<div class="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-3xl bg-white/20">
 							<svg class="h-12 w-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">

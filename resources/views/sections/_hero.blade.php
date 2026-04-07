@@ -12,11 +12,6 @@
 	{{-- Pattern overlay --}}
 	<div class="hero-pattern absolute inset-0 opacity-40"></div>
 
-	{{-- Blobs --}}
-	<div class="blob animation-delay-200 -right-20 -top-20 h-96 w-96 bg-primary-400"></div>
-	<div class="blob animation-delay-400 -left-20 bottom-10 h-80 w-80 bg-gold-300 opacity-70"></div>
-	<div class="blob animation-delay-600 right-1/3 top-1/2 h-64 w-64 bg-primary-300"></div>
-
 	<div class="relative z-10 mx-auto max-w-7xl px-4 py-32 text-center">
 		{{-- Badge --}}
 		@if (!empty($c["badge"]))

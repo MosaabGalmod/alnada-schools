@@ -23,9 +23,6 @@
 	};
 @endphp
 <section class="section relative overflow-hidden" id="stats" style="{{ $section->bgCss() }}">
-	<div class="blob -right-20 -top-20 h-96 w-96 bg-primary-600 opacity-15"></div>
-	<div class="blob animation-delay-400 bottom-0 left-0 h-64 w-64 bg-gold-500 opacity-10"></div>
-
 	<div class="relative z-10 mx-auto max-w-7xl">
 		<div class="mb-14 text-center">
 			@if (!empty($c["tag"]))
