@@ -45,8 +45,8 @@
 			@endif
 		</div>
 
-		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-			@foreach ($programs as $prog)
+		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3" role="list">
+			@foreach ($programs as $k => $prog)
 				@php
 					$color = $prog["color"] ?? "green";
 					[$iconBg, $iconText, $accentBg, $badgeCls] = $colorMap[$color] ?? $colorMap["green"];
@@ -55,23 +55,24 @@
 					if (count($tags) === 1) {
 					    $tags = array_map("trim", explode(",", $prog["tags"] ?? ""));
 					}
+					$stagger = "stagger-" . (($k % 6) + 1);
 				@endphp
-				<div class="feature-card group relative overflow-hidden transition-all duration-700" x-data="reveal"
-					:class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'">
-					{{-- Colored accent bar at top (always visible, color-coded per program) --}}
-					<div class="{{ $accentBg }} absolute inset-x-0 top-0 h-1 rounded-t-[1.75rem]"></div>
+				<div class="feature-card group relative overflow-hidden cursor-default {{ $stagger }} transition-all duration-700" x-data="reveal"
+					:class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'" role="listitem">
+					{{-- Colored accent bar at top --}}
+					<div class="{{ $accentBg }} absolute inset-x-0 top-0 h-1 rounded-t-[1.75rem]" aria-hidden="true"></div>
 
-					{{-- Icon (flat light bg + colored icon, matching ما يميزنا style) --}}
+					{{-- Icon --}}
 					<div
 						class="{{ $iconBg }} mb-5 mt-2 flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm transition-transform duration-300 group-hover:scale-110">
-						<svg class="{{ $iconText }} h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+						<svg class="{{ $iconText }} h-7 w-7" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $icon }}" />
 						</svg>
 					</div>
 
-					<h3 class="mb-2 font-heading text-xl font-bold text-gray-900">{{ $prog["title"] ?? "" }}</h3>
+					<h3 class="mb-2 font-heading text-xl font-bold text-gray-900 dark:text-white">{{ $prog["title"] ?? "" }}</h3>
 					<p class="mb-4 text-sm leading-relaxed text-gray-500">{{ $prog["description"] ?? "" }}</p>
-					<div class="flex flex-wrap gap-2">
+					<div class="flex flex-wrap gap-2" aria-label="التخصصات">
 						@foreach ($tags as $tag)
 							@if ($tag)
 								<span class="badge {{ $badgeCls }}">{{ $tag }}</span>

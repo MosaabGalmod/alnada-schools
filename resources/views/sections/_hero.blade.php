@@ -10,7 +10,7 @@
 @endphp
 <section class="relative flex min-h-screen items-center overflow-hidden" id="home" style="{{ $section->bgCss() }}">
 	{{-- Pattern overlay --}}
-	<div class="hero-pattern absolute inset-0 opacity-40"></div>
+	<div class="hero-pattern absolute inset-0 opacity-40" aria-hidden="true"></div>
 
 	<div class="relative z-10 mx-auto max-w-7xl px-4 py-32 text-center">
 		{{-- Badge --}}
@@ -60,21 +60,22 @@
 		</div>
 
 		{{-- Stats --}}
-		<div class="mx-auto grid max-w-3xl grid-cols-2 gap-4 md:grid-cols-4">
-			@foreach ($stats as $stat)
-				<div class="rounded-3xl border border-white/20 bg-white/10 p-4 backdrop-blur transition-all hover:bg-white/15">
-					<div class="font-heading text-3xl font-bold" style="color: {{ $section->accentColor() }}">
+		<div class="mx-auto grid max-w-3xl grid-cols-2 gap-4 md:grid-cols-4" role="list" aria-label="إحصائيات المدرسة">
+			@foreach ($stats as $i => $stat)
+				<div class="hero-stat-card stagger-{{ $i + 1 }} rounded-3xl border border-white/20 bg-white/10 p-4 backdrop-blur"
+					role="listitem">
+					<div class="font-heading text-3xl font-bold tabular-nums" style="color: {{ $section->accentColor() }}">
 						{{ $stat["value"] ?? "" }}</div>
-					<div class="mt-1 text-sm" style="color: {{ $section->textColor() }}">{{ $stat["label"] ?? "" }}</div>
+					<div class="mt-1 text-sm font-medium" style="color: {{ $section->textColor() }}">{{ $stat["label"] ?? "" }}</div>
 				</div>
 			@endforeach
 		</div>
 	</div>
 
 	{{-- Scroll hint --}}
-	<a class="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float text-white/60 transition-colors hover:text-white"
+	<a class="absolute bottom-8 left-1/2 -translate-x-1/2 motion-safe:animate-float text-white/60 transition-colors hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70"
 		href="#about" aria-label="انتقل للأسفل">
-		<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+		<svg class="h-6 w-6" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
 		</svg>
 	</a>

@@ -34,22 +34,23 @@
 				{{ $c["title"] ?? "أرقام تتحدث عن نجاحنا" }}</h2>
 		</div>
 
-		<div class="{{ $gridClass }} grid gap-5" x-data="statsCounter">
+		<div class="{{ $gridClass }} grid gap-5" x-data="statsCounter" role="list" aria-label="إحصائيات الإنجازات">
 			@foreach ($items as $i => $item)
 				<div
-					class="bg-white/8 group relative rounded-4xl border border-white/20 p-6 text-center backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white/15">
+					class="bg-white/8 group relative rounded-4xl border border-white/20 p-6 text-center backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white/15"
+					role="listitem">
 					{{-- Icon --}}
 					<div
 						class="w-13 h-13 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-white/15 transition-all duration-300 group-hover:scale-110 group-hover:bg-white/25">
-						<svg class="h-6 w-6" style="color: {{ $section->accentColor() }}" fill="none" stroke="currentColor"
+						<svg class="h-6 w-6" aria-hidden="true" style="color: {{ $section->accentColor() }}" fill="none" stroke="currentColor"
 							viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $icons[$i % count($icons)] }}" />
 						</svg>
 					</div>
 
 					{{-- Number --}}
-					<div class="mb-1 font-heading text-5xl font-black leading-none" style="color: {{ $section->headingColor() }}">
-						<span class="counter" data-target="{{ $item["target"] ?? 0 }}">0</span>{{ $item["suffix"] ?? "" }}
+					<div class="mb-1 font-heading text-5xl font-black leading-none tabular-nums" style="color: {{ $section->headingColor() }}">
+						<span class="counter" data-target="{{ $item["target"] ?? 0 }}" aria-live="polite" aria-atomic="true">0</span>{{ $item["suffix"] ?? "" }}
 					</div>
 
 					{{-- Label --}}

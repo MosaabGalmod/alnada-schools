@@ -245,12 +245,12 @@
 
   /* ── Form inputs ──────────────────────────────────── */
   .form-input {
-    @apply w-full px-4 py-3 border border-gray-200 rounded-2xl text-sm focus:ring-2 focus:ring-primary-400 focus:border-primary-400 outline-none transition-all bg-gray-50 focus:bg-white placeholder:text-gray-400;
+    @apply w-full px-4 py-3 border border-gray-200 rounded-2xl text-sm focus:ring-2 focus:ring-primary-400 focus:border-primary-400 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-primary-400 outline-none transition-all bg-gray-50 focus:bg-white placeholder:text-gray-400 cursor-text;
     font-family: 'Cairo', sans-serif;
   }
 
   .form-label {
-    @apply block text-sm font-semibold text-gray-700 mb-1.5;
+    @apply block text-sm font-semibold text-gray-700 mb-1.5 cursor-default;
     font-family: 'Cairo', sans-serif;
   }
 
@@ -873,4 +873,159 @@
 .dark section[style*="linear-gradient(135deg,#f0f9fd"],
 .dark section[style*="linear-gradient(135deg, #f0f9fd"] {
   background: linear-gradient(135deg, #061928 0%, #0b3347 100%) !important;
+}
+/* ===== Global UX Improvements ===== */
+
+/* 1. Smooth scroll — respects reduced motion */
+html {
+  scroll-behavior: smooth;
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
+
+/* 2. Custom scrollbar — subtle, brand-colored */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(89, 194, 213, 0.35);
+  border-radius: 99px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(89, 194, 213, 0.65);
+}
+.dark ::-webkit-scrollbar-thumb {
+  background: rgba(89, 194, 213, 0.25);
+}
+
+/* 3. text-balance for section titles */
+.section-title {
+  text-wrap: balance;
+}
+
+/* 4. will-change hints for GPU-composited layers */
+.feature-card,
+.clay-card,
+.card,
+.pill-card {
+  will-change: transform;
+}
+
+/* Remove will-change when not hovered (saves GPU memory) */
+.feature-card:not(:hover),
+.clay-card:not(:hover),
+.card:not(:hover),
+.pill-card:not(:hover) {
+  will-change: auto;
+}
+
+/* 5. Feature card — cursor pointer (interactive) */
+.feature-card {
+  cursor: default;
+}
+
+/* 6. Section tag — better inline centering */
+.section-tag {
+  display: inline-flex;
+}
+
+/* 7. Programs section dark mode gradient fix */
+.dark section[style*="linear-gradient(160deg,#edf6fb"],
+.dark section[style*="linear-gradient(160deg, #edf6fb"] {
+  background: linear-gradient(160deg, #071e2d 0%, #0d3548 100%) !important;
+}
+
+/* 8. Hero stats card — improve touch target & interaction */
+.hero-stat-card {
+  min-height: 88px;
+  transition: background 200ms ease, transform 200ms cubic-bezier(0.34,1.56,0.64,1);
+}
+.hero-stat-card:hover {
+  transform: translateY(-3px);
+}
+
+/* 9. Skip-to-content link — make sure it's fully visible on focus */
+.skip-link:focus {
+  top: 0.5rem;
+  outline: 3px solid #f59e0b;
+  outline-offset: 2px;
+}
+
+/* 10. Mobile nav link — 44px minimum touch target */
+.mobile-nav-link {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* 11. Section wave gradient - light/dark */
+.section-wave-light {
+  background: linear-gradient(160deg, #f0f9fd 0%, #e0f4f9 50%, #f0fbfe 100%);
+}
+.dark .section-wave-light {
+  background: linear-gradient(160deg, #071e25 0%, #0d3d4a 50%, #155a6b 100%) !important;
+}
+
+/* 12. Staggered card reveal animation */
+.stagger-1 { animation-delay: 60ms; }
+.stagger-2 { animation-delay: 120ms; }
+.stagger-3 { animation-delay: 180ms; }
+.stagger-4 { animation-delay: 240ms; }
+.stagger-5 { animation-delay: 300ms; }
+.stagger-6 { animation-delay: 360ms; }
+
+/* 13. Dark mode — improve contact info card focus-within */
+.dark .focus-within\:ring-primary-300:focus-within {
+  --tw-ring-color: rgba(89, 194, 213, 0.5);
+}
+
+/* 14. Improve dark-toggle transition with icon swap */
+.dark-toggle svg {
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+/* 15. Better placeholder contrast in dark mode */
+.dark .form-input::placeholder {
+  color: #4a6c7a;
+}
+
+/* 16. Active nav state indicator */
+.nav-link[aria-current="page"] {
+  color: #1d7f96;
+  background-color: rgba(89, 194, 213, 0.1);
+}
+.dark .nav-link[aria-current="page"] {
+  color: #7ddced;
+  background-color: rgba(89, 194, 213, 0.12);
+}
+
+/* 17. Smooth section transitions */
+section {
+  transition: background 300ms ease;
+}
+
+/* 18. Stats counter — respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .counter {
+    transition: none !important;
+  }
+}
+
+/* 19. Glass card improvement for light mode visibility */
+.glass {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+}
+.dark .glass {
+  background: rgba(8, 28, 40, 0.92);
+  border-color: rgba(89, 194, 213, 0.15);
+}
+
+/* 20. Focus-visible global improvement */
+:focus-visible {
+  outline: 2px solid #59c2d5;
+  outline-offset: 2px;
+}
+button:focus:not(:focus-visible),
+a:focus:not(:focus-visible) {
+  outline: none;
 }

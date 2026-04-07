@@ -73,16 +73,15 @@
 					</div>
 				</a>
 
-				{{-- Desktop Links --}}
-				<ul class="hidden items-center gap-1 lg:flex">
-					@foreach ([["#home", "الرئيسية"], ["#about", "من نحن"], ["#programs", "برامجنا"], ["#stats", "إنجازاتنا"], ["#news", "الأخبار"], ["#contact", "تواصل"]] as [$href, $label])
-						<li>
-							<a class="rounded-xl px-3 py-2 text-sm font-medium transition-all duration-150" href="{{ $href }}"
-								:class="scrolled ? 'text-gray-600 hover:text-primary-700 hover:bg-primary-50' :
-								    'text-white/90 hover:text-white hover:bg-white/10'">{{ $label }}</a>
-						</li>
-					@endforeach
-				</ul>
+				<ul class="hidden items-center gap-1 lg:flex" role="navigation" aria-label="القائمة الرئيسية">
+				@foreach ([["#home", "الرئيسية"], ["#about", "من نحن"], ["#programs", "برامجنا"], ["#stats", "إنجازاتنا"], ["#news", "الأخبار"], ["#contact", "تواصل"]] as [$href, $label])
+					<li>
+						<a class="rounded-xl px-3 py-2 text-sm font-medium transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-1" href="{{ $href }}"
+							:class="scrolled ? 'text-gray-600 hover:text-primary-700 hover:bg-primary-50 focus-visible:ring-primary-400' :
+							    'text-white/90 hover:text-white hover:bg-white/10'">{{ $label }}</a>
+					</li>
+				@endforeach
+			</ul>
 
 				{{-- CTA --}}
 				<div class="flex items-center gap-3">
@@ -160,13 +159,14 @@
 			<div class="glass mt-3 rounded-3xl p-4 shadow-xl lg:hidden" style="display:none" x-show="mobileOpen"
 				x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2"
 				x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150"
-				x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2">
+				x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
+				role="navigation" aria-label="القائمة المحمول">
 				@foreach ([["#home", "الرئيسية"], ["#about", "من نحن"], ["#programs", "برامجنا"], ["#stats", "إنجازاتنا"], ["#news", "الأخبار"], ["#contact", "تواصل"]] as [$href, $label])
 					<a
-						class="flex items-center rounded-2xl px-4 py-3 font-medium text-gray-700 transition-all hover:bg-primary-50 hover:text-primary-700"
+						class="flex min-h-[44px] items-center rounded-2xl px-4 py-3 font-medium text-gray-700 transition-all hover:bg-primary-50 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 dark:text-gray-200 dark:hover:bg-primary-900/30 dark:hover:text-primary-300"
 						href="{{ $href }}" @click="mobileOpen=false">{{ $label }}</a>
 				@endforeach
-				<div class="border-t border-gray-100 pt-2">
+				<div class="border-t border-gray-100 pt-2 dark:border-gray-700/50">
 					<a class="btn-primary mt-2 w-full justify-center" href="#contact">سجّل الآن</a>
 				</div>
 			</div>
