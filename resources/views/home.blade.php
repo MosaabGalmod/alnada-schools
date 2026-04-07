@@ -47,7 +47,7 @@
 @endsection
 
 @section("content")
-	@php($mainNavigation = config('navigation.main', []))
+	@php($mainNavigation = config("navigation.main", []))
 
 	<main class="home-shell" id="main-content" role="main">
 		<div class="pointer-events-none absolute inset-x-0 top-0 -z-10 overflow-hidden" aria-hidden="true">
@@ -86,9 +86,9 @@
 							<li>
 								<a
 									class="cursor-pointer rounded-xl px-3 py-2 text-sm font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-1"
-									href="{{ $item['href'] }}"
+									href="{{ $item["href"] }}"
 									:class="scrolled ? 'text-gray-600 hover:text-primary-700 hover:bg-primary-50 focus-visible:ring-primary-400' :
-									    'text-white/90 hover:text-white hover:bg-white/10'">{{ $item['label'] }}</a>
+									    'text-white/90 hover:text-white hover:bg-white/10'">{{ $item["label"] }}</a>
 							</li>
 						@endforeach
 					</ul>
@@ -177,7 +177,7 @@
 				@foreach ($mainNavigation as $item)
 					<a
 						class="mobile-nav-link rounded-2xl px-4 py-3 font-medium text-gray-700 transition-all hover:bg-primary-50 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 dark:text-gray-200 dark:hover:bg-primary-900/30 dark:hover:text-primary-300"
-						href="{{ $item['href'] }}" @click="mobileOpen=false">{{ $item['label'] }}</a>
+						href="{{ $item["href"] }}" @click="mobileOpen=false">{{ $item["label"] }}</a>
 				@endforeach
 				<div class="border-t border-gray-100 pt-2 dark:border-gray-700/50">
 					<a class="btn-primary mt-2 w-full justify-center" href="#contact">سجّل الآن</a>

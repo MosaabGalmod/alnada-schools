@@ -10,8 +10,8 @@
 	<ul class="space-y-2">
 		@foreach ($items as $item)
 			<li>
-				<a class="footer-list-link group" href="{{ $item['href'] }}">
-					<span class="flex-1 text-right leading-6">{{ $item['label'] }}</span>
+				<a class="footer-list-link group" href="{{ $item["href"] }}">
+					<span class="flex-1 text-right leading-6">{{ $item["label"] }}</span>
 					<svg class="rtl-flip h-3 w-3 shrink-0 text-primary-500 transition-colors duration-150 group-hover:text-gold-400"
 						aria-hidden="true" focusable="false" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7" />

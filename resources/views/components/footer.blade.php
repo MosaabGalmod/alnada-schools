@@ -17,7 +17,8 @@
 		<section class="footer-panel mb-8 overflow-hidden p-6 sm:p-8" aria-label="دعوة للتواصل">
 			<div class="grid gap-6 lg:grid-cols-[1.4fr_.8fr] lg:items-center">
 				<div>
-					<div class="footer-kicker mb-3 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold text-primary-100">
+					<div
+						class="footer-kicker mb-3 inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold text-primary-100">
 						<span class="h-2 w-2 rounded-full bg-gold-400"></span>
 						قبول وتسجيل وبرامج متخصصة تحت إشراف تعليمي معتمد
 					</div>
@@ -45,42 +46,42 @@
 		<div class="grid items-start gap-5 xl:grid-cols-[minmax(0,1.15fr)_minmax(0,.85fr)]">
 			<div class="grid items-start gap-5 lg:grid-cols-[minmax(0,.92fr)_minmax(0,1.08fr)]">
 				<section class="footer-panel p-6 sm:p-7">
-				<a class="group mb-5 inline-flex items-center gap-3" href="#home" aria-label="مدارس الندى - الصفحة الرئيسية">
-					<div
-						class="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-clay transition-all duration-200 group-hover:shadow-clay-lg">
-						<img class="h-auto w-10 object-contain" src="{{ asset('logo.svg') }}" alt="" aria-hidden="true">
-					</div>
-					<div class="leading-tight">
-						<div class="font-heading text-lg font-bold text-white">مدارس الندى</div>
-						<div class="text-xs text-primary-300">النموذجية الأهلية</div>
-					</div>
-				</a>
+					<a class="group mb-5 inline-flex items-center gap-3" href="#home" aria-label="مدارس الندى - الصفحة الرئيسية">
+						<div
+							class="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-clay transition-all duration-200 group-hover:shadow-clay-lg">
+							<img class="h-auto w-10 object-contain" src="{{ asset("logo.svg") }}" alt="" aria-hidden="true">
+						</div>
+						<div class="leading-tight">
+							<div class="font-heading text-lg font-bold text-white">مدارس الندى</div>
+							<div class="text-xs text-primary-300">النموذجية الأهلية</div>
+						</div>
+					</a>
 
-				<p class="max-w-sm text-sm leading-7 text-primary-200">
-					رائدة في التربية الخاصة والدمج بالمدينة المنورة منذ عام 1429هـ. نركز على وضوح التواصل، موثوقية الخدمة،
-					وتجربة رقمية تعكس جودة المدرسة.
-				</p>
+					<p class="max-w-sm text-sm leading-7 text-primary-200">
+						رائدة في التربية الخاصة والدمج بالمدينة المنورة منذ عام 1429هـ. نركز على وضوح التواصل، موثوقية الخدمة،
+						وتجربة رقمية تعكس جودة المدرسة.
+					</p>
 
-				<dl class="mt-6 grid grid-cols-2 gap-3">
-					<div class="footer-stat-card">
-						<dt class="footer-stat-label">بداية التميز</dt>
-						<dd class="footer-stat-value">1429هـ</dd>
-					</div>
-					<div class="footer-stat-card">
-						<dt class="footer-stat-label">المرجعية</dt>
-						<dd class="footer-stat-value">اعتماد وزارة التعليم</dd>
-					</div>
-					<div class="footer-stat-card sm:col-span-2">
-						<dt class="footer-stat-label">التجربة</dt>
-						<dd class="footer-stat-value">بيئة تعليمية واضحة ومساندة للأسرة من أول تواصل</dd>
-					</div>
-				</dl>
+					<dl class="mt-6 grid grid-cols-2 gap-3">
+						<div class="footer-stat-card">
+							<dt class="footer-stat-label">بداية التميز</dt>
+							<dd class="footer-stat-value">1429هـ</dd>
+						</div>
+						<div class="footer-stat-card">
+							<dt class="footer-stat-label">المرجعية</dt>
+							<dd class="footer-stat-value">اعتماد وزارة التعليم</dd>
+						</div>
+						<div class="footer-stat-card sm:col-span-2">
+							<dt class="footer-stat-label">التجربة</dt>
+							<dd class="footer-stat-value">بيئة تعليمية واضحة ومساندة للأسرة من أول تواصل</dd>
+						</div>
+					</dl>
 
-				<ul class="mt-6 flex flex-wrap gap-2" aria-label="وسائل التواصل الاجتماعي">
-					@foreach ($socials as $item)
-						@include('components.footer.social-link', ['item' => $item])
-					@endforeach
-				</ul>
+					<ul class="mt-6 flex flex-wrap gap-2" aria-label="وسائل التواصل الاجتماعي">
+						@foreach ($socials as $item)
+							@include("components.footer.social-link", ["item" => $item])
+						@endforeach
+					</ul>
 				</section>
 
 				<section class="footer-panel p-6 sm:p-7" aria-label="التنقل السريع">
@@ -95,9 +96,9 @@
 						<span class="footer-chip">تنقل مباشر وواضح</span>
 					</div>
 
-					<div class="grid gap-4 grid-cols-2">
-						@include('components.footer.nav-list', ['title' => 'روابط سريعة', 'items' => $quickLinks])
-						@include('components.footer.nav-list', ['title' => 'برامجنا', 'items' => $programLinks])
+					<div class="grid grid-cols-2 gap-4">
+						@include("components.footer.nav-list", ["title" => "روابط سريعة", "items" => $quickLinks])
+						@include("components.footer.nav-list", ["title" => "برامجنا", "items" => $programLinks])
 					</div>
 				</section>
 			</div>
@@ -113,7 +114,7 @@
 
 				<div class="mt-5 space-y-3">
 					@foreach ($contactItems as $item)
-						@include('components.footer.contact-item', ['item' => $item])
+						@include("components.footer.contact-item", ["item" => $item])
 					@endforeach
 				</div>
 
@@ -142,7 +143,7 @@
 					<a class="footer-meta-link" href="#">
 						شروط الاستخدام
 					</a>
-					<a class="footer-meta-link" href="{{ route('admin.login') }}" rel="nofollow">
+					<a class="footer-meta-link" href="{{ route("admin.login") }}" rel="nofollow">
 						لوحة التحكم
 					</a>
 				</nav>
