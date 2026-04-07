@@ -82,9 +82,9 @@
 				@endif
 
 				<div class="mb-8 space-y-4">
-					@foreach ([[$c["vision_title"] ?? "رؤيتنا", "bg-primary-100 text-primary-700", $c["vision_body"] ?? ""], [$c["mission_title"] ?? "رسالتنا", "bg-gold-100 text-gold-700", $c["mission_body"] ?? ""], [$c["values_title"] ?? "قيمنا", "bg-blue-100 text-blue-700", $c["values_body"] ?? ""]] as [$title, $badgeCls, $desc])
+					@foreach ([[$c["vision_title"] ?? "رؤيتنا", "bg-primary-100 text-primary-700", $c["vision_body"] ?? "", "pill-card-primary"], [$c["mission_title"] ?? "رسالتنا", "bg-gold-100 text-gold-700", $c["mission_body"] ?? "", "pill-card-gold"], [$c["values_title"] ?? "قيمنا", "bg-blue-100 text-blue-700", $c["values_body"] ?? "", "pill-card-blue"]] as [$title, $badgeCls, $desc, $pillarCls])
 						@if ($desc)
-							<div class="flex gap-4 rounded-2xl bg-gray-50 p-4 transition-colors hover:bg-primary-50/50">
+							<div class="pill-card {{ $pillarCls }}">
 								<span class="badge {{ $badgeCls }} mt-0.5 shrink-0">{{ $title }}</span>
 								<p class="text-sm leading-relaxed text-gray-600">{{ $desc }}</p>
 							</div>

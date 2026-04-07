@@ -112,6 +112,75 @@
     @apply bg-white rounded-4xl shadow-clay border border-primary-50 p-6 transition-all duration-300 hover:shadow-clay-lg hover:-translate-y-1;
   }
 
+  /* ── Feature Cards (Why-Us) ───────────────────────── */
+  .feature-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f2fbfe 100%);
+    border: 1px solid rgba(89, 194, 213, 0.22);
+    border-radius: 1.75rem;
+    padding: 1.75rem;
+    box-shadow: 0 2px 24px rgba(89, 194, 213, 0.10), 0 1px 4px rgba(0, 0, 0, 0.04);
+    transition: all 280ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .feature-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    inset-inline-start: 0;
+    inset-inline-end: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #59c2d5 0%, #2da0ba 100%);
+    border-radius: 1.75rem 1.75rem 0 0;
+    opacity: 0;
+    transition: opacity 260ms ease;
+  }
+
+  .feature-card:hover {
+    box-shadow: 0 14px 44px rgba(89, 194, 213, 0.20), 0 4px 12px rgba(89, 194, 213, 0.12);
+    transform: translateY(-6px);
+    border-color: rgba(89, 194, 213, 0.38);
+  }
+
+  .feature-card:hover::before {
+    opacity: 1;
+  }
+
+  /* ── Why-Us Section background ────────────────────── */
+  .why-us-section {
+    background: linear-gradient(160deg, #c8eef8 0%, #aee4f5 40%, #d6f3fb 100%);
+  }
+
+  /* ── Pillar cards (About: vision / mission / values) ── */
+  .pill-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    border-radius: 1rem;
+    border: 1px solid rgba(229, 231, 235, 0.8);
+    border-inline-start-width: 4px;
+    padding: 1rem 1.25rem;
+    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
+    transition: all 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+  .pill-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
+  }
+  .pill-card-primary {
+    background: rgba(89, 194, 213, 0.07);
+    border-inline-start-color: #59c2d5;
+  }
+  .pill-card-gold {
+    background: rgba(245, 158, 11, 0.07);
+    border-inline-start-color: #f59e0b;
+  }
+  .pill-card-blue {
+    background: rgba(59, 130, 246, 0.07);
+    border-inline-start-color: #3b82f6;
+  }
+
   /* ── Badges ───────────────────────────────────────── */
   .badge {
     @apply inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold;
@@ -142,16 +211,20 @@
 
   /* ── Section headers ──────────────────────────────── */
   .section-tag {
-    @apply inline-flex items-center gap-2 px-4 py-1.5 bg-primary-50 text-primary-700 rounded-full text-sm font-semibold mb-4;
+    @apply inline-flex items-center gap-2 px-5 py-2 rounded-full text-sm font-semibold mb-5;
     font-family: 'Cairo', sans-serif;
     font-weight: 600;
+    background: linear-gradient(135deg, rgba(89, 194, 213, 0.20) 0%, rgba(45, 160, 186, 0.13) 100%);
+    color: #1a6178;
+    border: 1px solid rgba(89, 194, 213, 0.38);
+    box-shadow: 0 2px 10px rgba(89, 194, 213, 0.14);
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl font-bold text-gray-900 mb-5 leading-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-5 leading-tight;
     font-family: 'Tajawal', sans-serif;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.025em;
   }
 
   .section-desc {
@@ -384,6 +457,30 @@
   border-color: #1e3a47;
 }
 
+.dark .feature-card {
+  background-color: #0e2535;
+  border-color: #1e3a47;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.30);
+}
+
+.dark .feature-card:hover {
+  border-color: rgba(89, 194, 213, 0.42);
+  box-shadow: 0 14px 44px rgba(0, 0, 0, 0.50), 0 0 0 1px rgba(89, 194, 213, 0.20);
+}
+
+.dark .why-us-section {
+  background: linear-gradient(180deg, #081c28 0%, #0a2030 100%) !important;
+}
+
+/* Pillar cards — dark mode */
+.dark .pill-card {
+  background: rgba(10, 32, 48, 0.60);
+  border-color: #1e3a47;
+}
+.dark .pill-card-primary { background: rgba(89, 194, 213, 0.09); border-inline-start-color: #3ab5ce; }
+.dark .pill-card-gold    { background: rgba(245, 158, 11, 0.09); border-inline-start-color: #fbbf24; }
+.dark .pill-card-blue    { background: rgba(59, 130, 246, 0.09); border-inline-start-color: #60a5fa; }
+
 /* Sections */
 .dark .section {
   color: #e2e8f0;
@@ -399,8 +496,10 @@
 
 /* Section tags & titles */
 .dark .section-tag {
-  background-color: rgba(13, 47, 61, 0.6);
+  background: rgba(13, 47, 61, 0.75);
   color: #7ddced;
+  border-color: rgba(89, 194, 213, 0.28);
+  box-shadow: none;
 }
 
 .dark .section-title {
