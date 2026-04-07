@@ -29,7 +29,8 @@
 					</div>
 				</div>
 				{{-- Floating badges --}}
-				<div class="floating-badge absolute -left-4 -top-4 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-card">
+				<div
+					class="floating-badge absolute -left-4 -top-4 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-card">
 					<div class="flex h-8 w-8 items-center justify-center rounded-xl bg-gold-100">
 						<svg class="h-4 w-4 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -41,7 +42,8 @@
 						<div class="text-xs text-gray-400">وزارة التعليم</div>
 					</div>
 				</div>
-				<div class="floating-badge absolute -bottom-4 -right-4 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-card">
+				<div
+					class="floating-badge absolute -bottom-4 -right-4 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-card">
 					<div class="flex h-8 w-8 items-center justify-center rounded-xl bg-primary-100">
 						<svg class="h-4 w-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"

@@ -675,33 +675,84 @@
 }
 
 /* Colored icon backgrounds — dark mode adaptations */
-.dark .bg-primary-50  { background-color: rgba(89, 194, 213, 0.12) !important; }
-.dark .bg-primary-100 { background-color: rgba(89, 194, 213, 0.18) !important; }
-.dark .bg-gold-50     { background-color: rgba(245, 158,  11, 0.12) !important; }
-.dark .bg-gold-100    { background-color: rgba(245, 158,  11, 0.20) !important; }
-.dark .bg-blue-50     { background-color: rgba(59, 130, 246, 0.12) !important; }
-.dark .bg-blue-100    { background-color: rgba(59, 130, 246, 0.20) !important; }
-.dark .bg-teal-50     { background-color: rgba(20, 184, 166, 0.12) !important; }
-.dark .bg-teal-100    { background-color: rgba(20, 184, 166, 0.20) !important; }
-.dark .bg-rose-50     { background-color: rgba(244,  63,  94, 0.12) !important; }
-.dark .bg-rose-100    { background-color: rgba(244,  63,  94, 0.20) !important; }
+.dark .bg-primary-50 {
+  background-color: rgba(89, 194, 213, 0.12) !important;
+}
+
+.dark .bg-primary-100 {
+  background-color: rgba(89, 194, 213, 0.18) !important;
+}
+
+.dark .bg-gold-50 {
+  background-color: rgba(245, 158, 11, 0.12) !important;
+}
+
+.dark .bg-gold-100 {
+  background-color: rgba(245, 158, 11, 0.20) !important;
+}
+
+.dark .bg-blue-50 {
+  background-color: rgba(59, 130, 246, 0.12) !important;
+}
+
+.dark .bg-blue-100 {
+  background-color: rgba(59, 130, 246, 0.20) !important;
+}
+
+.dark .bg-teal-50 {
+  background-color: rgba(20, 184, 166, 0.12) !important;
+}
+
+.dark .bg-teal-100 {
+  background-color: rgba(20, 184, 166, 0.20) !important;
+}
+
+.dark .bg-rose-50 {
+  background-color: rgba(244, 63, 94, 0.12) !important;
+}
+
+.dark .bg-rose-100 {
+  background-color: rgba(244, 63, 94, 0.20) !important;
+}
 
 /* Colored icon text — dark mode adaptations */
 .dark .text-primary-600,
-.dark .text-primary-700 { color: #5ccfe3 !important; }
-.dark .text-primary-800 { color: #7ddced !important; }
+.dark .text-primary-700 {
+  color: #5ccfe3 !important;
+}
+
+.dark .text-primary-800 {
+  color: #7ddced !important;
+}
+
 .dark .text-gold-600,
-.dark .text-gold-700    { color: #fbbf24 !important; }
+.dark .text-gold-700 {
+  color: #fbbf24 !important;
+}
+
 .dark .text-blue-600,
-.dark .text-blue-700    { color: #93c5fd !important; }
+.dark .text-blue-700 {
+  color: #93c5fd !important;
+}
+
 .dark .text-teal-600,
-.dark .text-teal-700    { color: #5eead4 !important; }
+.dark .text-teal-700 {
+  color: #5eead4 !important;
+}
+
 .dark .text-rose-600,
-.dark .text-rose-700    { color: #fca5a5 !important; }
+.dark .text-rose-700 {
+  color: #fca5a5 !important;
+}
 
 /* Borders for colored elements in dark mode */
-.dark .border-primary-100 { border-color: rgba(89, 194, 213, 0.30) !important; }
-.dark .border-primary-200 { border-color: rgba(89, 194, 213, 0.40) !important; }
+.dark .border-primary-100 {
+  border-color: rgba(89, 194, 213, 0.30) !important;
+}
+
+.dark .border-primary-200 {
+  border-color: rgba(89, 194, 213, 0.40) !important;
+}
 
 /* News/About wave gradient section bg */
 .dark section[style*="linear-gradient(135deg,#f0f9fd"],
