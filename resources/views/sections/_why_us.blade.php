@@ -66,7 +66,7 @@
 					</p>
 				</div>
 
-				<aside class="why-us-proof" aria-label="مؤشرات الثقة">
+				<aside class="why-us-proof hidden" aria-label="مؤشرات الثقة" aria-hidden="true">
 					<p class="why-us-proof-kicker">صورة سريعة</p>
 					<h3 class="why-us-proof-title">وضوح أكبر في القيمة التي يحصل عليها ولي الأمر.</h3>
 					<p class="why-us-proof-text">

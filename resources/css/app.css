@@ -189,27 +189,31 @@
   }
 
   .why-us-header {
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
     gap: 1.5rem;
     margin-bottom: 2rem;
-    align-items: start;
   }
 
   .why-us-copy {
-    max-width: 48rem;
+    width: 100%;
+    max-width: 54rem;
   }
 
   .why-us-tag {
-    margin-inline: 0;
+    margin-inline: auto;
   }
 
   .why-us-title {
     margin-bottom: 1rem;
-    max-width: 12ch;
+    max-width: none;
   }
 
   .why-us-intro {
-    max-width: 60ch;
+    max-width: 64ch;
+    margin-inline: auto;
     color: #325164;
     font-size: 1.02rem;
     line-height: 1.95;
@@ -453,14 +457,9 @@
   }
 
   @media (min-width: 1024px) {
-    .why-us-header {
-      grid-template-columns: minmax(0, 1.2fr) minmax(320px, 0.8fr);
-    }
-
     .why-us-grid {
       grid-template-columns: repeat(3, minmax(0, 1fr));
     }
-
   }
 
   @media (max-width: 767px) {
