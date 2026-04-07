@@ -575,8 +575,14 @@
 
 /* Programs section bg */
 .dark [style*="linear-gradient(135deg,#f0f9fd"],
-.dark [style*="linear-gradient(160deg, #f0f9fd"] {
+.dark [style*="linear-gradient(160deg, #f0f9fd"],
+.dark [style*="linear-gradient(135deg,#d4eaf7"] {
   background: linear-gradient(135deg, #071e2d 0%, #0e3d55 100%) !important;
+}
+
+/* Program card icon circles — dim in dark mode to reduce glare */
+.dark .clay-card .bg-gradient-to-br {
+  filter: brightness(0.65);
 }
 
 /* About visual card — floating badges */

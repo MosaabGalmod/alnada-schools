@@ -27,7 +27,7 @@
 	    "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2";
 @endphp
 <section class="section" id="programs"
-	style="{{ $section->bgCss() ?: "background: linear-gradient(135deg,#f0f9fd 0%,#daf1fa 100%);" }}">
+	style="{{ $section->bgCss() ?: "background: linear-gradient(135deg,#d4eaf7 0%,#b8d9f2 100%);" }}">
 	<div class="mx-auto max-w-7xl">
 		<div class="mb-14 text-center" class="transition-all duration-700" x-data="reveal"
 			:class="visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'">
