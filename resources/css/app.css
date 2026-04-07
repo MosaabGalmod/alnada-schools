@@ -15,13 +15,14 @@
   }
 
   html {
-    scroll-behavior: smooth;
+    overflow-x: clip;
   }
 
   body {
     font-family: 'Cairo', sans-serif;
     direction: rtl;
     @apply text-gray-800 bg-white;
+    min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     font-feature-settings: 'kern' 1;
   }
@@ -61,7 +62,7 @@
 
   /* Section wrapper */
   .section {
-    @apply py-20 px-4;
+    @apply px-4 py-12 sm:py-16 lg:py-20;
   }
 
   /* ── Buttons ──────────────────────────────────────── */
@@ -364,7 +365,62 @@
 
   /* Skip-to-main accessibility link */
   .skip-link {
-    @apply absolute -top-full right-4 z-[9999] bg-primary-600 text-white px-4 py-2 rounded-b-xl font-semibold text-sm focus:top-0 transition-all duration-150;
+    @apply absolute -top-full z-[9999] rounded-2xl bg-primary-700 px-4 py-2.5 text-sm font-semibold text-white shadow-lg transition-all duration-150 focus:top-4 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-offset-2 focus-visible:ring-offset-primary-700;
+    inset-inline-start: 1rem;
+  }
+
+  [x-cloak] {
+    display: none !important;
+  }
+
+  .home-shell {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background:
+      radial-gradient(circle at top right, rgba(89, 194, 213, 0.18), transparent 28%),
+      radial-gradient(circle at top left, rgba(245, 158, 11, 0.10), transparent 22%),
+      linear-gradient(180deg, rgba(240, 251, 253, 0.9) 0%, rgba(255, 255, 255, 1) 24%, rgba(240, 251, 253, 0.52) 100%);
+  }
+
+  .home-grid-mask {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(89, 194, 213, 0.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(89, 194, 213, 0.05) 1px, transparent 1px);
+    background-size: 120px 120px;
+    mask-image: linear-gradient(180deg, rgba(0, 0, 0, 0.42), transparent 75%);
+  }
+
+  .home-orb {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(70px);
+    opacity: 0.55;
+    will-change: transform;
+  }
+
+  .home-orb-primary {
+    top: 4rem;
+    inset-inline-end: -5rem;
+    height: 18rem;
+    width: 18rem;
+    background: radial-gradient(circle, rgba(89, 194, 213, 0.7) 0%, rgba(89, 194, 213, 0) 72%);
+    animation: float 12s ease-in-out infinite;
+  }
+
+  .home-orb-secondary {
+    top: 16rem;
+    inset-inline-start: -4rem;
+    height: 14rem;
+    width: 14rem;
+    background: radial-gradient(circle, rgba(245, 158, 11, 0.24) 0%, rgba(245, 158, 11, 0) 72%);
+    animation: float 14s ease-in-out infinite reverse;
+  }
+
+  .floating-action {
+    @apply flex h-12 w-12 items-center justify-center rounded-2xl border border-primary-200 bg-white/90 text-primary-700 shadow-card backdrop-blur transition-all duration-200 hover:-translate-y-1 hover:border-primary-300 hover:bg-primary-50 hover:text-primary-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 focus-visible:ring-offset-2 active:scale-95;
   }
 
   /* Star rating */
@@ -425,6 +481,11 @@
   .active\:scale-95:active,
   .active\:scale-90:active {
     transform: none !important;
+  }
+
+  .home-orb-primary,
+  .home-orb-secondary {
+    animation: none !important;
   }
 }
 
@@ -946,7 +1007,7 @@ html {
 
 /* 9. Skip-to-content link — make sure it's fully visible on focus */
 .skip-link:focus {
-  top: 0.5rem;
+  top: 1rem;
   outline: 3px solid #f59e0b;
   outline-offset: 2px;
 }

@@ -47,10 +47,15 @@
 @endsection
 
 @section("content")
-	<div id="main-content">
+	<main class="home-shell" id="main-content" role="main">
+		<div class="pointer-events-none absolute inset-x-0 top-0 -z-10 overflow-hidden" aria-hidden="true">
+			<div class="home-orb home-orb-primary"></div>
+			<div class="home-orb home-orb-secondary"></div>
+			<div class="home-grid-mask"></div>
+		</div>
 
 		{{-- ===== NAVBAR ===== --}}
-		<nav class="fixed inset-x-0 top-0 z-50 px-4 transition-all duration-300" x-data="navbar"
+		<header class="fixed inset-x-0 top-0 z-50 px-4 transition-all duration-300" x-data="navbar" @keydown.escape.window="mobileOpen = false"
 			:class="scrolled ? 'glass shadow-lg py-3' : 'py-5 bg-transparent'">
 			<div class="mx-auto flex max-w-7xl items-center justify-between">
 
@@ -73,15 +78,17 @@
 					</div>
 				</a>
 
-				<ul class="hidden items-center gap-1 lg:flex" role="navigation" aria-label="القائمة الرئيسية">
-				@foreach ([["#home", "الرئيسية"], ["#about", "من نحن"], ["#programs", "برامجنا"], ["#stats", "إنجازاتنا"], ["#news", "الأخبار"], ["#contact", "تواصل"]] as [$href, $label])
-					<li>
-						<a class="rounded-xl px-3 py-2 text-sm font-medium transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-1" href="{{ $href }}"
-							:class="scrolled ? 'text-gray-600 hover:text-primary-700 hover:bg-primary-50 focus-visible:ring-primary-400' :
-							    'text-white/90 hover:text-white hover:bg-white/10'">{{ $label }}</a>
-					</li>
-				@endforeach
-			</ul>
+				<nav class="hidden lg:block" aria-label="القائمة الرئيسية">
+					<ul class="flex items-center gap-1">
+						@foreach ([["#home", "الرئيسية"], ["#about", "من نحن"], ["#programs", "برامجنا"], ["#stats", "إنجازاتنا"], ["#news", "الأخبار"], ["#contact", "تواصل"]] as [$href, $label])
+							<li>
+								<a class="rounded-xl px-3 py-2 text-sm font-medium transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-1" href="{{ $href }}"
+									:class="scrolled ? 'text-gray-600 hover:text-primary-700 hover:bg-primary-50 focus-visible:ring-primary-400' :
+									    'text-white/90 hover:text-white hover:bg-white/10'">{{ $label }}</a>
+							</li>
+						@endforeach
+					</ul>
+				</nav>
 
 				{{-- CTA --}}
 				<div class="flex items-center gap-3">
@@ -94,7 +101,7 @@
 					</a>
 
 					{{-- Dark Mode Toggle (3-state: auto → dark → light → auto) --}}
-					<button class="dark-toggle" aria-label="تبديل الوضع الداكن" x-data="{
+					<button class="dark-toggle" type="button" aria-label="تبديل الوضع الداكن" x-data="{
 	    mode: localStorage.getItem('theme') ?? 'auto',
 	    cycle() {
 	        const html = document.documentElement;
@@ -142,7 +149,7 @@
 						</svg>
 					</button>
 
-					<button class="rounded-xl p-2 transition-colors lg:hidden" aria-label="القائمة" @click="mobileOpen = !mobileOpen"
+					<button class="rounded-xl p-2 transition-colors lg:hidden" type="button" aria-controls="mobile-main-menu" :aria-expanded="mobileOpen.toString()" aria-label="القائمة" @click="mobileOpen = !mobileOpen"
 						:class="scrolled ? 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primary-900/40' :
 						    'text-white hover:bg-white/10'">
 						<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -156,21 +163,21 @@
 			</div>
 
 			{{-- Mobile Menu --}}
-			<div class="glass mt-3 rounded-3xl p-4 shadow-xl lg:hidden" style="display:none" x-show="mobileOpen"
+			<nav class="glass mt-3 rounded-3xl p-4 shadow-xl lg:hidden" id="mobile-main-menu" x-cloak x-show="mobileOpen"
 				x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2"
 				x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150"
 				x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
-				role="navigation" aria-label="القائمة المحمول">
+				aria-label="القائمة المحمولة">
 				@foreach ([["#home", "الرئيسية"], ["#about", "من نحن"], ["#programs", "برامجنا"], ["#stats", "إنجازاتنا"], ["#news", "الأخبار"], ["#contact", "تواصل"]] as [$href, $label])
 					<a
-						class="flex min-h-[44px] items-center rounded-2xl px-4 py-3 font-medium text-gray-700 transition-all hover:bg-primary-50 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 dark:text-gray-200 dark:hover:bg-primary-900/30 dark:hover:text-primary-300"
+						class="mobile-nav-link rounded-2xl px-4 py-3 font-medium text-gray-700 transition-all hover:bg-primary-50 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 dark:text-gray-200 dark:hover:bg-primary-900/30 dark:hover:text-primary-300"
 						href="{{ $href }}" @click="mobileOpen=false">{{ $label }}</a>
 				@endforeach
 				<div class="border-t border-gray-100 pt-2 dark:border-gray-700/50">
 					<a class="btn-primary mt-2 w-full justify-center" href="#contact">سجّل الآن</a>
 				</div>
-			</div>
-		</nav>
+			</nav>
+		</header>
 
 		{{-- ===== DYNAMIC SECTIONS ===== --}}
 		@foreach ($sections as $section)
@@ -179,6 +186,17 @@
 				"announcements" => $announcements ?? collect(),
 			])
 		@endforeach
+
+		<div class="fixed bottom-6 right-6 z-40" x-data="backToTop" x-cloak x-show="show"
+			x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-3 scale-95"
+			x-transition:enter-end="opacity-100 translate-y-0 scale-100" x-transition:leave="transition ease-in duration-150"
+			x-transition:leave-start="opacity-100 translate-y-0 scale-100" x-transition:leave-end="opacity-0 translate-y-3 scale-95">
+			<button class="floating-action" type="button" @click="scrollTop()" aria-label="العودة إلى أعلى الصفحة">
+				<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 15l7-7 7 7" />
+				</svg>
+			</button>
+		</div>
 
 		{{-- ===== FOOTER ===== --}}
 		@php
@@ -335,7 +353,7 @@
 						<div class="space-y-4">
 
 							{{-- Phone --}}
-							<a class="group flex items-start gap-3 focus-visible:outline-none" href="{{ $ftTel }}" dir="ltr">
+							<a class="group flex items-start gap-3 focus-visible:outline-none" href="{{ $ftTel }}" dir="ltr" lang="en">
 								<span
 									class="bg-white/8 mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 transition-colors duration-200 group-hover:border-primary-600 group-hover:bg-primary-700 motion-reduce:transition-none">
 									<svg
@@ -355,7 +373,8 @@
 							</a>
 
 							{{-- Email --}}
-							<a class="group flex items-start gap-3 focus-visible:outline-none" href="mailto:{{ $ftEmail }}">
+							<a class="group flex items-start gap-3 focus-visible:outline-none" href="mailto:{{ $ftEmail }}" dir="ltr"
+								lang="en">
 								<span
 									class="bg-white/8 mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 transition-colors duration-200 group-hover:border-primary-600 group-hover:bg-primary-700 motion-reduce:transition-none">
 									<svg
@@ -366,7 +385,7 @@
 									</svg>
 								</span>
 								<span>
-									<span class="mb-0.5 block text-xs text-primary-500">البريد الإلكتروني</span>
+									<span class="mb-0.5 block text-xs text-primary-500" dir="rtl">البريد الإلكتروني</span>
 									<span
 										class="break-all text-sm font-medium text-primary-200 transition-colors duration-150 group-hover:text-white motion-reduce:transition-none">
 										{{ $ftEmail }}
@@ -464,5 +483,5 @@
 			</a>
 		</div>
 
-	</div>{{-- #main-content --}}
+	</main>{{-- #main-content --}}
 @endsection
