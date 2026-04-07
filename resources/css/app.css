@@ -485,6 +485,218 @@
     }
   }
 
+  /* ── Testimonials Section ─────────────────────────── */
+
+  .testimonials-section {
+    position: relative;
+    overflow: hidden;
+    background:
+      radial-gradient(ellipse at top center, rgba(89, 194, 213, 0.12) 0%, transparent 55%),
+      radial-gradient(ellipse at bottom left, rgba(45, 160, 186, 0.10) 0%, transparent 45%),
+      linear-gradient(175deg, #f0fafd 0%, #e4f5fb 45%, #f7fdff 100%);
+  }
+
+  .testi-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .testi-intro {
+    max-width: 52ch;
+    margin-inline: auto;
+    color: #4a7a8a;
+    font-size: 1rem;
+    line-height: 1.85;
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .testi-grid {
+    display: grid;
+    gap: 1.5rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .testi-item {
+    animation: fadeSlideUp 0.55s ease both;
+    animation-delay: var(--delay, 0ms);
+  }
+
+  .testi-card {
+    position: relative;
+    height: 100%;
+    padding: 2rem;
+    border-radius: 1.75rem;
+    border: 1px solid rgba(89, 194, 213, 0.18);
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow:
+      0 4px 20px rgba(45, 160, 186, 0.08),
+      0 1px 4px rgba(15, 49, 64, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    cursor: default;
+  }
+
+  .testi-card:hover,
+  .testi-card:focus-visible {
+    transform: translateY(-5px);
+    box-shadow:
+      0 16px 44px rgba(45, 160, 186, 0.16),
+      0 4px 12px rgba(15, 49, 64, 0.06);
+    border-color: rgba(89, 194, 213, 0.38);
+  }
+
+  .testi-card:focus-visible {
+    outline: 2px solid rgba(26, 157, 198, 0.9);
+    outline-offset: 3px;
+  }
+
+  .testi-card:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  /* Featured middle card */
+  .testi-card-featured {
+    background: linear-gradient(145deg, #ffffff 0%, #e8f8fd 55%, #d6f1fa 100%);
+    border-color: rgba(45, 160, 186, 0.32);
+    box-shadow:
+      0 8px 32px rgba(45, 160, 186, 0.18),
+      0 2px 8px rgba(15, 49, 64, 0.06),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+
+  .testi-card-featured:hover,
+  .testi-card-featured:focus-visible {
+    box-shadow:
+      0 20px 52px rgba(45, 160, 186, 0.24),
+      0 6px 16px rgba(15, 49, 64, 0.08);
+    border-color: rgba(45, 160, 186, 0.5);
+  }
+
+  /* Decorative quote mark */
+  .testi-quote-deco {
+    position: absolute;
+    top: 1.1rem;
+    inset-inline-start: 1.5rem;
+    font-size: 5.5rem;
+    line-height: 1;
+    font-family: 'Tajawal', sans-serif;
+    font-weight: 900;
+    color: rgba(89, 194, 213, 0.22);
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+
+  .testi-card-featured .testi-quote-deco {
+    color: rgba(45, 160, 186, 0.3);
+  }
+
+  /* Stars */
+  .testi-stars {
+    display: flex;
+    gap: 0.2rem;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testi-star {
+    width: 1.15rem;
+    height: 1.15rem;
+    color: #f59e0b;
+    flex-shrink: 0;
+  }
+
+  /* Quote text */
+  .testi-text {
+    position: relative;
+    z-index: 1;
+    flex: 1;
+    font-size: 0.95rem;
+    line-height: 2;
+    color: #354f5d;
+    font-family: 'Cairo', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Author */
+  .testi-author {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(89, 194, 213, 0.15);
+    position: relative;
+    z-index: 1;
+  }
+
+  .testi-card-featured .testi-author {
+    border-top-color: rgba(45, 160, 186, 0.2);
+  }
+
+  .testi-avatar {
+    display: flex;
+    flex-shrink: 0;
+    height: 2.85rem;
+    width: 2.85rem;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1rem;
+    background: linear-gradient(135deg, #59c2d5 0%, #1e7a91 100%);
+    color: #ffffff;
+    font-family: 'Cairo', sans-serif;
+    font-size: 0.85rem;
+    font-weight: 800;
+    box-shadow: 0 4px 14px rgba(45, 160, 186, 0.35);
+  }
+
+  .testi-avatar-featured {
+    background: linear-gradient(135deg, #2da0ba 0%, #0f3140 100%);
+    box-shadow: 0 6px 18px rgba(15, 49, 64, 0.35);
+  }
+
+  .testi-cite {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+  }
+
+  .testi-name {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #0f2f3f;
+    font-family: 'Cairo', sans-serif;
+    display: block;
+  }
+
+  .testi-role {
+    font-size: 0.775rem;
+    color: #5a8fa0;
+    font-family: 'Cairo', sans-serif;
+    display: block;
+  }
+
+  @keyframes fadeSlideUp {
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .testi-item { animation: none; }
+    .testi-card { transition: none; }
+  }
+
+  @media (min-width: 768px) {
+    .testi-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
   /* ── Pillar cards (About: vision / mission / values) ── */
   .pill-card {
     display: flex;
