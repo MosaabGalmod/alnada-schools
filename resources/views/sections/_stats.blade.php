@@ -22,42 +22,51 @@
 	    default => "grid-cols-2 lg:grid-cols-5",
 	};
 @endphp
-<section class="section relative overflow-hidden" id="stats" style="{{ $section->bgCss() }}">
+<section class="section stats-section" id="stats" aria-labelledby="stats-heading" style="{{ $section->bgCss() }}">
+
 	<div class="relative z-10 mx-auto max-w-7xl">
-		<div class="mb-14 text-center">
+
+		{{-- Header --}}
+		<div class="stats-header">
 			@if (!empty($c["tag"]))
-				<span
-					class="mb-4 inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-5 py-2 text-sm font-semibold tracking-wide"
-					style="color: {{ $section->textColor() }}">{{ $c["tag"] }}</span>
+				<span class="stats-tag" style="color: {{ $section->textColor() }}">{{ $c["tag"] }}</span>
 			@endif
-			<h2 class="font-heading text-4xl font-bold md:text-5xl" style="color: {{ $section->headingColor() }}">
-				{{ $c["title"] ?? "أرقام تتحدث عن نجاحنا" }}</h2>
+			<h2 class="stats-title" id="stats-heading" style="color: {{ $section->headingColor() }}">
+				{{ $c["title"] ?? "أرقام تتحدث عن نجاحنا" }}
+			</h2>
 		</div>
 
-		<div class="{{ $gridClass }} grid gap-5" x-data="statsCounter" role="list" aria-label="إحصائيات الإنجازات">
+		{{-- Grid --}}
+		<ul class="{{ $gridClass }} grid gap-5" role="list" aria-label="إحصائيات الإنجازات" x-data="statsCounter">
 			@foreach ($items as $i => $item)
-				<div
-					class="bg-white/8 group relative rounded-4xl border border-white/20 p-6 text-center backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-white/35 hover:bg-white/15"
-					role="listitem">
-					{{-- Icon --}}
-					<div
-						class="w-13 h-13 mx-auto mb-4 flex items-center justify-center rounded-2xl bg-white/15 transition-all duration-300 group-hover:scale-110 group-hover:bg-white/25">
-						<svg class="h-6 w-6" aria-hidden="true" style="color: {{ $section->accentColor() }}" fill="none" stroke="currentColor"
-							viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $icons[$i % count($icons)] }}" />
-						</svg>
-					</div>
+				<li class="stats-card-item" role="listitem" style="--delay: {{ $i * 100 }}ms">
+					<article class="stats-card group">
 
-					{{-- Number --}}
-					<div class="mb-1 font-heading text-5xl font-black leading-none tabular-nums" style="color: {{ $section->headingColor() }}">
-						<span class="counter" data-target="{{ $item["target"] ?? 0 }}" aria-live="polite" aria-atomic="true">0</span>{{ $item["suffix"] ?? "" }}
-					</div>
+						{{-- Accent top line --}}
+						<div class="stats-card-accent" aria-hidden="true"></div>
 
-					{{-- Label --}}
-					<div class="mt-2 text-sm font-semibold tracking-wide" style="color: {{ $section->textColor() }}">
-						{{ $item["label"] ?? "" }}</div>
-				</div>
+						{{-- Icon --}}
+						<div class="stats-card-icon group-hover:scale-110" aria-hidden="true">
+							<svg class="stats-card-icon-svg" aria-hidden="true" style="color: {{ $section->accentColor() }}" fill="none"
+								stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $icons[$i % count($icons)] }}" />
+							</svg>
+						</div>
+
+						{{-- Number + suffix --}}
+						<div class="stats-card-number" style="color: {{ $section->headingColor() }}">
+							<span class="counter" data-target="{{ $item["target"] ?? 0 }}" aria-live="polite"
+								aria-atomic="true">0</span>{{ $item["suffix"] ?? "" }}
+						</div>
+
+						{{-- Label --}}
+						<p class="stats-card-label" style="color: {{ $section->textColor() }}">
+							{{ $item["label"] ?? "" }}
+						</p>
+
+					</article>
+				</li>
 			@endforeach
-		</div>
+		</ul>
 	</div>
 </section>
