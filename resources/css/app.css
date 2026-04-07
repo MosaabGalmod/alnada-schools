@@ -164,18 +164,22 @@
     box-shadow: 0 1px 6px rgba(0, 0, 0, 0.05);
     transition: all 200ms cubic-bezier(0.34, 1.56, 0.64, 1);
   }
+
   .pill-card:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.09);
   }
+
   .pill-card-primary {
     background: rgba(89, 194, 213, 0.07);
     border-inline-start-color: #59c2d5;
   }
+
   .pill-card-gold {
     background: rgba(245, 158, 11, 0.07);
     border-inline-start-color: #f59e0b;
   }
+
   .pill-card-blue {
     background: rgba(59, 130, 246, 0.07);
     border-inline-start-color: #3b82f6;
@@ -477,9 +481,21 @@
   background: rgba(10, 32, 48, 0.60);
   border-color: #1e3a47;
 }
-.dark .pill-card-primary { background: rgba(89, 194, 213, 0.09); border-inline-start-color: #3ab5ce; }
-.dark .pill-card-gold    { background: rgba(245, 158, 11, 0.09); border-inline-start-color: #fbbf24; }
-.dark .pill-card-blue    { background: rgba(59, 130, 246, 0.09); border-inline-start-color: #60a5fa; }
+
+.dark .pill-card-primary {
+  background: rgba(89, 194, 213, 0.09);
+  border-inline-start-color: #3ab5ce;
+}
+
+.dark .pill-card-gold {
+  background: rgba(245, 158, 11, 0.09);
+  border-inline-start-color: #fbbf24;
+}
+
+.dark .pill-card-blue {
+  background: rgba(59, 130, 246, 0.09);
+  border-inline-start-color: #60a5fa;
+}
 
 /* Sections */
 .dark .section {

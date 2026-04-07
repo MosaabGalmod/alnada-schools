@@ -43,7 +43,8 @@
 			@foreach ($features as $i => $feat)
 				@php [$icon, $iconCls, $bgCls] = $featureStyles[$i % count($featureStyles)]; @endphp
 				<div class="feature-card group">
-					<div class="{{ $bgCls }} mb-5 flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm transition-transform duration-300 group-hover:scale-110">
+					<div
+						class="{{ $bgCls }} mb-5 flex h-14 w-14 items-center justify-center rounded-2xl shadow-sm transition-transform duration-300 group-hover:scale-110">
 						<svg class="{{ $iconCls }} h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="{{ $icon }}" />
 						</svg>
