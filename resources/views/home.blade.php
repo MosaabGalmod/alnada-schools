@@ -55,8 +55,8 @@
 		</div>
 
 		{{-- ===== NAVBAR ===== --}}
-		<header class="fixed inset-x-0 top-0 z-50 px-4 transition-all duration-300" x-data="navbar" @keydown.escape.window="mobileOpen = false"
-			:class="scrolled ? 'glass shadow-lg py-3' : 'py-5 bg-transparent'">
+		<header class="fixed inset-x-0 top-0 z-50 px-4 transition-all duration-300" x-data="navbar"
+			@keydown.escape.window="mobileOpen = false" :class="scrolled ? 'glass shadow-lg py-3' : 'py-5 bg-transparent'">
 			<div class="mx-auto flex max-w-7xl items-center justify-between">
 
 				{{-- Logo --}}
@@ -82,7 +82,9 @@
 					<ul class="flex items-center gap-1">
 						@foreach ([["#home", "الرئيسية"], ["#about", "من نحن"], ["#programs", "برامجنا"], ["#stats", "إنجازاتنا"], ["#news", "الأخبار"], ["#contact", "تواصل"]] as [$href, $label])
 							<li>
-								<a class="rounded-xl px-3 py-2 text-sm font-medium transition-all duration-150 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-1" href="{{ $href }}"
+								<a
+									class="cursor-pointer rounded-xl px-3 py-2 text-sm font-medium transition-all duration-150 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-1"
+									href="{{ $href }}"
 									:class="scrolled ? 'text-gray-600 hover:text-primary-700 hover:bg-primary-50 focus-visible:ring-primary-400' :
 									    'text-white/90 hover:text-white hover:bg-white/10'">{{ $label }}</a>
 							</li>
@@ -126,7 +128,8 @@
 	            this.mode = 'auto';
 	        }
 	    }
-	}" x-on:click="cycle()"
+	}"
+						x-on:click="cycle()"
 						:aria-label="mode === 'auto' ? 'الوضع التلقائي' : mode === 'dark' ? 'الوضع الداكن' : 'الوضع الفاتح'"
 						:class="scrolled ? 'text-gray-600 dark:text-gray-300' : 'text-white/80 hover:text-white'">
 						{{-- أيقونة الشاشة (وضع auto) --}}
@@ -149,7 +152,8 @@
 						</svg>
 					</button>
 
-					<button class="rounded-xl p-2 transition-colors lg:hidden" type="button" aria-controls="mobile-main-menu" :aria-expanded="mobileOpen.toString()" aria-label="القائمة" @click="mobileOpen = !mobileOpen"
+					<button class="rounded-xl p-2 transition-colors lg:hidden" type="button" aria-controls="mobile-main-menu"
+						aria-label="القائمة" :aria-expanded="mobileOpen.toString()" @click="mobileOpen = !mobileOpen"
 						:class="scrolled ? 'text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-primary-900/40' :
 						    'text-white hover:bg-white/10'">
 						<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -163,11 +167,11 @@
 			</div>
 
 			{{-- Mobile Menu --}}
-			<nav class="glass mt-3 rounded-3xl p-4 shadow-xl lg:hidden" id="mobile-main-menu" x-cloak x-show="mobileOpen"
-				x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 -translate-y-2"
-				x-transition:enter-end="opacity-100 translate-y-0" x-transition:leave="transition ease-in duration-150"
-				x-transition:leave-start="opacity-100 translate-y-0" x-transition:leave-end="opacity-0 -translate-y-2"
-				aria-label="القائمة المحمولة">
+			<nav class="glass mt-3 rounded-3xl p-4 shadow-xl lg:hidden" id="mobile-main-menu" aria-label="القائمة المحمولة"
+				x-cloak x-show="mobileOpen" x-transition:enter="transition ease-out duration-200"
+				x-transition:enter-start="opacity-0 -translate-y-2" x-transition:enter-end="opacity-100 translate-y-0"
+				x-transition:leave="transition ease-in duration-150" x-transition:leave-start="opacity-100 translate-y-0"
+				x-transition:leave-end="opacity-0 -translate-y-2">
 				@foreach ([["#home", "الرئيسية"], ["#about", "من نحن"], ["#programs", "برامجنا"], ["#stats", "إنجازاتنا"], ["#news", "الأخبار"], ["#contact", "تواصل"]] as [$href, $label])
 					<a
 						class="mobile-nav-link rounded-2xl px-4 py-3 font-medium text-gray-700 transition-all hover:bg-primary-50 hover:text-primary-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400 dark:text-gray-200 dark:hover:bg-primary-900/30 dark:hover:text-primary-300"
@@ -190,8 +194,9 @@
 		<div class="fixed bottom-6 right-6 z-40" x-data="backToTop" x-cloak x-show="show"
 			x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-3 scale-95"
 			x-transition:enter-end="opacity-100 translate-y-0 scale-100" x-transition:leave="transition ease-in duration-150"
-			x-transition:leave-start="opacity-100 translate-y-0 scale-100" x-transition:leave-end="opacity-0 translate-y-3 scale-95">
-			<button class="floating-action" type="button" @click="scrollTop()" aria-label="العودة إلى أعلى الصفحة">
+			x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+			x-transition:leave-end="opacity-0 translate-y-3 scale-95">
+			<button class="floating-action" type="button" aria-label="العودة إلى أعلى الصفحة" @click="scrollTop()">
 				<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 15l7-7 7 7" />
 				</svg>
@@ -353,7 +358,8 @@
 						<div class="space-y-4">
 
 							{{-- Phone --}}
-							<a class="group flex items-start gap-3 focus-visible:outline-none" href="{{ $ftTel }}" dir="ltr" lang="en">
+							<a class="group flex items-start gap-3 focus-visible:outline-none" href="{{ $ftTel }}" dir="ltr"
+								lang="en">
 								<span
 									class="bg-white/8 mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 transition-colors duration-200 group-hover:border-primary-600 group-hover:bg-primary-700 motion-reduce:transition-none">
 									<svg
@@ -373,8 +379,8 @@
 							</a>
 
 							{{-- Email --}}
-							<a class="group flex items-start gap-3 focus-visible:outline-none" href="mailto:{{ $ftEmail }}" dir="ltr"
-								lang="en">
+							<a class="group flex items-start gap-3 focus-visible:outline-none" href="mailto:{{ $ftEmail }}"
+								dir="ltr" lang="en">
 								<span
 									class="bg-white/8 mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 transition-colors duration-200 group-hover:border-primary-600 group-hover:bg-primary-700 motion-reduce:transition-none">
 									<svg
