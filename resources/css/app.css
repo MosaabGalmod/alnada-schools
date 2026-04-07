@@ -1393,6 +1393,16 @@
 
 .dark .testi-author {
   border-top-color: rgba(89, 194, 213, 0.12);
+  background: transparent !important;
+}
+
+.dark .testi-avatar {
+  background: linear-gradient(135deg, #2da0ba 0%, #0f3140 100%);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.4);
+}
+
+.dark .testi-avatar-featured {
+  background: linear-gradient(135deg, #1e7a91 0%, #061520 100%);
 }
 
 .dark .testi-card-featured .testi-author {
@@ -1605,7 +1615,7 @@
 
 /* Testimonials */
 .dark .bg-white.p-7,
-.dark .relative.p-7 {
+.dark .relative.p-7:not(.testi-card):not(.testi-author) {
   background-color: #0c1e25 !important;
   border-color: #1e3a47 !important;
 }
