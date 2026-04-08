@@ -41,7 +41,7 @@ class SectionManager extends Component
         'news'         => ['tag','title'],
         'testimonials' => ['tag','title'],
         'contact'      => ['tag','title','subtitle'],
-        'custom'       => ['tag','title','subtitle','body'],
+        'custom'       => ['tag','title','subtitle','body','intro_card_title','intro_card_body'],
     ];
 
     public function mount(): void
@@ -161,6 +161,71 @@ class SectionManager extends Component
     public function getFieldsForType(string $type): array
     {
         return $this->contentFields[$type] ?? $this->contentFields['custom'];
+    }
+
+    /* ── Hero stats repeater ────────────────────────────── */
+    public function addHeroStat(): void
+    {
+        $this->editContent['stats'][] = ['value' => '', 'label' => ''];
+    }
+
+    public function removeHeroStat(int $index): void
+    {
+        $stats = $this->editContent['stats'] ?? [];
+        array_splice($stats, $index, 1);
+        $this->editContent['stats'] = array_values($stats);
+    }
+
+    /* ── Programs repeater ──────────────────────────────── */
+    public function addProgram(): void
+    {
+        $this->editContent['programs'][] = ['title' => '', 'description' => '', 'tags' => '', 'color' => 'blue', 'icon' => 'book'];
+    }
+
+    public function removeProgram(int $index): void
+    {
+        $items = $this->editContent['programs'] ?? [];
+        array_splice($items, $index, 1);
+        $this->editContent['programs'] = array_values($items);
+    }
+
+    /* ── Stats items repeater ───────────────────────────── */
+    public function addStatItem(): void
+    {
+        $this->editContent['items'][] = ['target' => 0, 'label' => '', 'suffix' => '+', 'icon' => 'heart'];
+    }
+
+    public function removeStatItem(int $index): void
+    {
+        $items = $this->editContent['items'] ?? [];
+        array_splice($items, $index, 1);
+        $this->editContent['items'] = array_values($items);
+    }
+
+    /* ── Why Us features repeater ───────────────────────── */
+    public function addFeature(): void
+    {
+        $this->editContent['features'][] = ['title' => '', 'body' => '', 'icon' => 'badge-check'];
+    }
+
+    public function removeFeature(int $index): void
+    {
+        $items = $this->editContent['features'] ?? [];
+        array_splice($items, $index, 1);
+        $this->editContent['features'] = array_values($items);
+    }
+
+    /* ── Testimonials repeater ──────────────────────────── */
+    public function addTestimonial(): void
+    {
+        $this->editContent['items'][] = ['text' => '', 'name' => '', 'role' => '', 'avatar' => ''];
+    }
+
+    public function removeTestimonial(int $index): void
+    {
+        $items = $this->editContent['items'] ?? [];
+        array_splice($items, $index, 1);
+        $this->editContent['items'] = array_values($items);
     }
 
     private function flash(string $msg, string $type = 'success'): void

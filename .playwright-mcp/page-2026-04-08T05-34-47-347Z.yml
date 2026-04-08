@@ -1,0 +1,248 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - img "شعار مدارس الندى" [ref=e6]
+      - generic [ref=e7]:
+        - generic [ref=e8]: مدارس الندى
+        - generic [ref=e9]: لوحة التحكم
+    - navigation "قائمة التنقل" [ref=e10]:
+      - link "الرئيسية" [ref=e11] [cursor=pointer]:
+        - /url: http://localhost:8000/admin
+        - img [ref=e13]
+        - generic [ref=e15]: الرئيسية
+      - link "الإعلانات" [ref=e16] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/announcements
+        - img [ref=e18]
+        - generic [ref=e20]: الإعلانات
+      - link "الرسائل" [ref=e21] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/messages
+        - img [ref=e23]
+        - generic [ref=e25]: الرسائل
+      - link "الأقسام" [ref=e26] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/sections
+        - img [ref=e28]
+        - generic [ref=e30]: الأقسام
+      - link "الإعدادات" [ref=e31] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/settings
+        - img [ref=e33]
+        - generic [ref=e35]: الإعدادات
+      - link "السياسات" [ref=e36] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/policies
+        - img [ref=e38]
+        - generic [ref=e40]: السياسات
+      - link "الملف الشخصي" [ref=e41] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/profile
+        - img [ref=e43]
+        - generic [ref=e45]: الملف الشخصي
+    - generic [ref=e46]:
+      - link "عرض الموقع" [ref=e47] [cursor=pointer]:
+        - /url: http://localhost:8000
+        - img [ref=e48]
+        - generic [ref=e50]: عرض الموقع
+      - link "تسجيل الخروج" [ref=e51] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/logout
+        - img [ref=e52]
+        - generic [ref=e54]: تسجيل الخروج
+  - generic [ref=e55]:
+    - banner [ref=e56]:
+      - generic [ref=e57]:
+        - button "إغلاق القائمة الجانبية" [ref=e58] [cursor=pointer]:
+          - img [ref=e59]
+        - generic [ref=e61]:
+          - heading "الإعلانات والأخبار" [level=1] [ref=e62]
+          - paragraph [ref=e63]: إدارة الأخبار والإعلانات
+      - generic [ref=e64]:
+        - button "تفعيل الوضع الداكن" [ref=e65] [cursor=pointer]:
+          - img [ref=e66]
+        - generic [ref=e68]:
+          - generic [ref=e69]: المدير العام
+          - generic [ref=e70]: الأربعاء، 8 أبريل 2026
+        - generic [ref=e71]: م
+    - main [ref=e72]:
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - generic:
+              - img
+            - searchbox "بحث في الإعلانات..." [ref=e76]
+          - combobox [ref=e77]:
+            - option "جميع الحالات" [selected]
+            - option "منشور"
+            - option "مسودة"
+          - button "إعلان جديد" [ref=e78] [cursor=pointer]:
+            - img [ref=e79]
+            - text: إعلان جديد
+        - generic [ref=e81]:
+          - table [ref=e82]:
+            - rowgroup [ref=e83]:
+              - row "العنوان التصنيف الحالة التاريخ إجراءات" [ref=e84]:
+                - columnheader "العنوان" [ref=e85]
+                - columnheader "التصنيف" [ref=e86]
+                - columnheader "الحالة" [ref=e87]
+                - columnheader "التاريخ" [ref=e88]
+                - columnheader "إجراءات" [ref=e89]
+            - rowgroup [ref=e90]:
+              - row "ورشة عمل تدريبية لأولياء الأمور تدعوكم مدارس الندى لحضور ورشة عمل تدريبية متخصصة حول أساليب... فعاليات منشور 05/04/2026" [ref=e91]:
+                - cell "ورشة عمل تدريبية لأولياء الأمور تدعوكم مدارس الندى لحضور ورشة عمل تدريبية متخصصة حول أساليب..." [ref=e92]:
+                  - paragraph [ref=e93]: ورشة عمل تدريبية لأولياء الأمور
+                  - paragraph [ref=e94]: تدعوكم مدارس الندى لحضور ورشة عمل تدريبية متخصصة حول أساليب...
+                - cell "فعاليات" [ref=e95]:
+                  - generic [ref=e96]: فعاليات
+                - cell "منشور" [ref=e97]:
+                  - button "منشور" [ref=e98] [cursor=pointer]:
+                    - generic [ref=e100]: منشور
+                - cell "05/04/2026" [ref=e101]
+                - cell [ref=e102]:
+                  - generic [ref=e103]:
+                    - button "تعديل" [ref=e104] [cursor=pointer]:
+                      - img [ref=e105]
+                    - button "حذف" [ref=e107] [cursor=pointer]:
+                      - img [ref=e108]
+              - row "الاحتفال باليوم الوطني السعودي 94 احتفلت مدارس الندى باليوم الوطني السعودي 94 بفعاليات وأنشطة... أخبار منشور 01/04/2026" [ref=e110]:
+                - cell "الاحتفال باليوم الوطني السعودي 94 احتفلت مدارس الندى باليوم الوطني السعودي 94 بفعاليات وأنشطة..." [ref=e111]:
+                  - paragraph [ref=e112]: الاحتفال باليوم الوطني السعودي 94
+                  - paragraph [ref=e113]: احتفلت مدارس الندى باليوم الوطني السعودي 94 بفعاليات وأنشطة...
+                - cell "أخبار" [ref=e114]:
+                  - generic [ref=e115]: أخبار
+                - cell "منشور" [ref=e116]:
+                  - button "منشور" [ref=e117] [cursor=pointer]:
+                    - generic [ref=e119]: منشور
+                - cell "01/04/2026" [ref=e120]
+                - cell [ref=e121]:
+                  - generic [ref=e122]:
+                    - button "تعديل" [ref=e123] [cursor=pointer]:
+                      - img [ref=e124]
+                    - button "حذف" [ref=e126] [cursor=pointer]:
+                      - img [ref=e127]
+              - row "افتتاح باب التسجيل للعام الدراسي 1446هـ يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي... تسجيل منشور 08/04/2026" [ref=e129]:
+                - cell "افتتاح باب التسجيل للعام الدراسي 1446هـ يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي..." [ref=e130]:
+                  - paragraph [ref=e131]: افتتاح باب التسجيل للعام الدراسي 1446هـ
+                  - paragraph [ref=e132]: يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي...
+                - cell "تسجيل" [ref=e133]:
+                  - generic [ref=e134]: تسجيل
+                - cell "منشور" [ref=e135]:
+                  - button "منشور" [ref=e136] [cursor=pointer]:
+                    - generic [ref=e138]: منشور
+                - cell "08/04/2026" [ref=e139]
+                - cell [ref=e140]:
+                  - generic [ref=e141]:
+                    - button "تعديل" [ref=e142] [cursor=pointer]:
+                      - img [ref=e143]
+                    - button "حذف" [ref=e145] [cursor=pointer]:
+                      - img [ref=e146]
+              - row "افتتاح باب التسجيل للعام الدراسي 1446هـ يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي... تسجيل منشور 07/04/2026" [ref=e148]:
+                - cell "افتتاح باب التسجيل للعام الدراسي 1446هـ يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي..." [ref=e149]:
+                  - paragraph [ref=e150]: افتتاح باب التسجيل للعام الدراسي 1446هـ
+                  - paragraph [ref=e151]: يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي...
+                - cell "تسجيل" [ref=e152]:
+                  - generic [ref=e153]: تسجيل
+                - cell "منشور" [ref=e154]:
+                  - button "منشور" [ref=e155] [cursor=pointer]:
+                    - generic [ref=e157]: منشور
+                - cell "07/04/2026" [ref=e158]
+                - cell [ref=e159]:
+                  - generic [ref=e160]:
+                    - button "تعديل" [ref=e161] [cursor=pointer]:
+                      - img [ref=e162]
+                    - button "حذف" [ref=e164] [cursor=pointer]:
+                      - img [ref=e165]
+              - row "ورشة عمل تدريبية لأولياء الأمور تدعوكم مدارس الندى لحضور ورشة عمل تدريبية متخصصة حول أساليب... فعاليات منشور 04/04/2026" [ref=e167]:
+                - cell "ورشة عمل تدريبية لأولياء الأمور تدعوكم مدارس الندى لحضور ورشة عمل تدريبية متخصصة حول أساليب..." [ref=e168]:
+                  - paragraph [ref=e169]: ورشة عمل تدريبية لأولياء الأمور
+                  - paragraph [ref=e170]: تدعوكم مدارس الندى لحضور ورشة عمل تدريبية متخصصة حول أساليب...
+                - cell "فعاليات" [ref=e171]:
+                  - generic [ref=e172]: فعاليات
+                - cell "منشور" [ref=e173]:
+                  - button "منشور" [ref=e174] [cursor=pointer]:
+                    - generic [ref=e176]: منشور
+                - cell "04/04/2026" [ref=e177]
+                - cell [ref=e178]:
+                  - generic [ref=e179]:
+                    - button "تعديل" [ref=e180] [cursor=pointer]:
+                      - img [ref=e181]
+                    - button "حذف" [ref=e183] [cursor=pointer]:
+                      - img [ref=e184]
+              - row "الاحتفال باليوم الوطني السعودي 94 احتفلت مدارس الندى باليوم الوطني السعودي 94 بفعاليات وأنشطة... أخبار منشور 31/03/2026" [ref=e186]:
+                - cell "الاحتفال باليوم الوطني السعودي 94 احتفلت مدارس الندى باليوم الوطني السعودي 94 بفعاليات وأنشطة..." [ref=e187]:
+                  - paragraph [ref=e188]: الاحتفال باليوم الوطني السعودي 94
+                  - paragraph [ref=e189]: احتفلت مدارس الندى باليوم الوطني السعودي 94 بفعاليات وأنشطة...
+                - cell "أخبار" [ref=e190]:
+                  - generic [ref=e191]: أخبار
+                - cell "منشور" [ref=e192]:
+                  - button "منشور" [ref=e193] [cursor=pointer]:
+                    - generic [ref=e195]: منشور
+                - cell "31/03/2026" [ref=e196]
+                - cell [ref=e197]:
+                  - generic [ref=e198]:
+                    - button "تعديل" [ref=e199] [cursor=pointer]:
+                      - img [ref=e200]
+                    - button "حذف" [ref=e202] [cursor=pointer]:
+                      - img [ref=e203]
+              - row "افتتاح باب التسجيل للعام الدراسي 1446هـ يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي... تسجيل منشور 07/04/2026" [ref=e205]:
+                - cell "افتتاح باب التسجيل للعام الدراسي 1446هـ يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي..." [ref=e206]:
+                  - paragraph [ref=e207]: افتتاح باب التسجيل للعام الدراسي 1446هـ
+                  - paragraph [ref=e208]: يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي...
+                - cell "تسجيل" [ref=e209]:
+                  - generic [ref=e210]: تسجيل
+                - cell "منشور" [ref=e211]:
+                  - button "منشور" [ref=e212] [cursor=pointer]:
+                    - generic [ref=e214]: منشور
+                - cell "07/04/2026" [ref=e215]
+                - cell [ref=e216]:
+                  - generic [ref=e217]:
+                    - button "تعديل" [ref=e218] [cursor=pointer]:
+                      - img [ref=e219]
+                    - button "حذف" [ref=e221] [cursor=pointer]:
+                      - img [ref=e222]
+              - row "ورشة عمل تدريبية لأولياء الأمور تدعوكم مدارس الندى لحضور ورشة عمل تدريبية متخصصة حول أساليب... فعاليات منشور 04/04/2026" [ref=e224]:
+                - cell "ورشة عمل تدريبية لأولياء الأمور تدعوكم مدارس الندى لحضور ورشة عمل تدريبية متخصصة حول أساليب..." [ref=e225]:
+                  - paragraph [ref=e226]: ورشة عمل تدريبية لأولياء الأمور
+                  - paragraph [ref=e227]: تدعوكم مدارس الندى لحضور ورشة عمل تدريبية متخصصة حول أساليب...
+                - cell "فعاليات" [ref=e228]:
+                  - generic [ref=e229]: فعاليات
+                - cell "منشور" [ref=e230]:
+                  - button "منشور" [ref=e231] [cursor=pointer]:
+                    - generic [ref=e233]: منشور
+                - cell "04/04/2026" [ref=e234]
+                - cell [ref=e235]:
+                  - generic [ref=e236]:
+                    - button "تعديل" [ref=e237] [cursor=pointer]:
+                      - img [ref=e238]
+                    - button "حذف" [ref=e240] [cursor=pointer]:
+                      - img [ref=e241]
+              - row "الاحتفال باليوم الوطني السعودي 94 احتفلت مدارس الندى باليوم الوطني السعودي 94 بفعاليات وأنشطة... أخبار منشور 31/03/2026" [ref=e243]:
+                - cell "الاحتفال باليوم الوطني السعودي 94 احتفلت مدارس الندى باليوم الوطني السعودي 94 بفعاليات وأنشطة..." [ref=e244]:
+                  - paragraph [ref=e245]: الاحتفال باليوم الوطني السعودي 94
+                  - paragraph [ref=e246]: احتفلت مدارس الندى باليوم الوطني السعودي 94 بفعاليات وأنشطة...
+                - cell "أخبار" [ref=e247]:
+                  - generic [ref=e248]: أخبار
+                - cell "منشور" [ref=e249]:
+                  - button "منشور" [ref=e250] [cursor=pointer]:
+                    - generic [ref=e252]: منشور
+                - cell "31/03/2026" [ref=e253]
+                - cell [ref=e254]:
+                  - generic [ref=e255]:
+                    - button "تعديل" [ref=e256] [cursor=pointer]:
+                      - img [ref=e257]
+                    - button "حذف" [ref=e259] [cursor=pointer]:
+                      - img [ref=e260]
+              - row "افتتاح باب التسجيل للعام الدراسي 1446هـ يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي... تسجيل منشور 06/04/2026" [ref=e262]:
+                - cell "افتتاح باب التسجيل للعام الدراسي 1446هـ يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي..." [ref=e263]:
+                  - paragraph [ref=e264]: افتتاح باب التسجيل للعام الدراسي 1446هـ
+                  - paragraph [ref=e265]: يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجي...
+                - cell "تسجيل" [ref=e266]:
+                  - generic [ref=e267]: تسجيل
+                - cell "منشور" [ref=e268]:
+                  - button "منشور" [ref=e269] [cursor=pointer]:
+                    - generic [ref=e271]: منشور
+                - cell "06/04/2026" [ref=e272]
+                - cell [ref=e273]:
+                  - generic [ref=e274]:
+                    - button "تعديل" [ref=e275] [cursor=pointer]:
+                      - img [ref=e276]
+                    - button "حذف" [ref=e278] [cursor=pointer]:
+                      - img [ref=e279]
+          - navigation "Pagination Navigation" [ref=e283]:
+            - generic [ref=e284]:
+              - generic [ref=e286]: « السابق
+              - button "التالي »" [ref=e288] [cursor=pointer]

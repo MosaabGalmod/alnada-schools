@@ -44,7 +44,11 @@ class Section extends Model
                 $s['bg_to']   ?? '#1a9dc6',
             ),
             'solid' => 'background-color: ' . ($s['bg_color'] ?? '#ffffff') . ';',
-            'wave'  => 'background: linear-gradient(135deg,#f0f9fd 0%,#daf1fa 100%);',
+            'wave'  => sprintf(
+                'background: linear-gradient(135deg, %s 0%%, %s 100%%);',
+                $s['bg_from'] ?? '#f0f9fd',
+                $s['bg_to']   ?? '#daf1fa',
+            ),
             'dark'  => 'background: linear-gradient(150deg,#061f2c 0%,#0d4858 100%);',
             default => '',
         };
@@ -53,8 +57,24 @@ class Section extends Model
     public function isDark(): bool
     {
         $type = $this->style['bg_type'] ?? 'white';
-        return in_array($type, ['gradient', 'dark'], true)
-            || ($type === 'solid' && ($this->style['is_dark'] ?? false));
+        if (in_array($type, ['gradient', 'dark'], true)) {
+            return true;
+        }
+        if ($type === 'solid' && ($this->style['is_dark'] ?? false)) {
+            return true;
+        }
+        if ($type === 'wave') {
+            // detect if bg_from is dark (luminance check via hex)
+            $from = ltrim($this->style['bg_from'] ?? '#f0f9fd', '#');
+            if (strlen($from) === 6) {
+                $r = hexdec(substr($from, 0, 2));
+                $g = hexdec(substr($from, 2, 2));
+                $b = hexdec(substr($from, 4, 2));
+                $lum = 0.299 * $r + 0.587 * $g + 0.114 * $b;
+                return $lum < 80;
+            }
+        }
+        return false;
     }
 
     public function textColor(): string

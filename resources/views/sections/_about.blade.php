@@ -2,8 +2,12 @@
 @php
 	$c = $section->content ?? [];
 	$sectionBg = $section->bgCss() ?: "background:#ffffff;";
+	$aboutTitleColor = $section->headingColor() ?: "#0f172a";
+	$aboutBodyColor = $section->textColor() ?: "#475569";
 @endphp
-<section class="section" id="about" style="{{ $sectionBg }}">
+<section class="section about-section" id="about"
+	style="{{ $sectionBg }} --about-title-color: {{ $aboutTitleColor }}; --about-body-color: {{ $aboutBodyColor }};"
+	lang="ar" dir="rtl">
 	<div class="mx-auto max-w-7xl">
 		<div class="grid items-center gap-16 lg:grid-cols-2">
 
@@ -11,9 +15,9 @@
 			<div class="relative transition-all duration-700" x-data="reveal"
 				:class="visible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'">
 				<div
-					class="relative overflow-hidden rounded-4xl bg-gradient-to-br from-primary-700 to-primary-900 p-10 text-center shadow-clay-lg">
+					class="about-visual-card relative overflow-hidden rounded-4xl bg-gradient-to-br from-primary-700 to-primary-900 p-10 text-center shadow-clay-lg">
 					<div class="relative z-10">
-						<div class="mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-3xl bg-white/20">
+						<div class="about-visual-icon mx-auto mb-4 flex h-24 w-24 items-center justify-center rounded-3xl bg-white/20">
 							<svg class="h-12 w-12 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 14l9-5-9-5-9 5 9 5z" />
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
@@ -21,14 +25,16 @@
 							</svg>
 						</div>
 						<div class="font-heading text-6xl font-bold text-white">{{ $c["founding_year"] ?? "1429" }}</div>
-						<div class="text-lg text-primary-200">هـ - سنة التأسيس</div>
-						<div class="mt-6 text-sm leading-relaxed text-white/80">أكثر من 15 عامًا من التميز والعطاء<br />في مجال التعليم
-							المتخصص</div>
+						<div class="text-lg text-primary-200">{{ \App\Models\SiteSetting::get("about_year_label", "هـ - سنة التأسيس") }}
+						</div>
+						<div class="mt-6 text-sm leading-relaxed text-white/80">
+							{{ \App\Models\SiteSetting::get("about_year_sub", "أكثر من 15 عامًا من التميز والعطاء في مجال التعليم المتخصص") }}
+						</div>
 					</div>
 				</div>
 				{{-- Floating badges --}}
 				<div
-					class="floating-badge absolute -left-4 -top-4 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-card">
+					class="floating-badge about-floating-badge absolute -left-4 -top-4 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-card">
 					<div class="flex h-8 w-8 items-center justify-center rounded-xl bg-gold-100">
 						<svg class="h-4 w-4 text-gold-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -36,12 +42,12 @@
 						</svg>
 					</div>
 					<div>
-						<div class="text-xs font-bold text-gray-800">جودة معتمدة</div>
-						<div class="text-xs text-gray-400">وزارة التعليم</div>
+						<div class="about-floating-badge-title text-xs font-bold">{{ \App\Models\SiteSetting::get('about_badge1_title', 'جودة معتمدة') }}</div>
+						<div class="about-floating-badge-meta text-xs">{{ \App\Models\SiteSetting::get('about_badge1_sub', 'وزارة التعليم') }}</div>
 					</div>
 				</div>
 				<div
-					class="floating-badge absolute -bottom-4 -right-4 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-card">
+					class="floating-badge about-floating-badge absolute -bottom-4 -right-4 flex items-center gap-2 rounded-2xl bg-white px-4 py-3 shadow-card">
 					<div class="flex h-8 w-8 items-center justify-center rounded-xl bg-primary-100">
 						<svg class="h-4 w-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -49,8 +55,8 @@
 						</svg>
 					</div>
 					<div>
-						<div class="text-xs font-bold text-gray-800">بيئة آمنة</div>
-						<div class="text-xs text-gray-400">ومحفّزة للإبداع</div>
+						<div class="about-floating-badge-title text-xs font-bold">{{ \App\Models\SiteSetting::get('about_badge2_title', 'بيئة آمنة') }}</div>
+						<div class="about-floating-badge-meta text-xs">{{ \App\Models\SiteSetting::get('about_badge2_sub', 'ومحفّزة للإبداع') }}</div>
 					</div>
 				</div>
 			</div>
@@ -65,16 +71,16 @@
 					</svg>
 					{{ $c["tag"] ?? "من نحن" }}
 				</span>
-				<h2 class="section-title" style="color: {{ $section->headingColor() }}">
+				<h2 class="section-title about-title">
 					{{ $c["title"] ?? "رواد التعليم المتخصص في المدينة المنورة" }}</h2>
 
 				@if (!empty($c["body1"]))
-					<p class="{{ $section->fontSizeClass() }} mb-4 leading-relaxed" style="color: {{ $section->textColor() }}">
+					<p class="about-body-text {{ $section->fontSizeClass() }} mb-4 leading-relaxed">
 						{{ $c["body1"] }}
 					</p>
 				@endif
 				@if (!empty($c["body2"]))
-					<p class="{{ $section->fontSizeClass() }} mb-8 leading-relaxed" style="color: {{ $section->textColor() }}">
+					<p class="about-body-text {{ $section->fontSizeClass() }} mb-8 leading-relaxed">
 						{{ $c["body2"] }}
 					</p>
 				@endif
@@ -84,25 +90,25 @@
 						@if ($desc)
 							<div class="pill-card {{ $pillarCls }}">
 								<span class="badge {{ $badgeCls }} mt-0.5 shrink-0">{{ $title }}</span>
-								<p class="text-sm leading-relaxed text-gray-600">{{ $desc }}</p>
+								<p class="about-pill-text text-sm leading-relaxed">{{ $desc }}</p>
 							</div>
 						@endif
 					@endforeach
 				</div>
 
 				@if (!empty($c["accessibility_note"]))
-					<div class="mb-8 flex items-center gap-3 rounded-2xl border border-primary-100 bg-primary-50 p-4">
-						<div class="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-100">
+					<div class="about-note mb-8 flex items-center gap-3 rounded-2xl border border-primary-100 bg-primary-50 p-4">
+						<div class="about-note-icon flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-primary-100">
 							<svg class="h-5 w-5 text-primary-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
 							</svg>
 						</div>
-						<p class="text-sm font-medium text-primary-800">{{ $c["accessibility_note"] }}</p>
+						<p class="about-note-text text-sm font-medium">{{ $c["accessibility_note"] }}</p>
 					</div>
 				@endif
 
 				<a class="btn-primary" href="#contact">
-					تواصل معنا
+					{{ \App\Models\SiteSetting::get('about_cta_text', 'تواصل معنا') }}
 					<svg class="rtl-flip h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 					</svg>

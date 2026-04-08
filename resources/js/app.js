@@ -27,7 +27,7 @@ document.addEventListener('alpine:init', () => {
                     if (entry.isIntersecting && !this.animated) {
                         this.animated = true;
                         this.$el.querySelectorAll('[data-target]').forEach(el => {
-                            const target = parseInt(el.dataset.target);
+                            const target = parseInt(el.dataset.target, 10);
                             const duration = 2000;
                             const start = performance.now();
                             const tick = (now) => {
@@ -87,6 +87,29 @@ document.addEventListener('alpine:init', () => {
         },
     }));
 
+    Alpine.data('programsShowcase', (programs = []) => ({
+        programs: Array.isArray(programs) ? programs : [],
+        activeIndex: 0,
+        get activeProgram() {
+            return this.programs[this.activeIndex] ?? {
+                index: '00',
+                title: '',
+                description: '',
+                tags: [],
+                badgeClass: 'badge-green',
+                icon: '',
+            };
+        },
+        setActive(index) {
+            if (index >= 0 && index < this.programs.length) {
+                this.activeIndex = index;
+            }
+        },
+        isActive(index) {
+            return this.activeIndex === index;
+        },
+    }));
+
     // Back to top button
     Alpine.data('backToTop', () => ({
         show: false,
@@ -105,8 +128,21 @@ document.addEventListener('alpine:init', () => {
         },
     }));
 
-    // Admin sidebar layout
+    // Admin sidebar layout with dark mode persistence
     Alpine.data('adminLayout', () => ({
         sidebarOpen: window.innerWidth >= 1024,
+        darkMode: localStorage.getItem('admin-theme') === 'dark',
+        init() {
+            // Apply initial theme state to HTML element
+            document.documentElement.classList.toggle('dark', this.darkMode);
+            // Sync class whenever darkMode changes
+            this.$watch('darkMode', val => {
+                document.documentElement.classList.toggle('dark', val);
+                localStorage.setItem('admin-theme', val ? 'dark' : 'light');
+            });
+        },
+        toggleDark() {
+            this.darkMode = !this.darkMode;
+        },
     }));
 });

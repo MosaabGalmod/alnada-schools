@@ -1,0 +1,597 @@
+- generic [active] [ref=e1]:
+  - link "تخطى إلى المحتوى الرئيسي" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - main [ref=e3]:
+    - generic [ref=e5]:
+      - link "شعار مدارس الندى مدارس الندى النموذجية الأهلية" [ref=e6] [cursor=pointer]:
+        - /url: "#"
+        - img "شعار مدارس الندى" [ref=e8]
+        - generic [ref=e9]:
+          - generic [ref=e10]: مدارس الندى
+          - generic [ref=e11]: النموذجية الأهلية
+      - navigation "القائمة الرئيسية" [ref=e12]:
+        - list [ref=e13]:
+          - listitem [ref=e14]:
+            - link "الرئيسية" [ref=e15] [cursor=pointer]:
+              - /url: "#home"
+          - listitem [ref=e16]:
+            - link "من نحن" [ref=e17] [cursor=pointer]:
+              - /url: "#about"
+          - listitem [ref=e18]:
+            - link "برامجنا" [ref=e19] [cursor=pointer]:
+              - /url: "#programs"
+          - listitem [ref=e20]:
+            - link "إنجازاتنا" [ref=e21] [cursor=pointer]:
+              - /url: "#stats"
+          - listitem [ref=e22]:
+            - link "الأخبار" [ref=e23] [cursor=pointer]:
+              - /url: "#news"
+          - listitem [ref=e24]:
+            - link "تواصل معنا" [ref=e25] [cursor=pointer]:
+              - /url: "#contact"
+      - generic [ref=e26]:
+        - link "سجّل الآن" [ref=e27] [cursor=pointer]:
+          - /url: "#contact"
+          - img [ref=e28]
+          - text: سجّل الآن
+        - button "الوضع الفاتح" [ref=e30] [cursor=pointer]:
+          - img [ref=e31]
+    - generic [ref=e33]:
+      - generic [ref=e35]:
+        - generic [ref=e36]:
+          - img [ref=e37]
+          - text: منذ عام 1429هـ · المدينة المنورة
+        - heading "مدارس الندى النموذجية الأهلية" [level=1] [ref=e39]:
+          - text: مدارس الندى
+          - generic [ref=e40]: النموذجية الأهلية
+        - paragraph [ref=e41]: نُشكّل مستقبل أبنائنا بأيدٍ متخصصة وقلوب مخلصة في بيئة تعليمية آمنة ومحفّزة للإبداع
+        - generic [ref=e42]:
+          - link "التسجيل الآن" [ref=e43] [cursor=pointer]:
+            - /url: "#contact"
+            - img [ref=e44]
+            - text: التسجيل الآن
+          - link "اكتشف المزيد" [ref=e46] [cursor=pointer]:
+            - /url: "#about"
+            - img [ref=e47]
+            - text: اكتشف المزيد
+        - list "إحصائيات المدرسة" [ref=e49]:
+          - listitem [ref=e50]:
+            - generic [ref=e51]: 500+
+            - generic [ref=e52]: طالب وطالبة
+          - listitem [ref=e53]:
+            - generic [ref=e54]: 50+
+            - generic [ref=e55]: معلم متخصص
+          - listitem [ref=e56]:
+            - generic [ref=e57]: 15+
+            - generic [ref=e58]: سنة خبرة
+          - listitem [ref=e59]:
+            - generic [ref=e60]: "8"
+            - generic [ref=e61]: برامج تعليمية
+      - link "انتقل للأسفل" [ref=e62] [cursor=pointer]:
+        - /url: "#about"
+        - img [ref=e63]
+    - generic [ref=e67]:
+      - generic [ref=e68]:
+        - generic [ref=e70]:
+          - img [ref=e72]
+          - generic [ref=e75]: "1429"
+          - generic [ref=e76]: هـ - سنة التأسيس
+          - generic [ref=e77]:
+            - text: أكثر من 15 عامًا من التميز والعطاء
+            - text: في مجال التعليم المتخصص
+        - generic [ref=e78]:
+          - img [ref=e80]
+          - generic [ref=e82]:
+            - generic [ref=e83]: جودة معتمدة
+            - generic [ref=e84]: وزارة التعليم
+        - generic [ref=e85]:
+          - img [ref=e87]
+          - generic [ref=e89]:
+            - generic [ref=e90]: بيئة آمنة
+            - generic [ref=e91]: ومحفّزة للإبداع
+      - generic [ref=e92]:
+        - generic [ref=e93]:
+          - img [ref=e94]
+          - text: من نحن
+        - heading "رواد التعليم المتخصص في المدينة المنورة" [level=2] [ref=e96]
+        - paragraph [ref=e97]: مدارس الندى النموذجية الأهلية واحدة من أهم مؤسسات التربية الخاصة والدمج في المدينة المنورة، تأسست عام 1429هـ برؤية واضحة لتقديم تعليم متميز يلبي احتياجات جميع الطلاب بمن فيهم ذوو الاحتياجات الخاصة.
+        - paragraph [ref=e98]: نؤمن بأن لكل طفل قدرات وإمكانات تستحق الاحتضان والتطوير، لذا نقدم مناهج متكاملة تجمع بين الأكاديمي والتربوي والمهاري في بيئة داعمة ومحفزة.
+        - generic [ref=e99]:
+          - generic [ref=e100]:
+            - generic [ref=e101]: رؤيتنا
+            - paragraph [ref=e102]: مدرسة رائدة في التعليم المتخصص وتمكين ذوي الاحتياجات الخاصة في المنطقة
+          - generic [ref=e103]:
+            - generic [ref=e104]: رسالتنا
+            - paragraph [ref=e105]: تقديم تعليم شامل يراعي الفروق الفردية ويعزز الاندماج المجتمعي الإيجابي
+          - generic [ref=e106]:
+            - generic [ref=e107]: قيمنا
+            - paragraph [ref=e108]: الاحترام · التميز · الابتكار · الشمولية · الشراكة مع الأسرة
+        - generic [ref=e109]:
+          - img [ref=e111]
+          - paragraph [ref=e113]: المبنى مجهز بمداخل مناسبة لأصحاب الكراسي المتحركة
+        - link "تواصل معنا" [ref=e114] [cursor=pointer]:
+          - /url: "#contact"
+          - text: تواصل معنا
+          - img [ref=e115]
+    - generic [ref=e118]:
+      - generic [ref=e119]:
+        - generic [ref=e120]:
+          - img [ref=e121]
+          - text: برامجنا
+        - heading "برامج تعليمية متكاملة" [level=2] [ref=e123]
+        - paragraph [ref=e124]: منظومة متكاملة من البرامج التعليمية والتأهيلية المصممة لتلبية احتياجات كل طالب
+      - list [ref=e125]:
+        - listitem [ref=e126]:
+          - img [ref=e129]
+          - heading "التعليم العام" [level=3] [ref=e131]
+          - paragraph [ref=e132]: مناهج وزارة التعليم للمراحل الابتدائية والمتوسطة والثانوية بأساليب تدريسية متميزة
+          - generic "التخصصات" [ref=e133]:
+            - generic [ref=e134]: ابتدائي
+            - generic [ref=e135]: متوسط
+            - generic [ref=e136]: ثانوي
+        - listitem [ref=e137]:
+          - img [ref=e140]
+          - heading "التربية الخاصة" [level=3] [ref=e142]
+          - paragraph [ref=e143]: برامج متخصصة لذوي الاحتياجات الخاصة مع فريق من أمهر المعلمين والمعالجين
+          - generic "التخصصات" [ref=e144]:
+            - generic [ref=e145]: صعوبات التعلم
+            - generic [ref=e146]: التوحد ASD
+            - generic [ref=e147]: متلازمة داون
+        - listitem [ref=e148]:
+          - img [ref=e151]
+          - heading "برامج الدمج" [level=3] [ref=e153]
+          - paragraph [ref=e154]: دمج الطلاب ذوي الاحتياجات الخاصة مع أقرانهم في بيئة صفية شاملة ومحفزة
+          - generic "التخصصات" [ref=e155]:
+            - generic [ref=e156]: دمج اجتماعي
+            - generic [ref=e157]: دعم فردي
+            - generic [ref=e158]: تقييم مستمر
+        - listitem [ref=e159]:
+          - img [ref=e162]
+          - heading "رياض الأطفال" [level=3] [ref=e164]
+          - paragraph [ref=e165]: بيئة تعليمية لعبية آمنة لتنمية القدرات المعرفية والاجتماعية والحركية للأطفال
+          - generic "التخصصات" [ref=e166]:
+            - generic [ref=e167]: التعلم باللعب
+            - generic [ref=e168]: تنمية اللغة
+            - generic [ref=e169]: المهارات الحياتية
+        - listitem [ref=e170]:
+          - img [ref=e173]
+          - heading "العلاج الوظيفي" [level=3] [ref=e175]
+          - paragraph [ref=e176]: جلسات متخصصة لتحسين المهارات الحركية الدقيقة والحسية وتطوير الاستقلالية الذاتية
+          - generic "التخصصات" [ref=e177]:
+            - generic [ref=e178]: تكامل حسي
+            - generic [ref=e179]: مهارات حركية
+            - generic [ref=e180]: استقلالية ذاتية
+        - listitem [ref=e181]:
+          - img [ref=e184]
+          - heading "علاج النطق" [level=3] [ref=e186]
+          - paragraph [ref=e187]: خدمات متخصصة لتحسين التواصل اللغوي وتطوير مهارات النطق واللغة لدى الطلاب
+          - generic "التخصصات" [ref=e188]:
+            - generic [ref=e189]: اضطرابات النطق
+            - generic [ref=e190]: تأخر اللغة
+            - generic [ref=e191]: التواصل البديل
+    - generic [ref=e193]:
+      - generic [ref=e194]:
+        - generic [ref=e195]: إنجازاتنا
+        - heading "أرقام تتحدث عن نجاحنا" [level=2] [ref=e196]
+      - list "إحصائيات الإنجازات" [ref=e197]:
+        - listitem [ref=e198]:
+          - img [ref=e200]
+          - generic [ref=e202]: 0+
+          - generic [ref=e203]: طالب وطالبة
+        - listitem [ref=e204]:
+          - img [ref=e206]
+          - generic [ref=e208]: 0+
+          - generic [ref=e209]: معلم متخصص
+        - listitem [ref=e210]:
+          - img [ref=e212]
+          - generic [ref=e214]: 0+
+          - generic [ref=e215]: سنة خبرة
+        - listitem [ref=e216]:
+          - img [ref=e218]
+          - generic [ref=e220]: "0"
+          - generic [ref=e221]: برامج تعليمية
+        - listitem [ref=e222]:
+          - img [ref=e224]
+          - generic [ref=e226]: 0%
+          - generic [ref=e227]: رضا أولياء الأمور
+    - region "ما يميزنا عن غيرنا" [ref=e228]:
+      - generic [ref=e230]:
+        - generic [ref=e231]:
+          - generic [ref=e232]:
+            - generic [ref=e233]: لماذا الندى؟
+            - heading "ما يميزنا عن غيرنا" [level=2] [ref=e234]
+            - paragraph [ref=e235]: "نرتب تجربة ولي الأمر حول 6 محاور واضحة: كادر متخصص، خطة فردية، بيئة مهيأة، وشراكة متابعة تجعل جودة المدرسة قابلة للملاحظة منذ أول تواصل."
+          - complementary "مؤشرات الثقة" [ref=e236]:
+            - paragraph [ref=e237]: صورة سريعة
+            - heading "وضوح أكبر في القيمة التي يحصل عليها ولي الأمر." [level=3] [ref=e238]
+            - paragraph [ref=e239]: بدلاً من بطاقات متشابهة فقط، يجمع هذا القسم بين ملخص سريع ومحاور تفصيلية قابلة للمسح البصري.
+            - generic [ref=e240]:
+              - generic [ref=e241]:
+                - term [ref=e242]: محاور التميز
+                - definition [ref=e243]: "6"
+              - generic [ref=e244]:
+                - term [ref=e245]: الاعتماد
+                - definition [ref=e246]: رسمي
+              - generic [ref=e247]:
+                - term [ref=e248]: الشراكة
+                - definition [ref=e249]: أسرة + مدرسة
+        - list "عناصر التميز" [ref=e250]:
+          - listitem [ref=e251]:
+            - article [ref=e252]:
+              - generic [ref=e253]:
+                - generic [ref=e254]: "01"
+                - generic [ref=e255]: كوادر
+              - generic [ref=e256]:
+                - img [ref=e258]
+                - generic [ref=e260]:
+                  - heading "كوادر متخصصة" [level=3] [ref=e261]
+                  - paragraph [ref=e262]: فريق من المعلمين والمعالجين المؤهلين بأعلى الشهادات في التربية الخاصة والعلاج النفسي والوظيفي
+          - listitem [ref=e263]:
+            - article [ref=e264]:
+              - generic [ref=e265]:
+                - generic [ref=e266]: "02"
+                - generic [ref=e267]: منهجية
+              - generic [ref=e268]:
+                - img [ref=e270]
+                - generic [ref=e272]:
+                  - heading "تقييم فردي شامل" [level=3] [ref=e273]
+                  - paragraph [ref=e274]: نبدأ بتقييم شامل لكل طالب لوضع خطة تعليمية فردية مخصصة لقدراته واحتياجاته الخاصة
+          - listitem [ref=e275]:
+            - article [ref=e276]:
+              - generic [ref=e277]:
+                - generic [ref=e278]: "03"
+                - generic [ref=e279]: تهيئة
+              - generic [ref=e280]:
+                - img [ref=e282]
+                - generic [ref=e284]:
+                  - heading "بيئة آمنة ومحفزة" [level=3] [ref=e285]
+                  - paragraph [ref=e286]: مرافق حديثة مجهزة بأعلى معايير السلامة، مناسبة لأصحاب الكراسي المتحركة وذوي الاحتياجات الخاصة
+          - listitem [ref=e287]:
+            - article [ref=e288]:
+              - generic [ref=e289]:
+                - generic [ref=e290]: "04"
+                - generic [ref=e291]: شراكة
+              - generic [ref=e292]:
+                - img [ref=e294]
+                - generic [ref=e296]:
+                  - heading "شراكة مع الأسرة" [level=3] [ref=e297]
+                  - paragraph [ref=e298]: نؤمن بدور الأسرة فنقدم برامج توعية وتدريب منتظمة لأولياء الأمور لتعزيز التعاون المثمر
+          - listitem [ref=e299]:
+            - article [ref=e300]:
+              - generic [ref=e301]:
+                - generic [ref=e302]: "05"
+                - generic [ref=e303]: متابعة
+              - generic [ref=e304]:
+                - img [ref=e306]
+                - generic [ref=e308]:
+                  - heading "متابعة مستمرة" [level=3] [ref=e309]
+                  - paragraph [ref=e310]: تقارير دورية مفصلة عن تقدم الطالب في جميع المجالات الأكاديمية والاجتماعية والعلاجية
+          - listitem [ref=e311]:
+            - article [ref=e312]:
+              - generic [ref=e313]:
+                - generic [ref=e314]: "06"
+                - generic [ref=e315]: اعتماد
+              - generic [ref=e316]:
+                - img [ref=e318]
+                - generic [ref=e320]:
+                  - heading "اعتماد وجودة" [level=3] [ref=e321]
+                  - paragraph [ref=e322]: مدرسة معتمدة من وزارة التعليم السعودية مستوفية لجميع معايير الجودة والتميز التعليمي
+    - generic [ref=e324]:
+      - generic [ref=e325]:
+        - generic [ref=e326]: أخبار وفعاليات
+        - heading "آخر الأخبار والإعلانات" [level=2] [ref=e327]
+      - generic [ref=e328]:
+        - article [ref=e329] [cursor=pointer]:
+          - generic [ref=e330]:
+            - generic [ref=e331]: تسجيل
+            - time [ref=e332]: 10 hours ago
+          - heading "افتتاح باب التسجيل للعام الدراسي 1446هـ" [level=3] [ref=e333]
+          - paragraph [ref=e334]: يسعد مدارس الندى النموذجية الأهلية الإعلان عن فتح باب التسجيل والقبول للعام الدراسي الجديد 1446هـ لجميع المراحل الدراسية. يرجى التواصل مع الإدارة للحصول على المزيد من التفاصيل وشروط القبول.
+        - article [ref=e335] [cursor=pointer]:
+          - generic [ref=e336]:
+            - generic [ref=e337]: فعاليات
+            - time [ref=e338]: 10 hours ago
+          - heading "ورشة عمل تدريبية لأولياء الأمور" [level=3] [ref=e339]
+          - paragraph [ref=e340]: تدعوكم مدارس الندى لحضور ورشة عمل تدريبية متخصصة حول أساليب التعامل مع ذوي الاحتياجات الخاصة في المنزل. الورشة مجانية ومفتوحة لجميع أولياء الأمور.
+        - article [ref=e341] [cursor=pointer]:
+          - generic [ref=e342]:
+            - generic [ref=e343]: أخبار
+            - time [ref=e344]: 10 hours ago
+          - heading "الاحتفال باليوم الوطني السعودي 94" [level=3] [ref=e345]
+          - paragraph [ref=e346]: احتفلت مدارس الندى باليوم الوطني السعودي 94 بفعاليات وأنشطة متنوعة شارك فيها الطلاب والكادر التعليمي في أجواء احتفالية مميزة تعكس الانتماء الوطني.
+    - generic [ref=e348]:
+      - generic [ref=e349]:
+        - generic [ref=e350]: آراء أولياء الأمور
+        - heading "ماذا يقول آباؤنا وأمهاتنا" [level=2] [ref=e351]
+      - list [ref=e352]:
+        - listitem [ref=e353]:
+          - generic [ref=e354]: "\""
+          - generic "تقييم 5 نجوم" [ref=e355]:
+            - img [ref=e356]
+            - img [ref=e358]
+            - img [ref=e360]
+            - img [ref=e362]
+            - img [ref=e364]
+          - paragraph [ref=e366]: "\"مدارس الندى غيّرت حياة ابني تمامًا. الفريق المتخصص والبيئة الداعمة ساعدته على التطور بشكل لم نتوقعه أبدًا. شكرًا جزيلًا لكل الكادر الرائع.\""
+          - generic [ref=e367]:
+            - generic [ref=e368]: أم
+            - generic [ref=e369]:
+              - generic [ref=e370]: أم محمد
+              - generic [ref=e371]: ولي أمر - التربية الخاصة
+        - listitem [ref=e372]:
+          - generic [ref=e373]: "\""
+          - generic "تقييم 5 نجوم" [ref=e374]:
+            - img [ref=e375]
+            - img [ref=e377]
+            - img [ref=e379]
+            - img [ref=e381]
+            - img [ref=e383]
+          - paragraph [ref=e385]: "\"الحمد لله على هذه المدرسة الرائعة. ابنتي تحسنت كثيرًا في النطق والتواصل الاجتماعي. المعلمات متفانيات ومهنيات بشكل استثنائي.\""
+          - generic [ref=e386]:
+            - generic [ref=e387]: أخ
+            - generic [ref=e388]:
+              - generic [ref=e389]: أبو خالد
+              - generic [ref=e390]: ولي أمر - برنامج الدمج
+        - listitem [ref=e391]:
+          - generic [ref=e392]: "\""
+          - generic "تقييم 5 نجوم" [ref=e393]:
+            - img [ref=e394]
+            - img [ref=e396]
+            - img [ref=e398]
+            - img [ref=e400]
+            - img [ref=e402]
+          - paragraph [ref=e404]: "\"برنامج التربية الخاصة في الندى من أفضل ما رأيته. الاهتمام الفردي بكل طالب يجعل الفرق واضحًا جدًا. أنصح كل عائلة بالتسجيل.\""
+          - generic [ref=e405]:
+            - generic [ref=e406]: أن
+            - generic [ref=e407]:
+              - generic [ref=e408]: أم نورة
+              - generic [ref=e409]: ولي أمر - التوحد
+    - generic [ref=e411]:
+      - generic [ref=e412]:
+        - generic [ref=e413]: تواصل معنا
+        - heading "نحن هنا لمساعدتك" [level=2] [ref=e414]
+        - paragraph [ref=e415]: تواصل معنا عبر أي وسيلة أو أرسل رسالتك مباشرة
+      - generic [ref=e416]:
+        - generic [ref=e417]:
+          - generic [ref=e418]:
+            - img [ref=e420]
+            - generic [ref=e423]:
+              - generic [ref=e424]: العنوان
+              - paragraph [ref=e425]: (2957) شارع الحسين بن علي بن الأسود، حي البركة (8393)، المدينة المنورة 42332
+          - 'link "اتصل بنا: +966 14 848 2306" [ref=e426] [cursor=pointer]':
+            - /url: tel:+966148482306
+            - img [ref=e428]
+            - generic [ref=e430]:
+              - generic [ref=e431]: الهاتف
+              - generic [ref=e432]: +966 14 848 2306
+          - 'link "راسلنا على: alnadaiec@gmail.com" [ref=e433] [cursor=pointer]':
+            - /url: mailto:alnadaiec@gmail.com
+            - img [ref=e435]
+            - generic [ref=e437]:
+              - generic [ref=e438]: البريد الإلكتروني
+              - generic [ref=e439]: alnadaiec@gmail.com
+          - generic [ref=e440]:
+            - img [ref=e442]
+            - generic [ref=e444]:
+              - generic [ref=e445]: ساعات العمل
+              - generic [ref=e446]: "الأحد – الخميس: 7:00ص – 1:00م | الجمعة والسبت: مغلق"
+          - iframe [ref=e448]:
+            - link "‏الفتح في \"خرائط Google\" (يتم فتح الرابط في علامة تبويب جديدة)" [ref=f13e6] [cursor=pointer]:
+              - /url: about:invalid#zClosurez
+              - text: ‏الفتح في "خرائط Google"
+              - img [ref=f13e8]
+          - generic "وسائل التواصل الاجتماعي" [ref=e449]:
+            - link "Instagram" [ref=e450] [cursor=pointer]:
+              - /url: https://www.instagram.com/alnada_school/
+              - img [ref=e451]
+            - link "X (تويتر)" [ref=e453] [cursor=pointer]:
+              - /url: https://x.com/AIEC_
+              - img [ref=e454]
+            - link "Facebook" [ref=e456] [cursor=pointer]:
+              - /url: https://www.facebook.com/Alnada2021/
+              - img [ref=e457]
+            - link "WhatsApp" [ref=e459] [cursor=pointer]:
+              - /url: https://wa.me/966559281924
+              - img [ref=e460]
+        - generic [ref=e463]:
+          - heading "أرسل لنا رسالة" [level=3] [ref=e464]
+          - generic [ref=e466]:
+            - generic [ref=e467]:
+              - generic [ref=e468]:
+                - generic [ref=e469]: الاسم الكامل *
+                - textbox "الاسم الكامل" [ref=e470]:
+                  - /placeholder: اسمك الكريم
+              - generic [ref=e471]:
+                - generic [ref=e472]: رقم الجوال *
+                - textbox "رقم الجوال" [ref=e473]:
+                  - /placeholder: 05XXXXXXXX
+            - generic [ref=e474]:
+              - generic [ref=e475]: البريد الإلكتروني
+              - textbox "البريد الإلكتروني" [ref=e476]:
+                - /placeholder: email@example.com
+            - generic [ref=e477]:
+              - generic [ref=e478]: موضوع الرسالة
+              - combobox "موضوع الرسالة" [ref=e479] [cursor=pointer]:
+                - option "اختر الموضوع" [disabled] [selected]
+                - option "التسجيل والالتحاق"
+                - option "الاستفسار عن البرامج"
+                - option "الرسوم الدراسية"
+                - option "الشراكة المجتمعية"
+                - option "أخرى"
+            - generic [ref=e480]:
+              - generic [ref=e481]: رسالتك *
+              - textbox "رسالتك" [ref=e482]:
+                - /placeholder: اكتب رسالتك هنا...
+            - button "إرسال الرسالة" [ref=e483] [cursor=pointer]:
+              - generic [ref=e484]:
+                - img [ref=e485]
+                - text: إرسال الرسالة
+    - generic "لنبدأ الرحلة التعليمية المناسبة لابنكم" [ref=e487]:
+      - img [ref=e489]
+      - generic [ref=e491]:
+        - region "دعوة للتواصل" [ref=e492]:
+          - generic [ref=e493]:
+            - generic [ref=e494]:
+              - generic [ref=e495]: قبول وتسجيل وبرامج متخصصة تحت إشراف تعليمي معتمد
+              - heading "لنبدأ الرحلة التعليمية المناسبة لابنكم" [level=2] [ref=e497]
+              - paragraph [ref=e498]: فريقنا يجيب عن الاستفسارات، يشرح البرامج، ويرتب زيارة تعريفية بسرعة ووضوح. صُمم هذا القسم ليقود مباشرة إلى التواصل أو التسجيل دون تشتيت.
+            - generic [ref=e499]:
+              - link "ابدأ رحلة التسجيل" [ref=e500] [cursor=pointer]:
+                - /url: "#contact"
+              - link "اتصل الآن" [ref=e501] [cursor=pointer]:
+                - /url: tel:+966148482306
+        - generic [ref=e502]:
+          - generic [ref=e503]:
+            - generic [ref=e504]:
+              - link "مدارس الندى - الصفحة الرئيسية" [ref=e505] [cursor=pointer]:
+                - /url: "#home"
+                - img [ref=e507]
+                - generic [ref=e508]:
+                  - generic [ref=e509]: مدارس الندى
+                  - generic [ref=e510]: النموذجية الأهلية
+              - paragraph [ref=e511]: رائدة في التربية الخاصة والدمج بالمدينة المنورة منذ عام 1429هـ. نركز على وضوح التواصل، موثوقية الخدمة، وتجربة رقمية تعكس جودة المدرسة.
+              - generic [ref=e512]:
+                - generic [ref=e513]:
+                  - term [ref=e514]: بداية التميز
+                  - definition [ref=e515]: 1429هـ
+                - generic [ref=e516]:
+                  - term [ref=e517]: المرجعية
+                  - definition [ref=e518]: اعتماد وزارة التعليم
+                - generic [ref=e519]:
+                  - term [ref=e520]: التجربة
+                  - definition [ref=e521]: بيئة تعليمية واضحة ومساندة للأسرة من أول تواصل
+              - list "وسائل التواصل الاجتماعي" [ref=e522]:
+                - listitem [ref=e523]:
+                  - link "إنستغرام — مدارس الندى" [ref=e524] [cursor=pointer]:
+                    - /url: https://www.instagram.com/alnada_school/
+                    - img [ref=e525]
+                - listitem [ref=e527]:
+                  - link "تويتر / إكس — مدارس الندى" [ref=e528] [cursor=pointer]:
+                    - /url: https://x.com/AIEC_
+                    - img [ref=e529]
+                - listitem [ref=e531]:
+                  - link "فيسبوك — مدارس الندى" [ref=e532] [cursor=pointer]:
+                    - /url: https://www.facebook.com/Alnada2021/
+                    - img [ref=e533]
+                - listitem [ref=e535]:
+                  - link "واتساب — مدارس الندى" [ref=e536] [cursor=pointer]:
+                    - /url: https://wa.me/966559281924
+                    - img [ref=e537]
+            - region "التنقل السريع" [ref=e539]:
+              - generic [ref=e540]:
+                - generic [ref=e541]:
+                  - paragraph [ref=e542]: خريطة سريعة
+                  - heading "كل ما يحتاجه ولي الأمر في مكان واحد" [level=3] [ref=e543]
+                  - paragraph [ref=e544]: روابط أساسية مختصرة لتقليل التمرير والوصول السريع إلى البرامج والمعلومات الرئيسية.
+                - generic [ref=e545]: تنقل مباشر وواضح
+              - generic [ref=e546]:
+                - navigation "روابط سريعة" [ref=e547]:
+                  - heading "روابط سريعة" [level=3] [ref=e548]
+                  - list [ref=e549]:
+                    - listitem [ref=e550]:
+                      - link "الرئيسية" [ref=e551] [cursor=pointer]:
+                        - /url: "#home"
+                        - generic [ref=e552]: الرئيسية
+                        - img [ref=e553]
+                    - listitem [ref=e555]:
+                      - link "من نحن" [ref=e556] [cursor=pointer]:
+                        - /url: "#about"
+                        - generic [ref=e557]: من نحن
+                        - img [ref=e558]
+                    - listitem [ref=e560]:
+                      - link "برامجنا" [ref=e561] [cursor=pointer]:
+                        - /url: "#programs"
+                        - generic [ref=e562]: برامجنا
+                        - img [ref=e563]
+                    - listitem [ref=e565]:
+                      - link "إنجازاتنا" [ref=e566] [cursor=pointer]:
+                        - /url: "#stats"
+                        - generic [ref=e567]: إنجازاتنا
+                        - img [ref=e568]
+                    - listitem [ref=e570]:
+                      - link "الأخبار" [ref=e571] [cursor=pointer]:
+                        - /url: "#news"
+                        - generic [ref=e572]: الأخبار
+                        - img [ref=e573]
+                    - listitem [ref=e575]:
+                      - link "تواصل معنا" [ref=e576] [cursor=pointer]:
+                        - /url: "#contact"
+                        - generic [ref=e577]: تواصل معنا
+                        - img [ref=e578]
+                - navigation "برامجنا" [ref=e580]:
+                  - heading "برامجنا" [level=3] [ref=e581]
+                  - list [ref=e582]:
+                    - listitem [ref=e583]:
+                      - link "التعليم العام" [ref=e584] [cursor=pointer]:
+                        - /url: "#programs"
+                        - generic [ref=e585]: التعليم العام
+                        - img [ref=e586]
+                    - listitem [ref=e588]:
+                      - link "التربية الخاصة" [ref=e589] [cursor=pointer]:
+                        - /url: "#programs"
+                        - generic [ref=e590]: التربية الخاصة
+                        - img [ref=e591]
+                    - listitem [ref=e593]:
+                      - link "برامج الدمج" [ref=e594] [cursor=pointer]:
+                        - /url: "#programs"
+                        - generic [ref=e595]: برامج الدمج
+                        - img [ref=e596]
+                    - listitem [ref=e598]:
+                      - link "رياض الأطفال" [ref=e599] [cursor=pointer]:
+                        - /url: "#programs"
+                        - generic [ref=e600]: رياض الأطفال
+                        - img [ref=e601]
+                    - listitem [ref=e603]:
+                      - link "علاج النطق" [ref=e604] [cursor=pointer]:
+                        - /url: "#programs"
+                        - generic [ref=e605]: علاج النطق
+                        - img [ref=e606]
+                    - listitem [ref=e608]:
+                      - link "العلاج الوظيفي" [ref=e609] [cursor=pointer]:
+                        - /url: "#programs"
+                        - generic [ref=e610]: العلاج الوظيفي
+                        - img [ref=e611]
+          - region "معلومات التواصل" [ref=e613]:
+            - paragraph [ref=e614]: قنوات مباشرة
+            - heading "تواصل سريع دون بحث إضافي" [level=3] [ref=e615]
+            - paragraph [ref=e616]: كل وسائل التواصل الأساسية وساعات العمل في بطاقة واحدة، مع أولوية للوصول الهاتفي السريع.
+            - generic [ref=e617]:
+              - link "الهاتف +966 14 848 2306" [ref=e618] [cursor=pointer]:
+                - /url: tel:+966148482306
+                - img [ref=e620]
+                - generic [ref=e622]:
+                  - generic [ref=e623]: الهاتف
+                  - text: +966 14 848 2306
+              - link "البريد الإلكتروني alnadaiec@gmail.com" [ref=e624] [cursor=pointer]:
+                - /url: mailto:alnadaiec@gmail.com
+                - img [ref=e626]
+                - generic [ref=e628]:
+                  - generic [ref=e629]: البريد الإلكتروني
+                  - text: alnadaiec@gmail.com
+              - generic [ref=e630]:
+                - img [ref=e632]
+                - generic [ref=e634]:
+                  - generic [ref=e635]: العنوان
+                  - text: (2957) شارع الحسين بن علي بن الأسود، حي البركة (8393)، المدينة المنورة 42332
+              - generic [ref=e636]:
+                - img [ref=e638]
+                - generic [ref=e640]:
+                  - generic [ref=e641]: ساعات العمل
+                  - text: "الأحد – الخميس: 7:00ص – 1:00م | الجمعة والسبت: مغلق"
+            - generic [ref=e642]:
+              - link "اتصال مباشر" [ref=e643] [cursor=pointer]:
+                - /url: tel:+966148482306
+              - link "إرسال استفسار" [ref=e644] [cursor=pointer]:
+                - /url: "#contact"
+        - generic [ref=e646]:
+          - paragraph [ref=e647]: © 2026 مدارس الندى النموذجية الأهلية. جميع الحقوق محفوظة.
+          - navigation "روابط التذييل السفلي" [ref=e648]:
+            - link "سياسة الخصوصية" [ref=e649] [cursor=pointer]:
+              - /url: "#"
+            - link "شروط الاستخدام" [ref=e650] [cursor=pointer]:
+              - /url: "#"
+            - link "لوحة التحكم" [ref=e651] [cursor=pointer]:
+              - /url: http://127.0.0.1:8000/admin/login
+    - link "لوحة التحكم" [ref=e653] [cursor=pointer]:
+      - /url: http://127.0.0.1:8000/admin/login
+      - img [ref=e654]

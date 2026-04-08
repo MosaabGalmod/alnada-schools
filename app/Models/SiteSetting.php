@@ -52,4 +52,29 @@ class SiteSetting extends Model
             return static::all()->pluck('value', 'key')->toArray();
         });
     }
+
+    public static function logoUrl(string $default = 'logo.svg'): string
+    {
+        $path = static::get('logo_path', '');
+        if ($path && \Illuminate\Support\Facades\Storage::disk('public')->exists($path)) {
+            return \Illuminate\Support\Facades\Storage::disk('public')->url($path);
+        }
+
+        return asset($default);
+    }
+
+    public static function faviconUrl(): string
+    {
+        $path = static::get('favicon_path', '');
+        if ($path && \Illuminate\Support\Facades\Storage::disk('public')->exists($path)) {
+            return \Illuminate\Support\Facades\Storage::disk('public')->url($path);
+        }
+
+        return asset('logo-sm.png');
+    }
+
+    public static function siteName(): string
+    {
+        return static::get('site_name', 'مدارس الندى النموذجية الأهلية');
+    }
 }

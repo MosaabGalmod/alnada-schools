@@ -11,7 +11,7 @@
 			<div class="mb-8 text-center">
 				<div
 					class="mx-auto mb-4 flex h-20 w-20 items-center justify-center overflow-hidden rounded-3xl bg-white shadow-clay-lg">
-					<img class="h-auto w-16 object-contain" src="{{ asset("logo.svg") }}" alt="شعار مدارس الندى">
+					<img class="h-auto w-16 object-contain" src="{{ \App\Models\SiteSetting::logoUrl() }}" alt="شعار مدارس الندى">
 				</div>
 				<h1 class="font-heading text-2xl font-bold text-white">لوحة التحكم</h1>
 				<p class="mt-1 text-sm text-white/70">مدارس الندى النموذجية الأهلية</p>

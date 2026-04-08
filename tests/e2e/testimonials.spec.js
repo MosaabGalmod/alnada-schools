@@ -1,8 +1,8 @@
 // @ts-check
-const {
+import {
     test,
     expect
-} = require('@playwright/test');
+} from '@playwright/test';
 
 const BASE_URL = 'http://127.0.0.1:8000';
 
@@ -143,7 +143,7 @@ test.describe('Testimonials Section', () => {
         const box = await list.boundingBox();
         expect(box).not.toBeNull();
         // Cards should not overflow viewport
-        expect(box!.width).toBeLessThanOrEqual(375);
+        expect(box.width).toBeLessThanOrEqual(375);
     });
 
     test('shows 3-column grid on desktop (1440px)', async ({
@@ -169,8 +169,8 @@ test.describe('Testimonials Section', () => {
         expect(box2).not.toBeNull();
 
         // In 3-col grid, all cards should be on the same row (similar y)
-        expect(Math.abs(box0!.y - box1!.y)).toBeLessThan(20);
-        expect(Math.abs(box1!.y - box2!.y)).toBeLessThan(20);
+        expect(Math.abs(box0.y - box1.y)).toBeLessThan(20);
+        expect(Math.abs(box1.y - box2.y)).toBeLessThan(20);
     });
 
     // ── Visual snapshot ─────────────────────────────────────────────────

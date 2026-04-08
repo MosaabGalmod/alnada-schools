@@ -6,9 +6,12 @@ use App\Http\Controllers\Admin\AnnouncementsController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\MessagesController;
+use App\Http\Controllers\Admin\PoliciesController;
+use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\SectionsController;
 use App\Http\Controllers\Admin\SettingsController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\PolicyController;
 use App\Http\Middleware\AdminAuthenticated;
 use Illuminate\Support\Facades\Route;
 
@@ -29,5 +32,11 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::get('messages',      [MessagesController::class,      'index'])->name('messages');
         Route::get('sections',      [SectionsController::class,      'index'])->name('sections');
         Route::get('settings',      [SettingsController::class,      'index'])->name('settings');
+        Route::get('profile',       [ProfileController::class,       'index'])->name('profile');
+        Route::get('policies',      [PoliciesController::class,      'index'])->name('policies');
     });
 });
+
+// ===== Public Policy Pages =====
+Route::get('privacy-policy', [PolicyController::class, 'privacy'])->name('privacy.policy');
+Route::get('terms-of-use',   [PolicyController::class, 'terms'])->name('terms.of.use');

@@ -1,0 +1,27 @@
+- generic [active] [ref=e1]:
+  - link "تخطى إلى المحتوى الرئيسي" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e6]:
+    - generic [ref=e7]:
+      - img "شعار مدارس الندى" [ref=e9]
+      - heading "لوحة التحكم" [level=1] [ref=e10]
+      - paragraph [ref=e11]: مدارس الندى النموذجية الأهلية
+    - generic [ref=e12]:
+      - heading "تسجيل الدخول" [level=2] [ref=e13]
+      - generic [ref=e14]:
+        - generic [ref=e15]:
+          - generic [ref=e16]: اسم المستخدم
+          - generic [ref=e17]:
+            - textbox "admin" [ref=e18]
+            - img [ref=e20]
+        - generic [ref=e22]:
+          - generic [ref=e23]: كلمة المرور
+          - generic [ref=e24]:
+            - textbox "••••••••" [ref=e25]
+            - button [ref=e26] [cursor=pointer]:
+              - img [ref=e27]
+        - button "تسجيل الدخول" [ref=e30] [cursor=pointer]:
+          - img [ref=e31]
+          - text: تسجيل الدخول
+      - link "← العودة للموقع" [ref=e34] [cursor=pointer]:
+        - /url: http://127.0.0.1:8000

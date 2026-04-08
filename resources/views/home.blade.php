@@ -65,17 +65,17 @@
 				<a class="group flex items-center gap-3" href="#">
 					<div
 						class="logo-bg flex h-11 w-11 items-center justify-center overflow-hidden rounded-2xl bg-white shadow-clay transition-all group-hover:shadow-clay-lg">
-						<img class="h-auto w-9 object-contain" src="{{ asset("logo.svg") }}" alt="شعار مدارس الندى">
+						<img class="h-auto w-9 object-contain" src="{{ \App\Models\SiteSetting::logoUrl() }}" alt="شعار مدارس الندى">
 					</div>
 					<div class="leading-tight">
 						<div class="font-heading text-base font-bold transition-colors"
 							:class="scrolled ? (document.documentElement.classList.contains('dark') ? 'text-primary-100' : 'text-primary-800') :
 							    'text-white'">
-							مدارس الندى</div>
+							{{ \App\Models\SiteSetting::get('nav_brand_line1', 'مدارس الندى') }}</div>
 						<div class="text-xs transition-colors"
 							:class="scrolled ? (document.documentElement.classList.contains('dark') ? 'text-primary-300' : 'text-gray-500') :
 							    'text-primary-100'">
-							النموذجية الأهلية
+							{{ \App\Models\SiteSetting::get('nav_brand_line2', 'النموذجية الأهلية') }}
 						</div>
 					</div>
 				</a>
@@ -101,7 +101,7 @@
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 								d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
 						</svg>
-						سجّل الآن
+						{{ \App\Models\SiteSetting::get('nav_cta_text', 'سجّل الآن') }}
 					</a>
 
 					{{-- Dark Mode Toggle (3-state: auto → dark → light → auto) --}}
@@ -180,7 +180,7 @@
 						href="{{ $item["href"] }}" @click="mobileOpen=false">{{ $item["label"] }}</a>
 				@endforeach
 				<div class="border-t border-gray-100 pt-2 dark:border-gray-700/50">
-					<a class="btn-primary mt-2 w-full justify-center" href="#contact">سجّل الآن</a>
+					<a class="btn-primary mt-2 w-full justify-center" href="#contact">{{ \App\Models\SiteSetting::get('nav_cta_text', 'سجّل الآن') }}</a>
 				</div>
 			</nav>
 		</header>

@@ -16,7 +16,9 @@
 			<h2 class="section-title" id="testimonials-heading" style="color: {{ $section->headingColor() }}">
 				{{ $c["title"] ?? "ماذا يقول آباؤنا وأمهاتنا" }}
 			</h2>
-			<p class="testi-intro">تجارب حقيقية من أولياء أمور وثقوا في مدارس النداء — بأصواتهم وبكلماتهم.</p>
+			<p class="testi-intro">
+				{{ \App\Models\SiteSetting::get("testimonials_intro", "تجارب حقيقية من أولياء أمور وثقوا في مدارس الندى — بأصواتهم وبكلماتهم.") }}
+			</p>
 		</div>
 
 		{{-- Cards --}}
