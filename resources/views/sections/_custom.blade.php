@@ -30,7 +30,7 @@
 	}
 @endphp
 
-<section class="section custom-section" data-testid="custom-section" aria-labelledby="{{ $headingId }}"
+<section id="{{ $section->key }}" class="section custom-section" data-testid="custom-section" aria-labelledby="{{ $headingId }}"
 	style="{{ $section->bgCss() ?: "background:#ffffff;" }} --custom-heading-color: {{ $section->headingColor() }}; --custom-body-color: {{ $section->textColor() }};"
 	lang="ar" dir="rtl">
 	<div class="mx-auto max-w-5xl">

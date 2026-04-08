@@ -47,7 +47,19 @@
 @endsection
 
 @section("content")
-	@php($mainNavigation = config("navigation.main", []))
+	@php
+		$mainNavigation = config("navigation.main", []);
+		// Inject visible custom sections into navigation after the static items
+		$customNavItems = $sections
+			->filter(fn($s) => $s->type === 'custom')
+			->map(fn($s) => [
+				'href'  => '#' . $s->key,
+				'label' => $s->content['title'] ?? $s->label,
+			])
+			->values()
+			->toArray();
+		$mainNavigation = array_merge($mainNavigation, $customNavItems);
+	@endphp
 
 	<main class="home-shell" id="main-content" role="main">
 		<div class="pointer-events-none absolute inset-x-0 top-0 -z-10 overflow-hidden" aria-hidden="true">
