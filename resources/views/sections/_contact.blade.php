@@ -11,7 +11,7 @@
 @endphp
 
 <section class="section contact-section" id="contact" data-testid="contact-section" aria-labelledby="contact-heading"
-	style="{{ $section->bgCss() ?: "background: linear-gradient(135deg,#f0f9fd 0%,#daf1fa 100%);" }} --contact-heading-color: {{ $section->headingColor() }}; --contact-body-color: {{ $section->textColor() }};"
+	style="{{ $section->bgCss() ?: "background: linear-gradient(135deg,#f0f9fd 0%,#daf1fa 100%);" }} {{ $section->isDark() || $section->headingColor() ? "--contact-heading-color: {$section->headingColor()}; --contact-body-color: {$section->textColor()};" : "" }}"
 	lang="ar" dir="rtl">
 	<div class="mx-auto max-w-7xl">
 		<div class="contact-shell">

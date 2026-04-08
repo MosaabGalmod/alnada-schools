@@ -2,11 +2,13 @@
 @php
 	$c = $section->content ?? [];
 	$sectionBg = $section->bgCss() ?: "background:#ffffff;";
-	$aboutTitleColor = $section->headingColor() ?: "#0f172a";
-	$aboutBodyColor = $section->textColor() ?: "#475569";
+	// Only inject color vars for dark sections; light sections adapt via CSS dark-mode rules
+	$colorVars = $section->isDark()
+	    ? "--about-title-color: {$section->headingColor()}; --about-body-color: {$section->textColor()};"
+	    : ($section->headingColor() ? "--about-title-color: {$section->headingColor()}; --about-body-color: {$section->textColor()};" : '');
 @endphp
 <section class="section about-section" id="about"
-	style="{{ $sectionBg }} --about-title-color: {{ $aboutTitleColor }}; --about-body-color: {{ $aboutBodyColor }};"
+	style="{{ $sectionBg }} {{ $colorVars }}"
 	lang="ar" dir="rtl">
 	<div class="mx-auto max-w-7xl">
 		<div class="grid items-center gap-16 lg:grid-cols-2">

@@ -77,15 +77,69 @@ class Section extends Model
         return false;
     }
 
+    /**
+     * Returns inline text color ONLY for dark-background sections.
+     * Light sections return '' so CSS dark-mode rules can take over.
+     */
     public function textColor(): string
     {
-        return $this->style['text_color'] ?? ($this->isDark() ? '#e2f0f7' : '#374151');
+        if ($this->isDark()) {
+            return $this->style['text_color'] ?? '#e2f0f7';
+        }
+        // Light section: only return user-set color (for light mode customisation).
+        // Dark mode CSS will override via class selectors since no inline style conflicts.
+        return $this->style['text_color'] ?? '';
     }
 
+    /**
+     * Returns inline heading color ONLY for dark-background sections.
+     * Light sections return '' so CSS dark-mode rules can take over.
+     */
     public function headingColor(): string
     {
-        return $this->style['heading_color'] ?? ($this->isDark() ? '#ffffff' : '#111827');
+        if ($this->isDark()) {
+            return $this->style['heading_color'] ?? '#ffffff';
+        }
+        return $this->style['heading_color'] ?? '';
     }
+
+    /**
+     * Safe inline style string for heading color.
+     * Returns empty string for light sections so dark-mode CSS takes over.
+     */
+    public function headingColorStyle(): string
+    {
+        $color = $this->headingColor();
+        return $color ? "color: {$color}" : '';
+    }
+
+    /**
+     * Safe inline style string for body text color.
+     * Returns empty string for light sections so dark-mode CSS takes over.
+     */
+    public function textColorStyle(): string
+    {
+        $color = $this->textColor();
+        return $color ? "color: {$color}" : '';
+    }
+
+    /**
+     * CSS vars string for sections using CSS-variable approach.
+     * Only injects vars that have a non-empty value.
+     */
+    public function cssVarsStyle(): string
+    {
+        $vars = [];
+        if ($h = $this->headingColor()) {
+            $vars[] = "--section-heading-color: {$h}";
+        }
+        if ($t = $this->textColor()) {
+            $vars[] = "--section-text-color: {$t}";
+        }
+        $vars[] = '--section-accent-color: ' . $this->accentColor();
+        return implode('; ', $vars);
+    }
+
 
     public function accentColor(): string
     {

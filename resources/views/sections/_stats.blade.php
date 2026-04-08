@@ -11,9 +11,13 @@
 	    4 => "grid-cols-2 lg:grid-cols-4",
 	    default => "grid-cols-2 lg:grid-cols-5",
 	};
+	// Only inject color CSS vars for sections with a dark/custom bg
+	$statsColorVars = $section->isDark() || $section->headingColor()
+	    ? "--stats-tag-color: {$section->textColor()}; --stats-title-color: {$section->headingColor()}; --stats-number-color: {$section->headingColor()}; --stats-label-color: {$section->textColor()}; --stats-accent-color: {$section->accentColor()};"
+	    : "--stats-accent-color: {$section->accentColor()};";
 @endphp
 <section class="section stats-section" id="stats" aria-labelledby="stats-heading"
-	style="{{ $section->bgCss() }} --stats-tag-color: {{ $section->textColor() }}; --stats-title-color: {{ $section->headingColor() }}; --stats-number-color: {{ $section->headingColor() }}; --stats-label-color: {{ $section->textColor() }}; --stats-accent-color: {{ $section->accentColor() }};">
+	style="{{ $section->bgCss() }} {{ $statsColorVars }}">
 
 	<div class="relative z-10 mx-auto max-w-7xl">
 

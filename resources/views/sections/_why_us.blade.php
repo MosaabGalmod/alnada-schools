@@ -43,7 +43,7 @@
 					@if (!empty($c["tag"]))
 						<span class="section-tag why-us-tag">{{ $c["tag"] }}</span>
 					@endif
-					<h2 class="section-title why-us-title" id="why-us-heading" style="color: {{ $section->headingColor() }}">
+					<h2 class="section-title why-us-title" id="why-us-heading" @style([$section->headingColorStyle() => $section->headingColor()])>
 						{{ $c["title"] ?? "ما يميزنا عن غيرنا" }}
 					</h2>
 					<p class="why-us-intro" id="why-us-intro">

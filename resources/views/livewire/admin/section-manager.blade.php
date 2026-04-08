@@ -630,31 +630,54 @@
 						</select>
 					</div>
 
-					{{-- Live preview --}}
-					<div class="overflow-hidden rounded-2xl border border-gray-200">
-						<div class="border-b border-gray-200 bg-gray-50 px-3 py-1.5 text-xs font-semibold text-gray-500">معاينة مباشرة
-						</div>
-						<div class="p-6 text-center"
-							style="
-            {{ match ($editStyle["bg_type"] ?? "white") {
-												    "gradient" => "background: linear-gradient(150deg, " .
-												        ($editStyle["bg_from"] ?? "#061f2c") .
-												        " 0%, " .
-												        ($editStyle["bg_to"] ?? "#1a9dc6") .
-												        " 100%)",
-												    "solid" => "background-color: " . ($editStyle["bg_color"] ?? "#ffffff"),
-												    "wave" => "background: linear-gradient(135deg,#f0f9fd 0%,#daf1fa 100%)",
-												    "dark" => "background: linear-gradient(150deg,#061f2c 0%,#0d4858 100%)",
-												    default => "background:#ffffff",
-												} }}">
-							<p class="mb-1 font-heading text-lg font-bold" style="color: {{ $editStyle["heading_color"] ?? "#111827" }}">
-								عنوان القسم</p>
-							<p class="text-sm" style="color: {{ $editStyle["text_color"] ?? "#374151" }}">نص توضيحي للقسم</p>
+					{{-- Live preview: Light + Dark side by side --}}
+				@php
+				    $bgType = $editStyle['bg_type'] ?? 'white';
+				    $previewBg = match ($bgType) {
+				        'gradient' => "background: linear-gradient(150deg, " . ($editStyle['bg_from'] ?? '#061f2c') . " 0%, " . ($editStyle['bg_to'] ?? '#1a9dc6') . " 100%)",
+				        'solid'    => "background-color: " . ($editStyle['bg_color'] ?? '#ffffff'),
+				        'wave'     => "background: linear-gradient(135deg,#f0f9fd 0%,#daf1fa 100%)",
+				        'dark'     => "background: linear-gradient(150deg,#061f2c 0%,#0d4858 100%)",
+				        default    => "background:#ffffff",
+				    };
+				    $isDarkBg   = in_array($bgType, ['dark', 'gradient']);
+				    $hColor     = $editStyle['heading_color'] ?? ($isDarkBg ? '#ffffff' : '#111827');
+				    $tColor     = $editStyle['text_color']   ?? ($isDarkBg ? '#d1e8ef' : '#374151');
+				    $aColor     = $editStyle['accent_color'] ?? '#1a9dc6';
+				    // Dark-mode simulated colors (for non-dark-bg sections)
+				    $hColorDark = $isDarkBg ? $hColor : '#f1f5f9';
+				    $tColorDark = $isDarkBg ? $tColor : 'rgba(203,213,225,0.85)';
+				    $darkBg     = $isDarkBg ? $previewBg : "background: linear-gradient(150deg,#071e2d 0%,#0e3d55 100%)";
+				@endphp
+				<div class="overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700">
+					<div class="flex items-center justify-between border-b border-gray-200 bg-gray-50 px-3 py-1.5 dark:border-gray-700 dark:bg-gray-800">
+						<span class="text-xs font-semibold text-gray-500 dark:text-gray-400">معاينة مباشرة</span>
+						<span class="text-xs text-gray-400">الوضع الفاتح ← ← الوضع الداكن</span>
+					</div>
+					<div class="grid grid-cols-2 divide-x divide-gray-200 rtl:divide-x-reverse dark:divide-gray-700">
+						{{-- Light preview --}}
+						<div class="p-5 text-center" style="{{ $previewBg }}">
+							<p class="mb-1 font-heading text-base font-bold" style="color: {{ $hColor }}">عنوان القسم</p>
+							<p class="text-xs leading-relaxed" style="color: {{ $tColor }}">نص توضيحي للقسم يظهر هنا</p>
 							<span class="mt-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
-								style="background: {{ $editStyle["accent_color"] ?? "#1a9dc6" }}20; color: {{ $editStyle["accent_color"] ?? "#1a9dc6" }}">تاج
-								القسم</span>
+								style="background: {{ $aColor }}22; color: {{ $aColor }}">تاج القسم</span>
+							<p class="mt-2 text-[10px] text-gray-400">☀️ فاتح</p>
+						</div>
+						{{-- Dark preview (simulated) --}}
+						<div class="p-5 text-center" style="{{ $darkBg }}">
+							<p class="mb-1 font-heading text-base font-bold" style="color: {{ $hColorDark }}">عنوان القسم</p>
+							<p class="text-xs leading-relaxed" style="color: {{ $tColorDark }}">نص توضيحي للقسم يظهر هنا</p>
+							<span class="mt-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+								style="background: {{ $aColor }}33; color: {{ $aColor === '#1a9dc6' ? '#7ddced' : $aColor }}">تاج القسم</span>
+							<p class="mt-2 text-[10px] text-gray-500">🌙 داكن</p>
 						</div>
 					</div>
+					@if (!$isDarkBg)
+						<div class="border-t border-amber-100 bg-amber-50 px-3 py-2 text-xs text-amber-700 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-400">
+							ℹ️ في الوضع الداكن، النظام يتكيف تلقائياً بصرف النظر عن ألوان العنوان والنص المختارة هنا.
+						</div>
+					@endif
+				</div>
 				</div>
 
 				<div class="flex justify-end gap-3 border-t border-gray-100 p-6">

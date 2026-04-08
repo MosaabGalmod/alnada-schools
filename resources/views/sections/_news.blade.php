@@ -33,10 +33,10 @@
 					@if (!empty($c["tag"]))
 						<span class="section-tag mx-auto">{{ $c["tag"] }}</span>
 					@endif
-					<h2 class="section-title news-title" id="news-heading" style="color: {{ $section->headingColor() }}">
+					<h2 class="section-title news-title" id="news-heading" @style([$section->headingColorStyle() => $section->headingColor()])>
 						{{ $c["title"] ?? "آخر الأخبار والإعلانات" }}
 					</h2>
-					<p class="section-desc news-intro" id="news-intro" style="color: {{ $section->textColor() }}">
+					<p class="section-desc news-intro" id="news-intro" @style([$section->textColorStyle() => $section->textColor()])>
 						{{ $newsIntro }}
 					</p>
 				</div>

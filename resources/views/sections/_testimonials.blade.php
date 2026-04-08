@@ -13,7 +13,7 @@
 			@if (!empty($c["tag"]))
 				<span class="section-tag mx-auto">{{ $c["tag"] }}</span>
 			@endif
-			<h2 class="section-title" id="testimonials-heading" style="color: {{ $section->headingColor() }}">
+			<h2 class="section-title" id="testimonials-heading" @style([$section->headingColorStyle() => $section->headingColor()])>
 				{{ $c["title"] ?? "ماذا يقول آباؤنا وأمهاتنا" }}
 			</h2>
 			<p class="testi-intro">

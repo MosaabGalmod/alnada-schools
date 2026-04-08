@@ -60,10 +60,10 @@
 						</svg>
 						{{ $c["tag"] ?? "برامجنا" }}
 					</span>
-					<h2 class="section-title programs-title" id="programs-heading" style="color: {{ $section->headingColor() }}">
+					<h2 class="section-title programs-title" id="programs-heading" @style([$section->headingColorStyle() => $section->headingColor()])>
 						{{ $c["title"] ?? "برامج تعليمية متكاملة" }}
 					</h2>
-					<p class="section-desc programs-desc" style="color: {{ $section->textColor() }}">
+					<p class="section-desc programs-desc" @style([$section->textColorStyle() => $section->textColor()])>
 						{{ $c["subtitle"] ?? "نرتب البرامج على شكل مسارات واضحة تساعد ولي الأمر على فهم نوع الدعم والنتائج المتوقعة بسرعة، مع تفاصيل قابلة للمقارنة في نفس المساحة." }}
 					</p>
 					<dl class="programs-stats" aria-label="ملخص البرامج">

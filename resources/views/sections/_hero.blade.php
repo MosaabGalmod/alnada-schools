@@ -40,7 +40,7 @@
 
 		{{-- Title --}}
 		<h1 class="hero-title mb-6 text-balance font-heading text-5xl font-bold leading-[1.15] md:text-6xl lg:text-7xl"
-			id="hero-heading" data-testid="hero-title" style="color: {{ $section->headingColor() }}">
+			id="hero-heading" data-testid="hero-title" @style([$section->headingColorStyle() => $section->headingColor()])>
 			{{ $c["title"] ?? "مدارس الندى" }}
 			@if (!empty($c["title_accent"]))
 				<span class="hero-title-accent block" style="color: {{ $section->accentColor() }}">{{ $c["title_accent"] }}</span>
@@ -50,7 +50,7 @@
 		{{-- Subtitle --}}
 		@if (!empty($c["subtitle"]))
 			<p class="hero-subtitle mx-auto mb-10 max-w-3xl text-lg leading-8 md:text-2xl" data-testid="hero-subtitle"
-				style="color: {{ $section->textColor() }}">
+				@style([$section->textColorStyle() => $section->textColor()])>
 				{{ $c["subtitle"] }}
 			</p>
 		@endif
@@ -94,7 +94,7 @@
 					</div>
 					<div class="hero-stat-value font-heading text-3xl font-bold tabular-nums"
 						style="color: {{ $section->accentColor() }}">{{ $stat["value"] ?? "" }}</div>
-					<div class="hero-stat-label mt-1 text-sm font-medium" style="color: {{ $section->textColor() }}">
+					<div class="hero-stat-label mt-1 text-sm font-medium" @style([$section->textColorStyle() => $section->textColor()])>
 						{{ $stat["label"] ?? "" }}
 					</div>
 				</div>
