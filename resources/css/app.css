@@ -56,19 +56,21 @@
     position: relative;
     isolation: isolate;
     --custom-shell-bg:
-        radial-gradient(circle at top right, rgba(14, 165, 233, 0.12), transparent 32%),
-        linear-gradient(180deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.92));
-    --custom-shell-border: rgba(148, 163, 184, 0.18);
-    --custom-shell-shadow: 0 24px 60px rgba(15, 23, 42, 0.08);
+        radial-gradient(ellipse 70% 50% at 90% 10%, rgba(14,165,233,0.10), transparent),
+        linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    --custom-shell-border: rgba(148, 163, 184, 0.20);
+    --custom-shell-shadow: 0 8px 40px rgba(15, 23, 42, 0.07);
     --custom-tag-bg: rgba(14, 165, 233, 0.12);
     --custom-tag-fg: #0f766e;
     --custom-title-fg: var(--custom-heading-color, #0f172a);
-    --custom-copy-fg: var(--custom-body-color, #334155);
-    --custom-card-bg: rgba(255, 255, 255, 0.72);
+    --custom-copy-fg: var(--custom-body-color, #475569);
+    --custom-card-bg: #ffffff;
     --custom-card-border: rgba(148, 163, 184, 0.18);
-    --custom-highlight-bg: linear-gradient(135deg, rgba(8, 145, 178, 0.14), rgba(255, 255, 255, 0.86));
+    --custom-highlight-bg: linear-gradient(135deg, #0ea5e9 0%, #0f766e 100%);
+    --custom-accent-bar: #0ea5e9;
     --custom-icon-bg: linear-gradient(135deg, #0f766e, #0ea5e9);
-    --custom-icon-shadow: 0 18px 32px rgba(14, 165, 233, 0.18);
+    --custom-icon-shadow: 0 6px 18px rgba(14, 165, 233, 0.22);
+    --custom-check-color: #0ea5e9;
 }
 
 .contact-section {
@@ -432,300 +434,381 @@
     }
 }
 
+/* ─── Custom Section Shell ──────────────────────────────────────────── */
 .custom-shell {
     position: relative;
     overflow: hidden;
     border: 1px solid var(--custom-shell-border);
-    border-radius: 28px;
-    padding: clamp(1.75rem, 3.5vw, 3.5rem);
+    border-radius: 32px;
+    padding: clamp(2rem, 4vw, 4rem);
     background: var(--custom-shell-bg);
     box-shadow: var(--custom-shell-shadow);
 }
 
-.custom-shell::before,
-.custom-shell::after {
+/* Decorative circles */
+.custom-shell::before {
     content: '';
     position: absolute;
-    inset-inline-end: -3rem;
+    top: -4rem;
+    inset-inline-end: -4rem;
+    width: 14rem;
+    height: 14rem;
     border-radius: 999px;
+    background: radial-gradient(circle, rgba(14,165,233,0.10), transparent 65%);
     pointer-events: none;
 }
 
-.custom-shell::before {
-    top: -3rem;
-    width: 11rem;
-    height: 11rem;
-    background: rgba(14, 165, 233, 0.08);
-}
-
-.custom-shell::after {
-    bottom: -2rem;
-    inset-inline-start: -2rem;
-    width: 8rem;
-    height: 8rem;
-    background: rgba(16, 185, 129, 0.08);
-}
-
+/* ─── Header ────────────────────────────────────────────────────────── */
 .custom-header {
-    position: relative;
-    display: grid;
-    gap: 1.5rem;
-    align-items: start;
-    margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
 }
 
-.custom-header--no-card {
-    display: block;
-}
-
-.custom-header-copy {
-    max-width: 44rem;
-}
-
+/* ─── Tag badge ─────────────────────────────────────────────────────── */
 .custom-tag {
     display: inline-flex;
     align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 1rem;
-    padding: 0.55rem 1rem;
+    gap: 0.4rem;
+    padding: 0.4rem 1rem;
     border-radius: 999px;
     background: var(--custom-tag-bg);
     color: var(--custom-tag-fg);
-    font-size: 0.875rem;
+    font-size: 0.8125rem;
     font-weight: 700;
+    letter-spacing: 0.01em;
+    margin-bottom: 0.75rem;
 }
 
+/* ─── Title ─────────────────────────────────────────────────────────── */
 .custom-title {
-    margin: 0;
-    font-size: clamp(2rem, 4vw, 3.6rem);
-    line-height: 1.1;
+    margin: 0 0 0.75rem;
+    font-size: clamp(1.75rem, 3.5vw, 3rem);
+    line-height: 1.15;
+    font-weight: 900;
     color: var(--custom-title-fg);
 }
 
+/* ─── Subtitle ──────────────────────────────────────────────────────── */
 .custom-subtitle {
-    margin-top: 1rem;
-    max-width: 38rem;
-    font-size: 1.0625rem;
-    line-height: 1.9;
+    margin: 0;
+    max-width: 40rem;
+    font-size: 1rem;
+    line-height: 1.85;
     color: var(--custom-copy-fg);
+    opacity: 0.9;
 }
 
-.custom-intro-card,
-.custom-card {
+/* ─── Intro card (رؤيتنا) ───────────────────────────────────────────── */
+.custom-intro-card {
     position: relative;
     border: 1px solid var(--custom-card-border);
-    border-radius: 26px;
+    border-radius: 20px;
     background: var(--custom-card-bg);
-    backdrop-filter: blur(12px);
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    box-shadow: 0 2px 12px rgba(15,23,42,0.06);
 }
 
-.custom-intro-card {
-    padding: 1.4rem;
-    max-width: 23rem;
-    justify-self: start;
+.custom-intro-card::before {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 1.25rem;
+    bottom: 1.25rem;
+    width: 4px;
+    border-radius: 0 4px 4px 0;
+    background: var(--custom-accent-bar);
+    opacity: 0.7;
+}
+
+.custom-intro-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--custom-icon-bg);
+    box-shadow: var(--custom-icon-shadow);
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.custom-intro-icon svg {
+    width: 1.2rem;
+    height: 1.2rem;
 }
 
 .custom-intro-eyebrow {
-    margin-top: 1rem;
-    margin-bottom: 0.4rem;
-    color: var(--custom-tag-fg);
-    font-size: 0.85rem;
+    margin: 0;
+    font-size: 0.8125rem;
     font-weight: 800;
+    color: var(--custom-tag-fg);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
 }
 
 .custom-intro-text {
     margin: 0;
+    font-size: 0.9375rem;
+    line-height: 1.85;
     color: var(--custom-copy-fg);
-    line-height: 1.8;
 }
 
+/* ─── Block grid ────────────────────────────────────────────────────── */
 .custom-block-grid {
     display: grid;
-    gap: 1.25rem;
+    gap: 1rem;
 }
 
-.custom-empty-hint {
-    text-align: center;
-    color: var(--custom-copy-fg);
-    opacity: 0.55;
-    font-size: 0.9rem;
-    padding: 2rem;
-    border: 1px dashed var(--custom-card-border);
-    border-radius: 18px;
-}
-
+/* ─── Base card ─────────────────────────────────────────────────────── */
 .custom-card {
-    padding: 1.35rem;
+    position: relative;
+    border: 1px solid var(--custom-card-border);
+    border-radius: 20px;
+    background: var(--custom-card-bg);
+    box-shadow: 0 1px 8px rgba(15,23,42,0.05);
+    overflow: hidden;
+    transition: box-shadow 0.2s, transform 0.2s;
 }
 
-.custom-card p {
+.custom-card:hover {
+    box-shadow: 0 6px 24px rgba(14,165,233,0.10);
+    transform: translateY(-2px);
+}
+
+/* ─── Paragraph card ─────────────────────────────────────────────────── */
+.custom-card-paragraph {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.25rem;
+    padding: 1.5rem 1.75rem;
+}
+
+.custom-card-paragraph::after {
+    content: '';
+    position: absolute;
+    inset-inline-start: 0;
+    top: 1.25rem;
+    bottom: 1.25rem;
+    width: 4px;
+    border-radius: 0 4px 4px 0;
+    background: var(--custom-accent-bar, #0ea5e9);
+    opacity: 0.5;
+}
+
+.custom-card-paragraph .custom-card-icon {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+}
+
+.custom-card-paragraph p {
     margin: 0;
-    line-height: 1.95;
+    line-height: 1.9;
+    font-size: 0.9375rem;
     color: var(--custom-copy-fg);
 }
 
-.custom-card-paragraph {
-    display: grid;
-    gap: 1rem;
+/* ─── Highlight card ─────────────────────────────────────────────────── */
+.custom-card-highlight {
+    background: var(--custom-highlight-bg);
+    border: none;
+    padding: 1.75rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
 }
 
-.custom-card-highlight {
-    display: grid;
-    gap: 1rem;
-    background: var(--custom-highlight-bg);
+.custom-card-highlight .custom-highlight-text {
+    flex: 1;
+}
+
+.custom-card-highlight .custom-card-icon {
+    flex-shrink: 0;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 16px;
+    background: rgba(255,255,255,0.18);
+    backdrop-filter: blur(6px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    order: -1; /* push icon to start (right in RTL) */
+}
+
+.custom-card-highlight .custom-card-icon svg {
+    width: 1.4rem;
+    height: 1.4rem;
 }
 
 .custom-highlight-text {
-    font-size: 1.05em;
-    font-weight: 700;
-    color: var(--custom-copy-fg) !important;
     margin: 0;
-    line-height: 1.9;
-}
-
-.custom-card-highlight p {
-    font-size: 1.05em;
+    line-height: 1.85;
+    font-size: 1.05rem;
     font-weight: 700;
-    color: var(--custom-copy-fg);
+    color: #ffffff;
 }
 
+/* ─── Bullets card ───────────────────────────────────────────────────── */
 .custom-card-bullets {
-    display: grid;
-    gap: 1rem;
+    padding: 1.5rem 1.75rem;
 }
 
-.custom-card-heading {
+.custom-card-bullets-header {
     display: flex;
     align-items: center;
     gap: 0.85rem;
+    margin-bottom: 1.25rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--custom-card-border);
 }
 
-.custom-card-heading p {
-    color: var(--custom-title-fg);
+.custom-card-bullets-header p {
+    margin: 0;
+    font-size: 0.9375rem;
     font-weight: 800;
+    color: var(--custom-title-fg);
+}
+
+.custom-card-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 12px;
+    background: var(--custom-icon-bg);
+    box-shadow: var(--custom-icon-shadow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.custom-card-icon svg {
+    width: 1.15rem;
+    height: 1.15rem;
 }
 
 .custom-bullet-list {
     display: grid;
-    gap: 0.85rem;
+    gap: 0.75rem;
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
+@media (min-width: 640px) {
+    .custom-bullet-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 0.65rem 2rem;
+    }
+}
+
 .custom-bullet-list li {
     display: flex;
-    align-items: start;
-    gap: 0.85rem;
+    align-items: flex-start;
+    gap: 0.75rem;
+    line-height: 1.75;
+    font-size: 0.9375rem;
     color: var(--custom-copy-fg);
-    line-height: 1.8;
 }
 
-.custom-bullet-dot {
-    width: 0.7rem;
-    height: 0.7rem;
-    border-radius: 999px;
-    flex: 0 0 auto;
-    margin-top: 0.5rem;
-    background: linear-gradient(135deg, #0ea5e9, #10b981);
+.custom-bullet-check {
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+    width: 1.1rem;
+    height: 1.1rem;
+    color: var(--custom-check-color);
 }
 
-.custom-icon-shell {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 3rem;
-    height: 3rem;
-    border-radius: 18px;
-    color: #ffffff;
-    background-image: var(--custom-icon-bg);
-    box-shadow: var(--custom-icon-shadow);
-    filter: none;
+/* ─── Empty hint ─────────────────────────────────────────────────────── */
+.custom-empty-hint {
+    text-align: center;
+    color: var(--custom-copy-fg);
+    opacity: 0.5;
+    font-size: 0.875rem;
+    padding: 2.5rem;
+    border: 1.5px dashed var(--custom-card-border);
+    border-radius: 20px;
 }
 
-.custom-icon-shell svg {
-    width: 1.4rem;
-    height: 1.4rem;
-    filter: none;
-}
-
+/* ─── Desktop layout (960px+) ────────────────────────────────────────── */
 @media (min-width: 960px) {
     .custom-header {
-        grid-template-columns: minmax(0, 1.5fr) minmax(17rem, 0.8fr);
+        flex-direction: row;
+        align-items: flex-start;
+        gap: 3rem;
+    }
+
+    .custom-header-copy {
+        flex: 1 1 0;
     }
 
     .custom-intro-card {
-        justify-self: end;
+        flex: 0 0 22rem;
+        max-width: 22rem;
     }
 
     .custom-block-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
-    /* highlight and bullets get full width, paragraph stays 1 col */
     .custom-card-highlight {
         grid-column: span 2;
     }
 
-    /* bullets: full width only when it has many items, else 1 col */
     .custom-card-bullets {
         grid-column: span 2;
     }
 
-    /* when only paragraphs: single col if only 1, 2-col grid if multiple */
-}
-
-.dark .custom-shell {
-    --custom-shell-bg:
-        radial-gradient(circle at top right, rgba(14, 165, 233, 0.16), transparent 30%),
-        linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
-    --custom-shell-border: rgba(148, 163, 184, 0.16);
-    --custom-shell-shadow: 0 30px 70px rgba(2, 6, 23, 0.45);
-    --custom-tag-bg: rgba(14, 165, 233, 0.18);
-    --custom-tag-fg: #e0f2fe;
-    --custom-title-fg: #ffffff;
-    --custom-copy-fg: rgba(226, 232, 240, 0.92);
-    --custom-card-bg: rgba(15, 23, 42, 0.72);
-    --custom-card-border: rgba(148, 163, 184, 0.14);
-    --custom-highlight-bg: linear-gradient(135deg, rgba(8, 145, 178, 0.18), rgba(15, 23, 42, 0.78));
-    --custom-icon-bg: linear-gradient(135deg, #0f766e, #0284c7);
-    --custom-icon-shadow: none;
-}
-
-@media (prefers-color-scheme: dark) {
-    .custom-section {
-        --custom-shell-bg:
-            radial-gradient(circle at top right, rgba(14, 165, 233, 0.16), transparent 30%),
-            linear-gradient(180deg, rgba(15, 23, 42, 0.96), rgba(15, 23, 42, 0.9));
-        --custom-shell-border: rgba(148, 163, 184, 0.16);
-        --custom-shell-shadow: 0 30px 70px rgba(2, 6, 23, 0.45);
-        --custom-tag-bg: rgba(14, 165, 233, 0.18);
-        --custom-tag-fg: #e0f2fe;
-        --custom-title-fg: #ffffff;
-        --custom-copy-fg: rgba(226, 232, 240, 0.92);
-        --custom-card-bg: rgba(15, 23, 42, 0.72);
-        --custom-card-border: rgba(148, 163, 184, 0.14);
-        --custom-highlight-bg: linear-gradient(135deg, rgba(8, 145, 178, 0.18), rgba(15, 23, 42, 0.78));
-        --custom-icon-bg: linear-gradient(135deg, #0f766e, #0284c7);
-        --custom-icon-shadow: none;
+    /* paragraph cards also full width — text blocks are typically long */
+    .custom-card-paragraph {
+        grid-column: span 2;
     }
 }
 
+/* ─── Dark mode overrides ────────────────────────────────────────────── */
+.dark .custom-shell,
+.custom-section:is([data-dark="1"]) .custom-shell {
+    --custom-shell-bg:
+        radial-gradient(ellipse 60% 40% at 90% 10%, rgba(14,165,233,0.14), transparent),
+        linear-gradient(180deg, #0d1b2a 0%, #0a1628 100%);
+    --custom-shell-border: rgba(148, 163, 184, 0.12);
+    --custom-shell-shadow: 0 20px 60px rgba(2, 6, 23, 0.40);
+    --custom-tag-bg: rgba(14, 165, 233, 0.18);
+    --custom-tag-fg: #7dd3fc;
+    --custom-title-fg: #f1f5f9;
+    --custom-copy-fg: rgba(203, 213, 225, 0.90);
+    --custom-card-bg: rgba(15, 30, 48, 0.80);
+    --custom-card-border: rgba(148, 163, 184, 0.10);
+    --custom-highlight-bg: linear-gradient(135deg, #0284c7 0%, #0f766e 100%);
+    --custom-accent-bar: #38bdf8;
+    --custom-icon-bg: linear-gradient(135deg, #0f766e, #0284c7);
+    --custom-icon-shadow: 0 6px 18px rgba(2, 6, 23, 0.30);
+    --custom-check-color: #38bdf8;
+}
+
+/* ─── Mobile ─────────────────────────────────────────────────────────── */
 @media (max-width: 639px) {
     .custom-shell {
-        border-radius: 26px;
-        padding: 1.25rem;
+        border-radius: 24px;
+        padding: 1.5rem;
     }
 
-    .custom-title {
-        font-size: 2rem;
+    .custom-header {
+        gap: 1.5rem;
     }
 
-    .custom-intro-card,
-    .custom-card {
-        border-radius: 22px;
+    .custom-card-highlight {
+        padding: 1.5rem;
     }
 }
+
+
 
 /* ===== Components ===== */
 @layer components {
