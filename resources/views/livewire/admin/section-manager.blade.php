@@ -128,16 +128,24 @@
 									</svg>
 									الأنماط
 								</button>
-								{{-- Delete (custom only) --}}
-								@if ($sec["type"] === "custom")
-									<button class="btn-sm bg-red-50 text-red-600 hover:bg-red-100" title="حذف"
-										wire:click="deleteSection({{ $sec["id"] }})" wire:confirm="هل أنت متأكد من حذف هذا القسم؟">
-										<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-											<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-												d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
-										</svg>
-									</button>
-								@endif
+								{{-- Duplicate --}}
+								<button class="btn-sm bg-teal-50 text-teal-700 hover:bg-teal-100" title="نسخ القسم"
+									wire:click="duplicateSection({{ $sec['id'] }})" wire:confirm="سيتم إنشاء نسخة من هذا القسم. تأكيد؟">
+									<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+									</svg>
+									نسخ
+								</button>
+								{{-- Delete: warning stronger for built-in --}}
+								<button class="btn-sm bg-red-50 text-red-600 hover:bg-red-100" title="حذف"
+									wire:click="deleteSection({{ $sec['id'] }})"
+									wire:confirm="{{ $sec['type'] !== 'custom' ? 'تحذير: هذا قسم أساسي. حذفه سيتطلب استعادته يدوياً. هل تريد المتابعة؟' : 'هل أنت متأكد من حذف هذا القسم؟' }}">
+									<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+											d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+									</svg>
+								</button>
 							</div>
 						</td>
 					</tr>
@@ -145,6 +153,38 @@
 			</tbody>
 		</table>
 	</div>
+
+	{{-- ========== RESTORE BUILT-IN PANEL ========== --}}
+	@php
+		$existingTypes = collect($sections)->pluck('type')->unique()->toArray();
+		$restorable = collect([
+			['type' => 'hero',         'label' => 'الهيرو'],
+			['type' => 'about',        'label' => 'من نحن'],
+			['type' => 'news',         'label' => 'الأخبار'],
+			['type' => 'contact',      'label' => 'تواصل معنا'],
+		])->filter(fn($b) => !in_array($b['type'], $existingTypes));
+	@endphp
+	@if ($restorable->isNotEmpty())
+		<div class="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950">
+			<p class="mb-3 flex items-center gap-2 text-sm font-semibold text-amber-800 dark:text-amber-300">
+				<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M12 3a9 9 0 100 18A9 9 0 0012 3z"/>
+				</svg>
+				أقسام أساسية محذوفة — يمكنك استعادتها
+			</p>
+			<div class="flex flex-wrap gap-2">
+				@foreach ($restorable as $b)
+					<button class="btn-sm bg-amber-100 text-amber-800 hover:bg-amber-200 dark:bg-amber-900 dark:text-amber-200"
+						wire:click="restoreBuiltIn('{{ $b['type'] }}')" wire:confirm="استعادة قسم {{ $b['label'] }}؟">
+						<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+						</svg>
+						استعادة {{ $b['label'] }}
+					</button>
+				@endforeach
+			</div>
+		</div>
+	@endif
 
 	{{-- ========== EDIT CONTENT MODAL ========== --}}
 	@if ($showEditModal)

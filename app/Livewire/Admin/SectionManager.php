@@ -145,7 +145,31 @@ class SectionManager extends Component
         $this->flash('تم إضافة القسم الجديد');
     }
 
-    /* ── Delete custom section ──────────────────────────── */
+    /* ── Duplicate section ──────────────────────────────── */
+    public function duplicateSection(int $id): void
+    {
+        try {
+            app(SectionService::class)->duplicate($id);
+            $this->loadSections();
+            $this->flash('تم نسخ القسم — يمكنك تعديله الآن');
+        } catch (\RuntimeException $e) {
+            $this->flash($e->getMessage(), 'error');
+        }
+    }
+
+    /* ── Restore built-in section ───────────────────────── */
+    public function restoreBuiltIn(string $type): void
+    {
+        try {
+            app(SectionService::class)->restoreBuiltIn($type);
+            $this->loadSections();
+            $this->flash('تم استعادة القسم');
+        } catch (\RuntimeException $e) {
+            $this->flash($e->getMessage(), 'error');
+        }
+    }
+
+    /* ── Delete section ─────────────────────────────────── */
     public function deleteSection(int $id): void
     {
         try {

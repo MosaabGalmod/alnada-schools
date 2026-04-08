@@ -88,14 +88,64 @@ class SectionService
         ]);
     }
 
+    public function duplicate(int $id): Section
+    {
+        $source = Section::findOrFail($id);
+        $max    = Section::max('sort_order') ?? 0;
+
+        return Section::create([
+            'key'        => ($source->type === 'custom' ? 'custom_' : $source->type . '_') . time(),
+            'type'       => $source->type,
+            'label'      => 'نسخة من: ' . $source->label,
+            'content'    => $source->content,
+            'style'      => $source->style,
+            'is_visible' => false,
+            'sort_order' => $max + 1,
+        ]);
+    }
+
     public function delete(int $id): void
     {
-        $section = Section::findOrFail($id);
+        Section::findOrFail($id)->delete();
+    }
 
-        if ($section->type !== 'custom') {
-            throw new RuntimeException('يمكن حذف الأقسام المخصصة فقط.');
+    /** Re-create a built-in section from seeder defaults if it was deleted */
+    public function restoreBuiltIn(string $type): Section
+    {
+        if (Section::where('type', $type)->exists()) {
+            throw new RuntimeException('القسم موجود بالفعل.');
         }
 
-        $section->delete();
+        $defaults = $this->builtInDefaults($type);
+        $max      = Section::max('sort_order') ?? 0;
+
+        return Section::create([...$defaults, 'sort_order' => $max + 1]);
+    }
+
+    private function builtInDefaults(string $type): array
+    {
+        return match ($type) {
+            'hero' => [
+                'key' => 'hero', 'type' => 'hero', 'label' => 'قسم الهيرو',
+                'content' => ['badge' => 'مدارس الندى النموذجية', 'title' => 'نصنع المستقبل', 'title_accent' => 'بالتربية الخاصة', 'subtitle' => '', 'cta_primary' => 'تواصل معنا', 'cta_secondary' => 'تعرف علينا', 'stats' => []],
+                'style' => [], 'is_visible' => true,
+            ],
+            'about' => [
+                'key' => 'about', 'type' => 'about', 'label' => 'من نحن',
+                'content' => ['tag' => 'من نحن', 'title' => 'مدارس الندى النموذجية الأهلية', 'body1' => '', 'body2' => '', 'founding_year' => '2010', 'vision_title' => 'رؤيتنا', 'vision_body' => '', 'mission_title' => 'رسالتنا', 'mission_body' => '', 'values_title' => 'قيمنا', 'values_body' => '', 'accessibility_note' => ''],
+                'style' => [], 'is_visible' => true,
+            ],
+            'news' => [
+                'key' => 'news', 'type' => 'news', 'label' => 'الأخبار والإعلانات',
+                'content' => ['tag' => 'أخبار', 'title' => 'آخر المستجدات'],
+                'style' => [], 'is_visible' => true,
+            ],
+            'contact' => [
+                'key' => 'contact', 'type' => 'contact', 'label' => 'تواصل معنا',
+                'content' => ['tag' => 'تواصل', 'title' => 'نحن هنا لمساعدتك', 'subtitle' => ''],
+                'style' => [], 'is_visible' => true,
+            ],
+            default => throw new RuntimeException("نوع القسم '{$type}' غير معروف."),
+        };
     }
 }

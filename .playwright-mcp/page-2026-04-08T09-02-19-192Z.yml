@@ -1,0 +1,336 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - img "شعار مدارس الندى" [ref=e6]
+    - navigation "قائمة التنقل" [ref=e7]:
+      - link "الرئيسية" [ref=e8] [cursor=pointer]:
+        - /url: http://localhost:8000/admin
+        - img [ref=e10]
+      - link "الإعلانات" [ref=e12] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/announcements
+        - img [ref=e14]
+      - link "الرسائل" [ref=e16] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/messages
+        - img [ref=e18]
+      - link "الأقسام" [ref=e20] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/sections
+        - img [ref=e22]
+      - link "الإعدادات" [ref=e24] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/settings
+        - img [ref=e26]
+      - link "السياسات" [ref=e28] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/policies
+        - img [ref=e30]
+      - link "الملف الشخصي" [ref=e32] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/profile
+        - img [ref=e34]
+    - generic [ref=e36]:
+      - link "عرض الموقع" [ref=e37] [cursor=pointer]:
+        - /url: http://localhost:8000
+        - img [ref=e38]
+      - link "تسجيل الخروج" [ref=e40] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/logout
+        - img [ref=e41]
+  - generic [ref=e43]:
+    - banner [ref=e44]:
+      - generic [ref=e45]:
+        - button "فتح القائمة الجانبية" [ref=e46] [cursor=pointer]:
+          - img [ref=e47]
+        - generic [ref=e49]:
+          - heading "إدارة أقسام الموقع" [level=1] [ref=e50]
+          - paragraph [ref=e51]: تحكم في ترتيب وظهور ومحتوى وأنماط كل قسم في الصفحة الرئيسية
+      - generic [ref=e52]:
+        - button "تفعيل الوضع الداكن" [ref=e53] [cursor=pointer]:
+          - img [ref=e54]
+        - generic [ref=e56]:
+          - generic [ref=e57]: المدير العام
+          - generic [ref=e58]: الأربعاء، 8 أبريل 2026
+        - generic [ref=e59]: م
+    - main [ref=e60]:
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - generic [ref=e63]:
+            - heading "إدارة أقسام الموقع" [level=2] [ref=e64]
+            - paragraph [ref=e65]: رتّب وعدّل ظهور وأقسام الصفحة الرئيسية
+          - button "إضافة قسم" [ref=e66] [cursor=pointer]:
+            - img [ref=e67]
+            - text: إضافة قسم
+        - table [ref=e70]:
+          - rowgroup [ref=e71]:
+            - row "# القسم النوع الحالة الترتيب الإجراءات" [ref=e72]:
+              - columnheader "#" [ref=e73]
+              - columnheader "القسم" [ref=e74]
+              - columnheader "النوع" [ref=e75]
+              - columnheader "الحالة" [ref=e76]
+              - columnheader "الترتيب" [ref=e77]
+              - columnheader "الإجراءات" [ref=e78]
+          - rowgroup [ref=e79]:
+            - row "1 قسم الهيرو hero hero ظاهر المحتوى الأنماط نسخ" [ref=e80]:
+              - cell "1" [ref=e81]
+              - cell "قسم الهيرو hero" [ref=e82]:
+                - generic [ref=e83]: قسم الهيرو
+                - generic [ref=e84]: hero
+              - cell "hero" [ref=e85]:
+                - generic [ref=e86]: hero
+              - cell "ظاهر" [ref=e87]:
+                - button "ظاهر" [ref=e88] [cursor=pointer]:
+                  - img [ref=e89]
+                  - text: ظاهر
+              - cell [ref=e92]:
+                - generic [ref=e93]:
+                  - button "تحريك لأعلى" [ref=e94] [cursor=pointer]:
+                    - img [ref=e95]
+                  - button "تحريك لأسفل" [ref=e97] [cursor=pointer]:
+                    - img [ref=e98]
+              - cell "المحتوى الأنماط نسخ" [ref=e100]:
+                - generic [ref=e101]:
+                  - button "المحتوى" [ref=e102] [cursor=pointer]:
+                    - img [ref=e103]
+                    - text: المحتوى
+                  - button "الأنماط" [ref=e105] [cursor=pointer]:
+                    - img [ref=e106]
+                    - text: الأنماط
+                  - button "نسخ" [ref=e108] [cursor=pointer]:
+                    - img [ref=e109]
+                    - text: نسخ
+                  - button "حذف" [ref=e111] [cursor=pointer]:
+                    - img [ref=e112]
+            - row "2 من نحن about about ظاهر المحتوى الأنماط نسخ" [ref=e114]:
+              - cell "2" [ref=e115]
+              - cell "من نحن about" [ref=e116]:
+                - generic [ref=e117]: من نحن
+                - generic [ref=e118]: about
+              - cell "about" [ref=e119]:
+                - generic [ref=e120]: about
+              - cell "ظاهر" [ref=e121]:
+                - button "ظاهر" [ref=e122] [cursor=pointer]:
+                  - img [ref=e123]
+                  - text: ظاهر
+              - cell [ref=e126]:
+                - generic [ref=e127]:
+                  - button "تحريك لأعلى" [ref=e128] [cursor=pointer]:
+                    - img [ref=e129]
+                  - button "تحريك لأسفل" [ref=e131] [cursor=pointer]:
+                    - img [ref=e132]
+              - cell "المحتوى الأنماط نسخ" [ref=e134]:
+                - generic [ref=e135]:
+                  - button "المحتوى" [ref=e136] [cursor=pointer]:
+                    - img [ref=e137]
+                    - text: المحتوى
+                  - button "الأنماط" [ref=e139] [cursor=pointer]:
+                    - img [ref=e140]
+                    - text: الأنماط
+                  - button "نسخ" [ref=e142] [cursor=pointer]:
+                    - img [ref=e143]
+                    - text: نسخ
+                  - button "حذف" [ref=e145] [cursor=pointer]:
+                    - img [ref=e146]
+            - row "3 البرامج programs programs ظاهر المحتوى الأنماط نسخ" [ref=e148]:
+              - cell "3" [ref=e149]
+              - cell "البرامج programs" [ref=e150]:
+                - generic [ref=e151]: البرامج
+                - generic [ref=e152]: programs
+              - cell "programs" [ref=e153]:
+                - generic [ref=e154]: programs
+              - cell "ظاهر" [ref=e155]:
+                - button "ظاهر" [ref=e156] [cursor=pointer]:
+                  - img [ref=e157]
+                  - text: ظاهر
+              - cell [ref=e160]:
+                - generic [ref=e161]:
+                  - button "تحريك لأعلى" [ref=e162] [cursor=pointer]:
+                    - img [ref=e163]
+                  - button "تحريك لأسفل" [ref=e165] [cursor=pointer]:
+                    - img [ref=e166]
+              - cell "المحتوى الأنماط نسخ" [ref=e168]:
+                - generic [ref=e169]:
+                  - button "المحتوى" [ref=e170] [cursor=pointer]:
+                    - img [ref=e171]
+                    - text: المحتوى
+                  - button "الأنماط" [ref=e173] [cursor=pointer]:
+                    - img [ref=e174]
+                    - text: الأنماط
+                  - button "نسخ" [ref=e176] [cursor=pointer]:
+                    - img [ref=e177]
+                    - text: نسخ
+                  - button "حذف" [ref=e179] [cursor=pointer]:
+                    - img [ref=e180]
+            - row "4 الإنجازات stats stats ظاهر المحتوى الأنماط نسخ" [ref=e182]:
+              - cell "4" [ref=e183]
+              - cell "الإنجازات stats" [ref=e184]:
+                - generic [ref=e185]: الإنجازات
+                - generic [ref=e186]: stats
+              - cell "stats" [ref=e187]:
+                - generic [ref=e188]: stats
+              - cell "ظاهر" [ref=e189]:
+                - button "ظاهر" [ref=e190] [cursor=pointer]:
+                  - img [ref=e191]
+                  - text: ظاهر
+              - cell [ref=e194]:
+                - generic [ref=e195]:
+                  - button "تحريك لأعلى" [ref=e196] [cursor=pointer]:
+                    - img [ref=e197]
+                  - button "تحريك لأسفل" [ref=e199] [cursor=pointer]:
+                    - img [ref=e200]
+              - cell "المحتوى الأنماط نسخ" [ref=e202]:
+                - generic [ref=e203]:
+                  - button "المحتوى" [ref=e204] [cursor=pointer]:
+                    - img [ref=e205]
+                    - text: المحتوى
+                  - button "الأنماط" [ref=e207] [cursor=pointer]:
+                    - img [ref=e208]
+                    - text: الأنماط
+                  - button "نسخ" [ref=e210] [cursor=pointer]:
+                    - img [ref=e211]
+                    - text: نسخ
+                  - button "حذف" [ref=e213] [cursor=pointer]:
+                    - img [ref=e214]
+            - row "5 لماذا الندى؟ why_us why_us ظاهر المحتوى الأنماط نسخ" [ref=e216]:
+              - cell "5" [ref=e217]
+              - cell "لماذا الندى؟ why_us" [ref=e218]:
+                - generic [ref=e219]: لماذا الندى؟
+                - generic [ref=e220]: why_us
+              - cell "why_us" [ref=e221]:
+                - generic [ref=e222]: why_us
+              - cell "ظاهر" [ref=e223]:
+                - button "ظاهر" [ref=e224] [cursor=pointer]:
+                  - img [ref=e225]
+                  - text: ظاهر
+              - cell [ref=e228]:
+                - generic [ref=e229]:
+                  - button "تحريك لأعلى" [ref=e230] [cursor=pointer]:
+                    - img [ref=e231]
+                  - button "تحريك لأسفل" [ref=e233] [cursor=pointer]:
+                    - img [ref=e234]
+              - cell "المحتوى الأنماط نسخ" [ref=e236]:
+                - generic [ref=e237]:
+                  - button "المحتوى" [ref=e238] [cursor=pointer]:
+                    - img [ref=e239]
+                    - text: المحتوى
+                  - button "الأنماط" [ref=e241] [cursor=pointer]:
+                    - img [ref=e242]
+                    - text: الأنماط
+                  - button "نسخ" [ref=e244] [cursor=pointer]:
+                    - img [ref=e245]
+                    - text: نسخ
+                  - button "حذف" [ref=e247] [cursor=pointer]:
+                    - img [ref=e248]
+            - row "6 الأخبار والإعلانات news news ظاهر المحتوى الأنماط نسخ" [ref=e250]:
+              - cell "6" [ref=e251]
+              - cell "الأخبار والإعلانات news" [ref=e252]:
+                - generic [ref=e253]: الأخبار والإعلانات
+                - generic [ref=e254]: news
+              - cell "news" [ref=e255]:
+                - generic [ref=e256]: news
+              - cell "ظاهر" [ref=e257]:
+                - button "ظاهر" [ref=e258] [cursor=pointer]:
+                  - img [ref=e259]
+                  - text: ظاهر
+              - cell [ref=e262]:
+                - generic [ref=e263]:
+                  - button "تحريك لأعلى" [ref=e264] [cursor=pointer]:
+                    - img [ref=e265]
+                  - button "تحريك لأسفل" [ref=e267] [cursor=pointer]:
+                    - img [ref=e268]
+              - cell "المحتوى الأنماط نسخ" [ref=e270]:
+                - generic [ref=e271]:
+                  - button "المحتوى" [ref=e272] [cursor=pointer]:
+                    - img [ref=e273]
+                    - text: المحتوى
+                  - button "الأنماط" [ref=e275] [cursor=pointer]:
+                    - img [ref=e276]
+                    - text: الأنماط
+                  - button "نسخ" [ref=e278] [cursor=pointer]:
+                    - img [ref=e279]
+                    - text: نسخ
+                  - button "حذف" [ref=e281] [cursor=pointer]:
+                    - img [ref=e282]
+            - row "7 آراء أولياء الأمور testimonials testimonials ظاهر المحتوى الأنماط نسخ" [ref=e284]:
+              - cell "7" [ref=e285]
+              - cell "آراء أولياء الأمور testimonials" [ref=e286]:
+                - generic [ref=e287]: آراء أولياء الأمور
+                - generic [ref=e288]: testimonials
+              - cell "testimonials" [ref=e289]:
+                - generic [ref=e290]: testimonials
+              - cell "ظاهر" [ref=e291]:
+                - button "ظاهر" [ref=e292] [cursor=pointer]:
+                  - img [ref=e293]
+                  - text: ظاهر
+              - cell [ref=e296]:
+                - generic [ref=e297]:
+                  - button "تحريك لأعلى" [ref=e298] [cursor=pointer]:
+                    - img [ref=e299]
+                  - button "تحريك لأسفل" [ref=e301] [cursor=pointer]:
+                    - img [ref=e302]
+              - cell "المحتوى الأنماط نسخ" [ref=e304]:
+                - generic [ref=e305]:
+                  - button "المحتوى" [ref=e306] [cursor=pointer]:
+                    - img [ref=e307]
+                    - text: المحتوى
+                  - button "الأنماط" [ref=e309] [cursor=pointer]:
+                    - img [ref=e310]
+                    - text: الأنماط
+                  - button "نسخ" [ref=e312] [cursor=pointer]:
+                    - img [ref=e313]
+                    - text: نسخ
+                  - button "حذف" [ref=e315] [cursor=pointer]:
+                    - img [ref=e316]
+            - row "8 تواصل معنا contact contact ظاهر المحتوى الأنماط نسخ" [ref=e318]:
+              - cell "8" [ref=e319]
+              - cell "تواصل معنا contact" [ref=e320]:
+                - generic [ref=e321]: تواصل معنا
+                - generic [ref=e322]: contact
+              - cell "contact" [ref=e323]:
+                - generic [ref=e324]: contact
+              - cell "ظاهر" [ref=e325]:
+                - button "ظاهر" [ref=e326] [cursor=pointer]:
+                  - img [ref=e327]
+                  - text: ظاهر
+              - cell [ref=e330]:
+                - generic [ref=e331]:
+                  - button "تحريك لأعلى" [ref=e332] [cursor=pointer]:
+                    - img [ref=e333]
+                  - button "تحريك لأسفل" [ref=e335] [cursor=pointer]:
+                    - img [ref=e336]
+              - cell "المحتوى الأنماط نسخ" [ref=e338]:
+                - generic [ref=e339]:
+                  - button "المحتوى" [ref=e340] [cursor=pointer]:
+                    - img [ref=e341]
+                    - text: المحتوى
+                  - button "الأنماط" [ref=e343] [cursor=pointer]:
+                    - img [ref=e344]
+                    - text: الأنماط
+                  - button "نسخ" [ref=e346] [cursor=pointer]:
+                    - img [ref=e347]
+                    - text: نسخ
+                  - button "حذف" [ref=e349] [cursor=pointer]:
+                    - img [ref=e350]
+            - row "9 نهجنا التعليمي custom_about_approach custom ظاهر المحتوى الأنماط نسخ" [ref=e352]:
+              - cell "9" [ref=e353]
+              - cell "نهجنا التعليمي custom_about_approach" [ref=e354]:
+                - generic [ref=e355]: نهجنا التعليمي
+                - generic [ref=e356]: custom_about_approach
+              - cell "custom" [ref=e357]:
+                - generic [ref=e358]: custom
+              - cell "ظاهر" [ref=e359]:
+                - button "ظاهر" [ref=e360] [cursor=pointer]:
+                  - img [ref=e361]
+                  - text: ظاهر
+              - cell [ref=e364]:
+                - generic [ref=e365]:
+                  - button "تحريك لأعلى" [ref=e366] [cursor=pointer]:
+                    - img [ref=e367]
+                  - button "تحريك لأسفل" [ref=e369] [cursor=pointer]:
+                    - img [ref=e370]
+              - cell "المحتوى الأنماط نسخ" [ref=e372]:
+                - generic [ref=e373]:
+                  - button "المحتوى" [ref=e374] [cursor=pointer]:
+                    - img [ref=e375]
+                    - text: المحتوى
+                  - button "الأنماط" [ref=e377] [cursor=pointer]:
+                    - img [ref=e378]
+                    - text: الأنماط
+                  - button "نسخ" [ref=e380] [cursor=pointer]:
+                    - img [ref=e381]
+                    - text: نسخ
+                  - button "حذف" [ref=e383] [cursor=pointer]:
+                    - img [ref=e384]
