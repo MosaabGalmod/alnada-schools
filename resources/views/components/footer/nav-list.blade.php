@@ -7,7 +7,7 @@
 	<h3 class="font-heading text-xs font-bold uppercase tracking-[0.24em] text-primary-100">
 		{{ $title }}
 	</h3>
-	<ul class="space-y-2">
+	<ul class="grid grid-cols-2 gap-x-3 gap-y-2">
 		@foreach ($items as $item)
 			<li>
 				<a class="footer-list-link group" href="{{ $item["href"] }}">

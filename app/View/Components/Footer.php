@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\View\Components;
 
+use App\Models\Section;
 use App\Models\SiteSetting;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
@@ -34,7 +35,22 @@ final class Footer extends Component
         $settings = SiteSetting::all_settings();
 
         /** @var array<int, array{href:string,label:string}> $mainLinks */
-        $mainLinks = config('navigation.main', []);
+        $sectionLabels = config('navigation.section_labels', []);
+        $mainLinks = Section::where('show_in_nav', true)
+            ->where('type', '!=', 'hero') // home link added manually below
+            ->orderBy('sort_order')
+            ->get(['type', 'key', 'label', 'content'])
+            ->map(fn($s) => [
+                'href'  => '#' . $s->key,
+                'label' => $s->type === 'custom'
+                    ? ($s->content['title'] ?? $s->label)
+                    : ($sectionLabels[$s->type] ?? $s->label),
+            ])
+            ->values()
+            ->toArray();
+
+        // Ensure home is first (no hero duplicate)
+        array_unshift($mainLinks, ['href' => '#home', 'label' => 'الرئيسية']);
 
         /** @var array<int, array{href:string,label:string}> $programLinks */
         $programLinks = config('navigation.footer_programs', []);

@@ -13,7 +13,7 @@
 		</svg>
 	</div>
 
-	<div class="relative z-10 mx-auto max-w-7xl px-4 pb-10 pt-8 sm:px-6 lg:px-8">
+	<div class="relative z-10 mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
 		<section class="footer-panel mb-8 overflow-hidden p-6 sm:p-8" aria-label="دعوة للتواصل">
 			<div class="grid gap-6 lg:grid-cols-[1.4fr_.8fr] lg:items-center">
 				<div>
@@ -95,9 +95,8 @@
 						<span class="footer-chip">{{ \App\Models\SiteSetting::get('footer_nav_chip', 'تنقل مباشر وواضح') }}</span>
 					</div>
 
-					<div class="grid grid-cols-2 gap-4">
+					<div>
 						@include("components.footer.nav-list", ["title" => "روابط سريعة", "items" => $quickLinks])
-						@include("components.footer.nav-list", ["title" => "برامجنا", "items" => $programLinks])
 					</div>
 				</section>
 			</div>
@@ -128,7 +127,7 @@
 			</section>
 		</div>
 
-		<div class="mt-8 border-t border-white/10 pt-6">
+		<div class="mt-8 border-t border-white/10 py-4">
 			<div class="flex flex-col items-center justify-between gap-4 text-xs text-primary-400 sm:flex-row">
 				<p>
 					<span aria-label="حقوق الملكية">©</span>
