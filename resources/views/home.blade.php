@@ -211,22 +211,20 @@
 			])
 		@endforeach
 
-		<div class="fixed bottom-4 end-4 z-40">
-			{{-- Back to top --}}
-			<div x-data="backToTop" x-cloak x-show="show"
-				x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-3 scale-95"
-				x-transition:enter-end="opacity-100 translate-y-0 scale-100" x-transition:leave="transition ease-in duration-150"
-				x-transition:leave-start="opacity-100 translate-y-0 scale-100"
-				x-transition:leave-end="opacity-0 translate-y-3 scale-95">
-				<button class="floating-action" type="button" aria-label="العودة إلى أعلى الصفحة" @click="scrollTop()">
-					<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 15l7-7 7 7" />
-					</svg>
-				</button>
-			</div>
-		</div>
-
-		<x-footer />
-
 	</main>{{-- #main-content --}}
+
+	{{-- Back to top --}}
+	<div class="fixed bottom-4 end-4 z-40" x-data="backToTop" x-cloak x-show="show"
+		x-transition:enter="transition ease-out duration-200" x-transition:enter-start="opacity-0 translate-y-3 scale-95"
+		x-transition:enter-end="opacity-100 translate-y-0 scale-100" x-transition:leave="transition ease-in duration-150"
+		x-transition:leave-start="opacity-100 translate-y-0 scale-100"
+		x-transition:leave-end="opacity-0 translate-y-3 scale-95">
+		<button class="floating-action" type="button" aria-label="العودة إلى أعلى الصفحة" @click="scrollTop()">
+			<svg class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+				<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M5 15l7-7 7 7" />
+			</svg>
+		</button>
+	</div>
+
+	<x-footer />
 @endsection

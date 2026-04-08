@@ -7,9 +7,9 @@
 	<h3 class="font-heading text-xs font-bold uppercase tracking-[0.24em] text-primary-100">
 		{{ $title }}
 	</h3>
-	<ul class="grid grid-cols-2 gap-x-3 gap-y-2">
+	<ul class="grid grid-cols-2 gap-x-3 gap-y-1.5">
 		@foreach ($items as $item)
-			<li>
+			<li class="{{ mb_strlen($item["label"]) > 20 ? "col-span-2" : "" }}">
 				<a class="footer-list-link group" href="{{ $item["href"] }}">
 					<span class="flex-1 text-right leading-6">{{ $item["label"] }}</span>
 					<svg class="rtl-flip h-3 w-3 shrink-0 text-primary-500 transition-colors duration-150 group-hover:text-gold-400"
