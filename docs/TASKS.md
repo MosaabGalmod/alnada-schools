@@ -29,16 +29,22 @@
 - [x] إصلاح highlight card text color في dark mode
 - [x] إصلاح custom-empty-hint style
 
-### 🔲 متبقي
-- [ ] CSS للـ flip items في news-zigzag على desktop (md+)
-- [ ] Seed البيانات الجديدة: `php artisan db:seed`
-- [ ] اختبار صفحتي /privacy-policy و /terms-of-use
+### ✅ منجز (إضافي من جلسة لاحقة)
+- [x] CSS للـ flip items في news-zigzag على desktop (md+)
+- [x] Seed البيانات الجديدة: `php artisan db:seed`
+- [x] اختبار صفحتي /privacy-policy و /terms-of-use
+- [x] Dark Mode toggle للـ admin panel (moon/sun button)
+- [x] localStorage persistence لحالة الـ Dark Mode
+- [x] Full dark CSS لجميع صفحات الأدمن (sidebar, topbar, modals, tables)
+- [x] Arabic pagination (Livewire + standard) — عرض X–Y من Z نتيجة
+- [x] RTL pagination buttons (SVG arrows)
+- [x] APP_LOCALE=ar للترجمة العربية
 
 ---
 
 ## التحسينات المقترحة اللاحقة
-- إضافة Dark Mode للـ admin pages
 - Programs: ربط الأيقونة بحقل من DB بدل mapping ثابت
 - Why Us: eyebrow categories قابلة للتعديل
 - Email notification للرسائل الجديدة
 - JSON-LD structured data من SiteSetting
+- لوحة إحصائيات متقدمة (Charts)

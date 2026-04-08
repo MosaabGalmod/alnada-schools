@@ -1,0 +1,104 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - img "شعار مدارس الندى" [ref=e6]
+      - generic [ref=e7]:
+        - generic [ref=e8]: مدارس الندى
+        - generic [ref=e9]: لوحة التحكم
+    - navigation "قائمة التنقل" [ref=e10]:
+      - link "الرئيسية" [ref=e11] [cursor=pointer]:
+        - /url: http://localhost:8000/admin
+        - img [ref=e13]
+        - generic [ref=e15]: الرئيسية
+      - link "الإعلانات" [ref=e16] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/announcements
+        - img [ref=e18]
+        - generic [ref=e20]: الإعلانات
+      - link "الرسائل" [ref=e21] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/messages
+        - img [ref=e23]
+        - generic [ref=e25]: الرسائل
+      - link "الأقسام" [ref=e26] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/sections
+        - img [ref=e28]
+        - generic [ref=e30]: الأقسام
+      - link "الإعدادات" [ref=e31] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/settings
+        - img [ref=e33]
+        - generic [ref=e35]: الإعدادات
+      - link "السياسات" [ref=e36] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/policies
+        - img [ref=e38]
+        - generic [ref=e40]: السياسات
+      - link "الملف الشخصي" [ref=e41] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/profile
+        - img [ref=e43]
+        - generic [ref=e45]: الملف الشخصي
+    - generic [ref=e46]:
+      - link "عرض الموقع" [ref=e47] [cursor=pointer]:
+        - /url: http://localhost:8000
+        - img [ref=e48]
+        - generic [ref=e50]: عرض الموقع
+      - link "تسجيل الخروج" [ref=e51] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/logout
+        - img [ref=e52]
+        - generic [ref=e54]: تسجيل الخروج
+  - generic [ref=e55]:
+    - banner [ref=e56]:
+      - generic [ref=e57]:
+        - button "إغلاق القائمة الجانبية" [ref=e58] [cursor=pointer]:
+          - img [ref=e59]
+        - generic [ref=e61]:
+          - heading "الملف الشخصي" [level=1] [ref=e62]
+          - paragraph [ref=e63]: تغيير اسم المستخدم وكلمة المرور
+      - generic [ref=e64]:
+        - button "تفعيل الوضع الداكن" [ref=e65] [cursor=pointer]:
+          - img [ref=e66]
+        - generic [ref=e68]:
+          - generic [ref=e69]: المدير العام
+          - generic [ref=e70]: الأربعاء، 8 أبريل 2026
+        - generic [ref=e71]: م
+    - main [ref=e72]:
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - img [ref=e77]
+            - generic [ref=e79]:
+              - heading "اسم المستخدم" [level=3] [ref=e80]
+              - paragraph [ref=e81]: تغيير اسم الدخول للوحة التحكم
+          - generic [ref=e82]:
+            - generic [ref=e83]:
+              - generic [ref=e84]: اسم المستخدم الجديد
+              - textbox "اسم المستخدم الجديد" [ref=e85]:
+                - /placeholder: admin
+                - text: admin
+            - button "حفظ اسم المستخدم" [ref=e86] [cursor=pointer]:
+              - generic [ref=e87]:
+                - img [ref=e88]
+                - text: حفظ اسم المستخدم
+        - generic [ref=e90]:
+          - generic [ref=e91]:
+            - img [ref=e93]
+            - generic [ref=e95]:
+              - heading "كلمة المرور" [level=3] [ref=e96]
+              - paragraph [ref=e97]: تغيير كلمة مرور لوحة التحكم
+          - generic [ref=e98]:
+            - generic [ref=e99]:
+              - generic [ref=e100]: كلمة المرور الحالية *
+              - textbox "كلمة المرور الحالية *" [ref=e101]
+            - generic [ref=e102]:
+              - generic [ref=e103]: كلمة المرور الجديدة *
+              - textbox "كلمة المرور الجديدة *" [ref=e104]
+              - paragraph [ref=e105]: 8 أحرف على الأقل
+            - generic [ref=e106]:
+              - generic [ref=e107]: تأكيد كلمة المرور الجديدة *
+              - textbox "تأكيد كلمة المرور الجديدة *" [ref=e108]
+            - button "تغيير كلمة المرور" [ref=e109] [cursor=pointer]:
+              - generic [ref=e110]:
+                - img [ref=e111]
+                - text: تغيير كلمة المرور
+        - generic [ref=e114]:
+          - img [ref=e115]
+          - generic [ref=e117]:
+            - paragraph [ref=e118]: نصيحة أمنية
+            - paragraph [ref=e119]: استخدم كلمة مرور قوية تحتوي على أحرف كبيرة وصغيرة وأرقام ورموز. لا تشارك بيانات الدخول مع أي أحد.

@@ -1,0 +1,86 @@
+- generic [ref=e2]:
+  - complementary [ref=e3]:
+    - generic [ref=e4]:
+      - img "شعار مدارس الندى" [ref=e6]
+      - generic [ref=e7]:
+        - generic [ref=e8]: مدارس الندى
+        - generic [ref=e9]: لوحة التحكم
+    - navigation "قائمة التنقل" [ref=e10]:
+      - link "الرئيسية" [ref=e11] [cursor=pointer]:
+        - /url: http://localhost:8000/admin
+        - img [ref=e13]
+        - generic [ref=e15]: الرئيسية
+      - link "الإعلانات" [ref=e16] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/announcements
+        - img [ref=e18]
+        - generic [ref=e20]: الإعلانات
+      - link "الرسائل" [ref=e21] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/messages
+        - img [ref=e23]
+        - generic [ref=e25]: الرسائل
+      - link "الأقسام" [ref=e26] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/sections
+        - img [ref=e28]
+        - generic [ref=e30]: الأقسام
+      - link "الإعدادات" [ref=e31] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/settings
+        - img [ref=e33]
+        - generic [ref=e35]: الإعدادات
+      - link "السياسات" [ref=e36] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/policies
+        - img [ref=e38]
+        - generic [ref=e40]: السياسات
+      - link "الملف الشخصي" [ref=e41] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/profile
+        - img [ref=e43]
+        - generic [ref=e45]: الملف الشخصي
+    - generic [ref=e46]:
+      - link "عرض الموقع" [ref=e47] [cursor=pointer]:
+        - /url: http://localhost:8000
+        - img [ref=e48]
+        - generic [ref=e50]: عرض الموقع
+      - link "تسجيل الخروج" [ref=e51] [cursor=pointer]:
+        - /url: http://localhost:8000/admin/logout
+        - img [ref=e52]
+        - generic [ref=e54]: تسجيل الخروج
+  - generic [ref=e55]:
+    - banner [ref=e56]:
+      - generic [ref=e57]:
+        - button "إغلاق القائمة الجانبية" [ref=e58] [cursor=pointer]:
+          - img [ref=e59]
+        - generic [ref=e61]:
+          - heading "رسائل التواصل" [level=1] [ref=e62]
+          - paragraph [ref=e63]: الرسائل الواردة من الموقع
+      - generic [ref=e64]:
+        - button "تفعيل الوضع الداكن" [ref=e65] [cursor=pointer]:
+          - img [ref=e66]
+        - generic [ref=e68]:
+          - generic [ref=e69]: المدير العام
+          - generic [ref=e70]: الأربعاء، 8 أبريل 2026
+        - generic [ref=e71]: م
+    - main [ref=e72]:
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e76]:
+            - generic [ref=e77]:
+              - generic:
+                - img
+              - searchbox "بحث في الرسائل..." [ref=e78]
+            - combobox [ref=e79]:
+              - option "الكل" [selected]
+              - option "غير المقروءة"
+              - option "المقروءة"
+            - button "تحديد الكل مقروء" [ref=e80] [cursor=pointer]:
+              - img [ref=e81]
+              - generic [ref=e83]: تحديد الكل مقروء
+          - generic [ref=e84]:
+            - generic [ref=e85]:
+              - checkbox "تحديد الصفحة" [ref=e86] [cursor=pointer]
+              - generic [ref=e87] [cursor=pointer]: تحديد الصفحة
+            - generic [ref=e89]:
+              - img [ref=e90]
+              - text: لا توجد رسائل
+        - generic [ref=e93]:
+          - img [ref=e94]
+          - paragraph [ref=e96]: اختر رسالة للعرض
+          - paragraph [ref=e97]: انقر على أي رسالة من القائمة
