@@ -15,25 +15,17 @@ $introTitle = trim((string) ($c["intro_card_title"] ?? ""));
 $introBody  = trim((string) ($c["intro_card_body"] ?? ""));
 $hasCard    = $introTitle !== "" || $introBody !== "";
 
-// For dark/gradient sections inject CSS vars to override light defaults
+// $sectionVars: pass admin-chosen colors; dark sections handle their own look via CSS
 $sectionVars = "--custom-heading-color: {$section->headingColor()}; --custom-body-color: {$section->textColor()};";
-if ($isDark) {
-    $sectionVars .=
-        " --custom-shell-bg: radial-gradient(ellipse 60% 40% at 90% 10%, rgba(14,165,233,0.14), transparent), linear-gradient(180deg,#0d1b2a,#0a1628);" .
-        " --custom-shell-border: rgba(148,163,184,0.12);" .
-        " --custom-shell-shadow: 0 20px 60px rgba(2,6,23,0.40);" .
-        " --custom-tag-bg: rgba(14,165,233,0.18); --custom-tag-fg: #7dd3fc;" .
-        " --custom-title-fg: #f1f5f9; --custom-copy-fg: rgba(203,213,225,0.90);" .
-        " --custom-card-bg: rgba(15,30,48,0.80); --custom-card-border: rgba(148,163,184,0.10);" .
-        " --custom-highlight-bg: linear-gradient(135deg,#0284c7,#0f766e);" .
-        " --custom-accent-bar: #38bdf8; --custom-check-color: #38bdf8;" .
-        " --custom-icon-bg: linear-gradient(135deg,#0f766e,#0284c7);";
-}
 @endphp
 
-<section id="{{ $section->key }}" class="section custom-section" data-testid="custom-section"
-aria-labelledby="{{ $headingId }}" lang="ar" dir="rtl"
-style="{{ $section->bgCss() ?: '' }} {{ $sectionVars }}">
+<section id="{{ $section->key }}"
+	class="section custom-section"
+	data-dark="{{ $isDark ? '1' : '0' }}"
+	data-testid="custom-section"
+	aria-labelledby="{{ $headingId }}"
+	lang="ar" dir="rtl"
+	style="{{ $section->bgCss() ?: '' }} {{ $sectionVars }}">
 <div class="mx-auto max-w-5xl">
 <div class="custom-shell">
 

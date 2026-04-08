@@ -771,9 +771,14 @@
     }
 }
 
-/* ─── Dark mode overrides ────────────────────────────────────────────── */
-.dark .custom-shell,
-.custom-section:is([data-dark="1"]) .custom-shell {
+/* ─── Dark mode: light sections adapt when site is in dark mode ──────── */
+/* Outer section background adapts to dark page */
+.dark .custom-section[data-dark="0"] {
+    background: linear-gradient(180deg, #08131e 0%, #0a1628 100%);
+}
+
+/* Only apply generic dark shell to sections that are NOT explicitly dark */
+.dark .custom-section[data-dark="0"] .custom-shell {
     --custom-shell-bg:
         radial-gradient(ellipse 60% 40% at 90% 10%, rgba(14,165,233,0.14), transparent),
         linear-gradient(180deg, #0d1b2a 0%, #0a1628 100%);
@@ -792,7 +797,66 @@
     --custom-check-color: #38bdf8;
 }
 
-/* ─── Mobile ─────────────────────────────────────────────────────────── */
+/* Dark sections: always show dark regardless of site theme */
+.custom-section[data-dark="1"] .custom-shell {
+    --custom-tag-bg: rgba(14, 165, 233, 0.18);
+    --custom-tag-fg: #7dd3fc;
+    --custom-title-fg: var(--custom-heading-color, #f1f5f9);
+    --custom-copy-fg: var(--custom-body-color, rgba(203, 213, 225, 0.90));
+    --custom-card-bg: rgba(0, 0, 0, 0.25);
+    --custom-card-border: rgba(255, 255, 255, 0.12);
+    --custom-highlight-bg: linear-gradient(135deg, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.08) 100%);
+    --custom-accent-bar: rgba(255, 255, 255, 0.50);
+    --custom-icon-bg: rgba(255, 255, 255, 0.18);
+    --custom-icon-shadow: none;
+    --custom-check-color: rgba(255, 255, 255, 0.80);
+}
+
+/* Dark sections: shell background comes from the outer section's bgCss().
+   Make the shell transparent so the gradient behind it shows through,
+   but keep the glassmorphism card effect. */
+.custom-section[data-dark="1"] .custom-shell {
+    --custom-shell-bg: transparent;
+    --custom-shell-border: rgba(255, 255, 255, 0.12);
+    --custom-shell-shadow: none;
+    backdrop-filter: none;
+}
+
+
+/* Dark sections: card and bullet text should be white/light */
+.custom-section[data-dark="1"] .custom-card p,
+.custom-section[data-dark="1"] .custom-bullet-list li,
+.custom-section[data-dark="1"] .custom-subtitle,
+.custom-section[data-dark="1"] .custom-intro-text {
+    color: var(--custom-copy-fg);
+}
+
+.custom-section[data-dark="1"] .custom-card-highlight {
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+}
+
+.custom-section[data-dark="1"] .custom-highlight-text {
+    color: #ffffff;
+}
+
+.custom-section[data-dark="1"] .custom-bullet-check {
+    color: rgba(255, 255, 255, 0.70);
+}
+
+.custom-section[data-dark="1"] .custom-card-bullets-header p,
+.custom-section[data-dark="1"] .custom-card-bullets-header {
+    border-bottom-color: rgba(255, 255, 255, 0.10);
+}
+
+/* Light sections in dark mode: ensure paragraph text is visible */
+.dark .custom-section[data-dark="0"] .custom-card p,
+.dark .custom-section[data-dark="0"] .custom-bullet-list li {
+    color: var(--custom-copy-fg);
+}
+
+
 @media (max-width: 639px) {
     .custom-shell {
         border-radius: 24px;
