@@ -53,7 +53,7 @@ class SiteSetting extends Model
         });
     }
 
-    public static function logoUrl(string $default = 'logo.svg'): string
+    public static function logoUrl(string $default = 'logo.png'): string
     {
         $path = static::get('logo_path', '');
         if ($path && \Illuminate\Support\Facades\Storage::disk('public')->exists($path)) {

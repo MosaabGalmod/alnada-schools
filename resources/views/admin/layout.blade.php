@@ -5,6 +5,7 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>@yield("title", "لوحة التحكم") - مدارس الندى</title>
+		<link type="image/png" href="{{ \App\Models\SiteSetting::faviconUrl() }}" rel="icon" />
 		{{-- Prevent dark-mode flash: apply saved theme before any render --}}
 		<script>
 			(function() {
