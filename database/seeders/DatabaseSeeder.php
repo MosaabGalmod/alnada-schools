@@ -17,8 +17,6 @@ class DatabaseSeeder extends Seeder
 
         // ===== Site Settings =====
         $settings = [
-            'hero_title'    => 'مدارس الندى النموذجية الأهلية',
-            'hero_subtitle' => 'نُشكّل مستقبل أبنائنا بأيدٍ متخصصة وقلوب مخلصة في بيئة تعليمية آمنة ومحفّزة للإبداع',
             'phone'         => '+966 14 848 2306',
             'email'         => 'alnadaiec@gmail.com',
             'address'       => '(2957) شارع الحسين بن علي بن الأسود، حي البركة (8393)، المدينة المنورة 42332',
@@ -124,7 +122,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($announcements as $ann) {
-            Announcement::create($ann);
+            Announcement::updateOrCreate(['title' => $ann['title']], $ann);
         }
 
         $this->command->info('✅ Database seeded successfully!');
