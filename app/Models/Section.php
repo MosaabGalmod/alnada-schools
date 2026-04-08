@@ -10,13 +10,14 @@ use Illuminate\Database\Eloquent\Model;
 class Section extends Model
 {
     protected $fillable = [
-        'key', 'type', 'label', 'content', 'style', 'is_visible', 'sort_order',
+        'key', 'type', 'label', 'content', 'style', 'is_visible', 'show_in_nav', 'sort_order',
     ];
 
     protected $casts = [
         'content'    => 'array',
         'style'      => 'array',
-        'is_visible' => 'boolean',
+        'is_visible'  => 'boolean',
+        'show_in_nav' => 'boolean',
         'sort_order' => 'integer',
     ];
 

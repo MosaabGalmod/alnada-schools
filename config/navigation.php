@@ -3,14 +3,24 @@
 declare(strict_types=1);
 
 return [
+    // Static first link (always shown — the home anchor)
     'main' => [
         ['href' => '#home', 'label' => 'الرئيسية'],
-        ['href' => '#about', 'label' => 'من نحن'],
-        ['href' => '#programs', 'label' => 'برامجنا'],
-        ['href' => '#stats', 'label' => 'إنجازاتنا'],
-        ['href' => '#news', 'label' => 'الأخبار'],
-        ['href' => '#contact', 'label' => 'تواصل معنا'],
     ],
+
+    // Default nav labels for each built-in section type.
+    // Used when the section has show_in_nav = true.
+    'section_labels' => [
+        'hero'         => 'الرئيسية',
+        'about'        => 'من نحن',
+        'why_us'       => 'لماذا نحن',
+        'programs'     => 'برامجنا',
+        'stats'        => 'إنجازاتنا',
+        'testimonials' => 'آراء أولياء الأمور',
+        'news'         => 'الأخبار',
+        'contact'      => 'تواصل معنا',
+    ],
+
     'footer_programs' => [
         ['href' => '#programs', 'label' => 'التعليم العام'],
         ['href' => '#programs', 'label' => 'التربية الخاصة'],

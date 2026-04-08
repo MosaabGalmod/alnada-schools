@@ -62,6 +62,15 @@ class SectionManager extends Component
         $this->flash('تم تحديث حالة الظهور');
     }
 
+    /* ── Nav toggle ─────────────────────────────────────── */
+    public function toggleNav(int $id): void
+    {
+        $section = \App\Models\Section::findOrFail($id);
+        $section->update(['show_in_nav' => ! $section->show_in_nav]);
+        $this->loadSections();
+        $this->flash($section->show_in_nav ? 'تمت إضافة الرابط للقائمة' : 'تم إزالة الرابط من القائمة');
+    }
+
     /* ── Reorder ────────────────────────────────────────── */
     public function moveUp(int $id): void
     {

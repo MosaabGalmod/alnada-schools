@@ -48,17 +48,23 @@
 
 @section("content")
 	@php
-		$mainNavigation = config("navigation.main", []);
-		// Inject visible custom sections into navigation after the static items
-		$customNavItems = $sections
-			->filter(fn($s) => $s->type === 'custom')
+		$sectionLabels = config('navigation.section_labels', []);
+
+		// Build nav from sections in DB order — only show_in_nav sections, skip hero (it's #home)
+		$mainNavigation = $sections
+			->filter(fn($s) => $s->show_in_nav && $s->type !== 'hero')
+			->sortBy('sort_order')
 			->map(fn($s) => [
 				'href'  => '#' . $s->key,
-				'label' => $s->content['title'] ?? $s->label,
+				'label' => $s->type === 'custom'
+					? ($s->content['title'] ?? $s->label)
+					: ($sectionLabels[$s->type] ?? $s->label),
 			])
 			->values()
 			->toArray();
-		$mainNavigation = array_merge($mainNavigation, $customNavItems);
+
+		// Prepend static home link
+		array_unshift($mainNavigation, ['href' => '#home', 'label' => 'الرئيسية']);
 	@endphp
 
 	<main class="home-shell" id="main-content" role="main">

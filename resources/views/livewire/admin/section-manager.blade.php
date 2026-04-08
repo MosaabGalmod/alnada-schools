@@ -44,6 +44,7 @@
 					<th>القسم</th>
 					<th>النوع</th>
 					<th>الحالة</th>
+					<th class="text-center">القائمة</th>
 					<th class="text-center">الترتيب</th>
 					<th class="text-center">الإجراءات</th>
 				</tr>
@@ -88,6 +89,20 @@
 									</svg>
 									مخفي
 								@endif
+							</button>
+						</td>
+						{{-- Nav toggle --}}
+						<td class="text-center">
+							<button
+								wire:click="toggleNav({{ $sec['id'] }})"
+								title="{{ $sec['show_in_nav'] ? 'إزالة من القائمة' : 'إضافة للقائمة' }}"
+								class="{{ $sec['show_in_nav'] ? 'bg-teal-100 text-teal-700 hover:bg-teal-200 dark:bg-teal-900/40 dark:text-teal-300' : 'bg-gray-100 text-gray-400 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-500' }} inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold transition-all">
+								{{-- Link icon --}}
+								<svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+										d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
+								</svg>
+								{{ $sec['show_in_nav'] ? 'في القائمة' : 'مخفي' }}
 							</button>
 						</td>
 						<td>
