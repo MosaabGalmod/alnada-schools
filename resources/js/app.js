@@ -70,7 +70,7 @@ document.addEventListener('alpine:init', () => {
         features: Array.isArray(features) ? features : [],
         activeIndex: 0,
         get activeFeature() {
-            return this.features[this.activeIndex] ?? {
+            return this.features[this.activeIndex] ? ? {
                 title: '',
                 body: '',
                 eyebrow: '',
@@ -91,7 +91,7 @@ document.addEventListener('alpine:init', () => {
         programs: Array.isArray(programs) ? programs : [],
         activeIndex: 0,
         get activeProgram() {
-            return this.programs[this.activeIndex] ?? {
+            return this.programs[this.activeIndex] ? ? {
                 index: '00',
                 title: '',
                 description: '',
