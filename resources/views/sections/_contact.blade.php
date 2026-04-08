@@ -88,9 +88,11 @@
 				<div class="contact-form-column" data-testid="contact-form-column">
 					<div class="contact-form-shell" data-testid="contact-form-shell">
 						<div class="contact-form-header">
-							<p class="contact-form-kicker">{{ \App\Models\SiteSetting::get('contact_form_kicker', 'راسلنا مباشرة') }}</p>
-							<h3 class="contact-form-title">{{ \App\Models\SiteSetting::get('contact_form_title', 'أرسل لنا رسالة') }}</h3>
-							<p class="contact-form-text">{{ \App\Models\SiteSetting::get('contact_form_text', 'املأ النموذج وسيتابع فريق المدرسة طلبك أو استفسارك سريعًا.') }}</p>
+							<p class="contact-form-kicker">{{ \App\Models\SiteSetting::get("contact_form_kicker", "راسلنا مباشرة") }}</p>
+							<h3 class="contact-form-title">{{ \App\Models\SiteSetting::get("contact_form_title", "أرسل لنا رسالة") }}</h3>
+							<p class="contact-form-text">
+								{{ \App\Models\SiteSetting::get("contact_form_text", "املأ النموذج وسيتابع فريق المدرسة طلبك أو استفسارك سريعًا.") }}
+							</p>
 						</div>
 						@livewire("contact-form")
 					</div>

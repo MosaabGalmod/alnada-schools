@@ -20,8 +20,8 @@
 	$newsIntro = $c["subtitle"] ?? "موجز سريع لأحدث الإعلانات المدرسية والفعاليات المهمة.";
 @endphp
 
-<section class="section news-section" id="news" aria-labelledby="news-heading" aria-describedby="news-intro"
-	data-section="news"
+<section class="section news-section" id="news" data-section="news" aria-labelledby="news-heading"
+	aria-describedby="news-intro"
 	style="{{ $section->bgCss() ?: "background: linear-gradient(135deg, #f0f9fd 0%, #daf1fa 100%);" }}" lang="ar"
 	dir="rtl">
 	<div class="mx-auto max-w-5xl">

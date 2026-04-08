@@ -1,5 +1,8 @@
 <div>
-	@php use App\View\Support\IconLibrary; $iconOptions = IconLibrary::all(); @endphp
+	@php
+		use App\View\Support\IconLibrary;
+		$iconOptions = IconLibrary::all();
+	@endphp
 	{{-- Flash --}}
 	@if ($flashMsg)
 		<div
@@ -94,15 +97,15 @@
 						{{-- Nav toggle --}}
 						<td class="text-center">
 							<button
-								wire:click="toggleNav({{ $sec['id'] }})"
-								title="{{ $sec['show_in_nav'] ? 'إزالة من القائمة' : 'إضافة للقائمة' }}"
-								class="{{ $sec['show_in_nav'] ? 'bg-teal-100 text-teal-700 hover:bg-teal-200 dark:bg-teal-900/40 dark:text-teal-300' : 'bg-gray-100 text-gray-400 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-500' }} inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold transition-all">
+								class="{{ $sec["show_in_nav"] ? "bg-teal-100 text-teal-700 hover:bg-teal-200 dark:bg-teal-900/40 dark:text-teal-300" : "bg-gray-100 text-gray-400 hover:bg-gray-200 dark:bg-gray-700 dark:text-gray-500" }} inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold transition-all"
+								title="{{ $sec["show_in_nav"] ? "إزالة من القائمة" : "إضافة للقائمة" }}"
+								wire:click="toggleNav({{ $sec["id"] }})">
 								{{-- Link icon --}}
 								<svg class="h-3 w-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 										d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
 								</svg>
-								{{ $sec['show_in_nav'] ? 'في القائمة' : 'مخفي' }}
+								{{ $sec["show_in_nav"] ? "في القائمة" : "مخفي" }}
 							</button>
 						</td>
 						<td>
@@ -145,7 +148,7 @@
 								</button>
 								{{-- Duplicate --}}
 								<button class="btn-sm bg-teal-50 text-teal-700 hover:bg-teal-100" title="نسخ القسم"
-									wire:click="duplicateSection({{ $sec['id'] }})" wire:confirm="سيتم إنشاء نسخة من هذا القسم. تأكيد؟">
+									wire:click="duplicateSection({{ $sec["id"] }})" wire:confirm="سيتم إنشاء نسخة من هذا القسم. تأكيد؟">
 									<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 											d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -154,8 +157,8 @@
 								</button>
 								{{-- Delete: warning stronger for built-in --}}
 								<button class="btn-sm bg-red-50 text-red-600 hover:bg-red-100" title="حذف"
-									wire:click="deleteSection({{ $sec['id'] }})"
-									wire:confirm="{{ $sec['type'] !== 'custom' ? 'تحذير: هذا قسم أساسي. حذفه سيتطلب استعادته يدوياً. هل تريد المتابعة؟' : 'هل أنت متأكد من حذف هذا القسم؟' }}">
+									wire:click="deleteSection({{ $sec["id"] }})"
+									wire:confirm="{{ $sec["type"] !== "custom" ? "تحذير: هذا قسم أساسي. حذفه سيتطلب استعادته يدوياً. هل تريد المتابعة؟" : "هل أنت متأكد من حذف هذا القسم؟" }}">
 									<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 											d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -171,30 +174,32 @@
 
 	{{-- ========== RESTORE BUILT-IN PANEL ========== --}}
 	@php
-		$existingTypes = collect($sections)->pluck('type')->unique()->toArray();
+		$existingTypes = collect($sections)->pluck("type")->unique()->toArray();
 		$restorable = collect([
-			['type' => 'hero',         'label' => 'الهيرو'],
-			['type' => 'about',        'label' => 'من نحن'],
-			['type' => 'news',         'label' => 'الأخبار'],
-			['type' => 'contact',      'label' => 'تواصل معنا'],
-		])->filter(fn($b) => !in_array($b['type'], $existingTypes));
+		    ["type" => "hero", "label" => "الهيرو"],
+		    ["type" => "about", "label" => "من نحن"],
+		    ["type" => "news", "label" => "الأخبار"],
+		    ["type" => "contact", "label" => "تواصل معنا"],
+		])->filter(fn($b) => !in_array($b["type"], $existingTypes));
 	@endphp
 	@if ($restorable->isNotEmpty())
 		<div class="mt-4 rounded-2xl border border-amber-200 bg-amber-50 p-4 dark:border-amber-800 dark:bg-amber-950">
 			<p class="mb-3 flex items-center gap-2 text-sm font-semibold text-amber-800 dark:text-amber-300">
 				<svg class="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M12 3a9 9 0 100 18A9 9 0 0012 3z"/>
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+						d="M12 9v2m0 4h.01M12 3a9 9 0 100 18A9 9 0 0012 3z" />
 				</svg>
 				أقسام أساسية محذوفة — يمكنك استعادتها
 			</p>
 			<div class="flex flex-wrap gap-2">
 				@foreach ($restorable as $b)
 					<button class="btn-sm bg-amber-100 text-amber-800 hover:bg-amber-200 dark:bg-amber-900 dark:text-amber-200"
-						wire:click="restoreBuiltIn('{{ $b['type'] }}')" wire:confirm="استعادة قسم {{ $b['label'] }}؟">
+						wire:click="restoreBuiltIn('{{ $b["type"] }}')" wire:confirm="استعادة قسم {{ $b["label"] }}؟">
 						<svg class="h-3.5 w-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"/>
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+								d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
 						</svg>
-						استعادة {{ $b['label'] }}
+						استعادة {{ $b["label"] }}
 					</button>
 				@endforeach
 			</div>
@@ -358,12 +363,12 @@
 											<span class="pointer-events-none absolute inset-y-0 start-2.5 flex items-center">
 												<svg class="h-4 w-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-														d="{{ IconLibrary::path($prog['icon'] ?? 'book') }}" />
+														d="{{ IconLibrary::path($prog["icon"] ?? "book") }}" />
 												</svg>
 											</span>
 											<select class="form-input ps-9 text-sm" wire:model="editContent.programs.{{ $i }}.icon">
 												@foreach ($iconOptions as $key => $ico)
-													<option value="{{ $key }}">{{ $ico['label'] }}</option>
+													<option value="{{ $key }}">{{ $ico["label"] }}</option>
 												@endforeach
 											</select>
 										</div>
@@ -403,12 +408,12 @@
 											<span class="pointer-events-none absolute inset-y-0 start-2.5 flex items-center">
 												<svg class="h-4 w-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 													<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-														d="{{ IconLibrary::path($item['icon'] ?? 'heart') }}" />
+														d="{{ IconLibrary::path($item["icon"] ?? "heart") }}" />
 												</svg>
 											</span>
 											<select class="form-input ps-9 text-sm" wire:model="editContent.items.{{ $i }}.icon">
 												@foreach ($iconOptions as $key => $ico)
-													<option value="{{ $key }}">{{ $ico['label'] }}</option>
+													<option value="{{ $key }}">{{ $ico["label"] }}</option>
 												@endforeach
 											</select>
 										</div>
@@ -461,12 +466,12 @@
 										<span class="pointer-events-none absolute inset-y-0 start-2.5 flex items-center">
 											<svg class="h-4 w-4 text-primary-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-													d="{{ IconLibrary::path($feat['icon'] ?? 'badge-check') }}" />
+													d="{{ IconLibrary::path($feat["icon"] ?? "badge-check") }}" />
 											</svg>
 										</span>
 										<select class="form-input ps-9 text-sm" wire:model="editContent.features.{{ $i }}.icon">
 											@foreach ($iconOptions as $key => $ico)
-												<option value="{{ $key }}">{{ $ico['label'] }}</option>
+												<option value="{{ $key }}">{{ $ico["label"] }}</option>
 											@endforeach
 										</select>
 									</div>
@@ -646,53 +651,60 @@
 					</div>
 
 					{{-- Live preview: Light + Dark side by side --}}
-				@php
-				    $bgType = $editStyle['bg_type'] ?? 'white';
-				    $previewBg = match ($bgType) {
-				        'gradient' => "background: linear-gradient(150deg, " . ($editStyle['bg_from'] ?? '#061f2c') . " 0%, " . ($editStyle['bg_to'] ?? '#1a9dc6') . " 100%)",
-				        'solid'    => "background-color: " . ($editStyle['bg_color'] ?? '#ffffff'),
-				        'wave'     => "background: linear-gradient(135deg,#f0f9fd 0%,#daf1fa 100%)",
-				        'dark'     => "background: linear-gradient(150deg,#061f2c 0%,#0d4858 100%)",
-				        default    => "background:#ffffff",
-				    };
-				    $isDarkBg   = in_array($bgType, ['dark', 'gradient']);
-				    $hColor     = $editStyle['heading_color'] ?? ($isDarkBg ? '#ffffff' : '#111827');
-				    $tColor     = $editStyle['text_color']   ?? ($isDarkBg ? '#d1e8ef' : '#374151');
-				    $aColor     = $editStyle['accent_color'] ?? '#1a9dc6';
-				    // Dark-mode simulated colors (for non-dark-bg sections)
-				    $hColorDark = $isDarkBg ? $hColor : '#f1f5f9';
-				    $tColorDark = $isDarkBg ? $tColor : 'rgba(203,213,225,0.85)';
-				    $darkBg     = $isDarkBg ? $previewBg : "background: linear-gradient(150deg,#071e2d 0%,#0e3d55 100%)";
-				@endphp
-				<div class="overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700">
-					<div class="flex items-center justify-between border-b border-gray-200 bg-gray-50 px-3 py-1.5 dark:border-gray-700 dark:bg-gray-800">
-						<span class="text-xs font-semibold text-gray-500 dark:text-gray-400">معاينة مباشرة</span>
-						<span class="text-xs text-gray-400">الوضع الفاتح ← ← الوضع الداكن</span>
+					@php
+						$bgType = $editStyle["bg_type"] ?? "white";
+						$previewBg = match ($bgType) {
+						    "gradient" => "background: linear-gradient(150deg, " .
+						        ($editStyle["bg_from"] ?? "#061f2c") .
+						        " 0%, " .
+						        ($editStyle["bg_to"] ?? "#1a9dc6") .
+						        " 100%)",
+						    "solid" => "background-color: " . ($editStyle["bg_color"] ?? "#ffffff"),
+						    "wave" => "background: linear-gradient(135deg,#f0f9fd 0%,#daf1fa 100%)",
+						    "dark" => "background: linear-gradient(150deg,#061f2c 0%,#0d4858 100%)",
+						    default => "background:#ffffff",
+						};
+						$isDarkBg = in_array($bgType, ["dark", "gradient"]);
+						$hColor = $editStyle["heading_color"] ?? ($isDarkBg ? "#ffffff" : "#111827");
+						$tColor = $editStyle["text_color"] ?? ($isDarkBg ? "#d1e8ef" : "#374151");
+						$aColor = $editStyle["accent_color"] ?? "#1a9dc6";
+						// Dark-mode simulated colors (for non-dark-bg sections)
+						$hColorDark = $isDarkBg ? $hColor : "#f1f5f9";
+						$tColorDark = $isDarkBg ? $tColor : "rgba(203,213,225,0.85)";
+						$darkBg = $isDarkBg ? $previewBg : "background: linear-gradient(150deg,#071e2d 0%,#0e3d55 100%)";
+					@endphp
+					<div class="overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-700">
+						<div
+							class="flex items-center justify-between border-b border-gray-200 bg-gray-50 px-3 py-1.5 dark:border-gray-700 dark:bg-gray-800">
+							<span class="text-xs font-semibold text-gray-500 dark:text-gray-400">معاينة مباشرة</span>
+							<span class="text-xs text-gray-400">الوضع الفاتح ← ← الوضع الداكن</span>
+						</div>
+						<div class="grid grid-cols-2 divide-x divide-gray-200 dark:divide-gray-700 rtl:divide-x-reverse">
+							{{-- Light preview --}}
+							<div class="p-5 text-center" style="{{ $previewBg }}">
+								<p class="mb-1 font-heading text-base font-bold" style="color: {{ $hColor }}">عنوان القسم</p>
+								<p class="text-xs leading-relaxed" style="color: {{ $tColor }}">نص توضيحي للقسم يظهر هنا</p>
+								<span class="mt-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+									style="background: {{ $aColor }}22; color: {{ $aColor }}">تاج القسم</span>
+								<p class="mt-2 text-[10px] text-gray-400">☀️ فاتح</p>
+							</div>
+							{{-- Dark preview (simulated) --}}
+							<div class="p-5 text-center" style="{{ $darkBg }}">
+								<p class="mb-1 font-heading text-base font-bold" style="color: {{ $hColorDark }}">عنوان القسم</p>
+								<p class="text-xs leading-relaxed" style="color: {{ $tColorDark }}">نص توضيحي للقسم يظهر هنا</p>
+								<span class="mt-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
+									style="background: {{ $aColor }}33; color: {{ $aColor === "#1a9dc6" ? "#7ddced" : $aColor }}">تاج
+									القسم</span>
+								<p class="mt-2 text-[10px] text-gray-500">🌙 داكن</p>
+							</div>
+						</div>
+						@if (!$isDarkBg)
+							<div
+								class="border-t border-amber-100 bg-amber-50 px-3 py-2 text-xs text-amber-700 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-400">
+								ℹ️ في الوضع الداكن، النظام يتكيف تلقائياً بصرف النظر عن ألوان العنوان والنص المختارة هنا.
+							</div>
+						@endif
 					</div>
-					<div class="grid grid-cols-2 divide-x divide-gray-200 rtl:divide-x-reverse dark:divide-gray-700">
-						{{-- Light preview --}}
-						<div class="p-5 text-center" style="{{ $previewBg }}">
-							<p class="mb-1 font-heading text-base font-bold" style="color: {{ $hColor }}">عنوان القسم</p>
-							<p class="text-xs leading-relaxed" style="color: {{ $tColor }}">نص توضيحي للقسم يظهر هنا</p>
-							<span class="mt-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
-								style="background: {{ $aColor }}22; color: {{ $aColor }}">تاج القسم</span>
-							<p class="mt-2 text-[10px] text-gray-400">☀️ فاتح</p>
-						</div>
-						{{-- Dark preview (simulated) --}}
-						<div class="p-5 text-center" style="{{ $darkBg }}">
-							<p class="mb-1 font-heading text-base font-bold" style="color: {{ $hColorDark }}">عنوان القسم</p>
-							<p class="text-xs leading-relaxed" style="color: {{ $tColorDark }}">نص توضيحي للقسم يظهر هنا</p>
-							<span class="mt-2 inline-block rounded-full px-3 py-1 text-xs font-semibold"
-								style="background: {{ $aColor }}33; color: {{ $aColor === '#1a9dc6' ? '#7ddced' : $aColor }}">تاج القسم</span>
-							<p class="mt-2 text-[10px] text-gray-500">🌙 داكن</p>
-						</div>
-					</div>
-					@if (!$isDarkBg)
-						<div class="border-t border-amber-100 bg-amber-50 px-3 py-2 text-xs text-amber-700 dark:border-amber-900 dark:bg-amber-950 dark:text-amber-400">
-							ℹ️ في الوضع الداكن، النظام يتكيف تلقائياً بصرف النظر عن ألوان العنوان والنص المختارة هنا.
-						</div>
-					@endif
-				</div>
 				</div>
 
 				<div class="flex justify-end gap-3 border-t border-gray-100 p-6">

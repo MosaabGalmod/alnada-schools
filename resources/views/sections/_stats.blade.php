@@ -12,9 +12,10 @@
 	    default => "grid-cols-2 lg:grid-cols-5",
 	};
 	// Only inject color CSS vars for sections with a dark/custom bg
-	$statsColorVars = $section->isDark() || $section->headingColor()
-	    ? "--stats-tag-color: {$section->textColor()}; --stats-title-color: {$section->headingColor()}; --stats-number-color: {$section->headingColor()}; --stats-label-color: {$section->textColor()}; --stats-accent-color: {$section->accentColor()};"
-	    : "--stats-accent-color: {$section->accentColor()};";
+	$statsColorVars =
+	    $section->isDark() || $section->headingColor()
+	        ? "--stats-tag-color: {$section->textColor()}; --stats-title-color: {$section->headingColor()}; --stats-number-color: {$section->headingColor()}; --stats-label-color: {$section->textColor()}; --stats-accent-color: {$section->accentColor()};"
+	        : "--stats-accent-color: {$section->accentColor()};";
 @endphp
 <section class="section stats-section" id="stats" aria-labelledby="stats-heading"
 	style="{{ $section->bgCss() }} {{ $statsColorVars }}">
@@ -44,7 +45,7 @@
 						<div class="stats-card-icon group-hover:scale-110" aria-hidden="true">
 							<svg class="stats-card-icon-svg" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-									d="{{ IconLibrary::path($item['icon'] ?? '') }}" />
+									d="{{ IconLibrary::path($item["icon"] ?? "") }}" />
 							</svg>
 						</div>
 

@@ -80,9 +80,9 @@
 			<ul class="why-us-grid" aria-label="عناصر التميز">
 				@foreach ($features as $i => $feat)
 					@php
-						$icon    = IconLibrary::path($feat["icon"] ?? "");
+						$icon = IconLibrary::path($feat["icon"] ?? "");
 						$iconCls = $colorCycle[$i % count($colorCycle)][0];
-						$bgCls   = $colorCycle[$i % count($colorCycle)][1];
+						$bgCls = $colorCycle[$i % count($colorCycle)][1];
 						$eyebrow = $featureEyebrows[$i % count($featureEyebrows)];
 					@endphp
 					<li class="why-us-card-item">

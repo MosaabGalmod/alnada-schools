@@ -5,11 +5,12 @@
 	// Only inject color vars for dark sections; light sections adapt via CSS dark-mode rules
 	$colorVars = $section->isDark()
 	    ? "--about-title-color: {$section->headingColor()}; --about-body-color: {$section->textColor()};"
-	    : ($section->headingColor() ? "--about-title-color: {$section->headingColor()}; --about-body-color: {$section->textColor()};" : '');
+	    : ($section->headingColor()
+	        ? "--about-title-color: {$section->headingColor()}; --about-body-color: {$section->textColor()};"
+	        : "");
 @endphp
-<section class="section about-section" id="about"
-	style="{{ $sectionBg }} {{ $colorVars }}"
-	lang="ar" dir="rtl">
+<section class="section about-section" id="about" style="{{ $sectionBg }} {{ $colorVars }}" lang="ar"
+	dir="rtl">
 	<div class="mx-auto max-w-7xl">
 		<div class="grid items-center gap-16 lg:grid-cols-2">
 
@@ -44,8 +45,10 @@
 						</svg>
 					</div>
 					<div>
-						<div class="about-floating-badge-title text-xs font-bold">{{ \App\Models\SiteSetting::get('about_badge1_title', 'جودة معتمدة') }}</div>
-						<div class="about-floating-badge-meta text-xs">{{ \App\Models\SiteSetting::get('about_badge1_sub', 'وزارة التعليم') }}</div>
+						<div class="about-floating-badge-title text-xs font-bold">
+							{{ \App\Models\SiteSetting::get("about_badge1_title", "جودة معتمدة") }}</div>
+						<div class="about-floating-badge-meta text-xs">
+							{{ \App\Models\SiteSetting::get("about_badge1_sub", "وزارة التعليم") }}</div>
 					</div>
 				</div>
 				<div
@@ -57,8 +60,10 @@
 						</svg>
 					</div>
 					<div>
-						<div class="about-floating-badge-title text-xs font-bold">{{ \App\Models\SiteSetting::get('about_badge2_title', 'بيئة آمنة') }}</div>
-						<div class="about-floating-badge-meta text-xs">{{ \App\Models\SiteSetting::get('about_badge2_sub', 'ومحفّزة للإبداع') }}</div>
+						<div class="about-floating-badge-title text-xs font-bold">
+							{{ \App\Models\SiteSetting::get("about_badge2_title", "بيئة آمنة") }}</div>
+						<div class="about-floating-badge-meta text-xs">
+							{{ \App\Models\SiteSetting::get("about_badge2_sub", "ومحفّزة للإبداع") }}</div>
 					</div>
 				</div>
 			</div>
@@ -110,7 +115,7 @@
 				@endif
 
 				<a class="btn-primary" href="#contact">
-					{{ \App\Models\SiteSetting::get('about_cta_text', 'تواصل معنا') }}
+					{{ \App\Models\SiteSetting::get("about_cta_text", "تواصل معنا") }}
 					<svg class="rtl-flip h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
 					</svg>

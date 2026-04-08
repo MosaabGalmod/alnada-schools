@@ -48,23 +48,24 @@
 
 @section("content")
 	@php
-		$sectionLabels = config('navigation.section_labels', []);
+		$sectionLabels = config("navigation.section_labels", []);
 
 		// Build nav from sections in DB order — only show_in_nav sections, skip hero (it's #home)
 		$mainNavigation = $sections
-			->filter(fn($s) => $s->show_in_nav && $s->type !== 'hero')
-			->sortBy('sort_order')
-			->map(fn($s) => [
-				'href'  => '#' . $s->key,
-				'label' => $s->type === 'custom'
-					? ($s->content['title'] ?? $s->label)
-					: ($sectionLabels[$s->type] ?? $s->label),
-			])
-			->values()
-			->toArray();
+		    ->filter(fn($s) => $s->show_in_nav && $s->type !== "hero")
+		    ->sortBy("sort_order")
+		    ->map(
+		        fn($s) => [
+		            "href" => "#" . $s->key,
+		            "label" =>
+		                $s->type === "custom" ? $s->content["title"] ?? $s->label : $sectionLabels[$s->type] ?? $s->label,
+		        ],
+		    )
+		    ->values()
+		    ->toArray();
 
 		// Prepend static home link
-		array_unshift($mainNavigation, ['href' => '#home', 'label' => 'الرئيسية']);
+		array_unshift($mainNavigation, ["href" => "#home", "label" => "الرئيسية"]);
 	@endphp
 
 	<main class="home-shell" id="main-content" role="main">
@@ -89,11 +90,11 @@
 						<div class="font-heading text-base font-bold transition-colors"
 							:class="scrolled ? (document.documentElement.classList.contains('dark') ? 'text-primary-100' : 'text-primary-800') :
 							    'text-white'">
-							{{ \App\Models\SiteSetting::get('nav_brand_line1', 'مدارس الندى') }}</div>
+							{{ \App\Models\SiteSetting::get("nav_brand_line1", "مدارس الندى") }}</div>
 						<div class="text-xs transition-colors"
 							:class="scrolled ? (document.documentElement.classList.contains('dark') ? 'text-primary-300' : 'text-gray-500') :
 							    'text-primary-100'">
-							{{ \App\Models\SiteSetting::get('nav_brand_line2', 'النموذجية الأهلية') }}
+							{{ \App\Models\SiteSetting::get("nav_brand_line2", "النموذجية الأهلية") }}
 						</div>
 					</div>
 				</a>
@@ -119,7 +120,7 @@
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 								d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
 						</svg>
-						{{ \App\Models\SiteSetting::get('nav_cta_text', 'سجّل الآن') }}
+						{{ \App\Models\SiteSetting::get("nav_cta_text", "سجّل الآن") }}
 					</a>
 
 					{{-- Dark Mode Toggle (3-state: auto → dark → light → auto) --}}
@@ -198,7 +199,8 @@
 						href="{{ $item["href"] }}" @click="mobileOpen=false">{{ $item["label"] }}</a>
 				@endforeach
 				<div class="border-t border-gray-100 pt-2 dark:border-gray-700/50">
-					<a class="btn-primary mt-2 w-full justify-center" href="#contact">{{ \App\Models\SiteSetting::get('nav_cta_text', 'سجّل الآن') }}</a>
+					<a class="btn-primary mt-2 w-full justify-center"
+						href="#contact">{{ \App\Models\SiteSetting::get("nav_cta_text", "سجّل الآن") }}</a>
 				</div>
 			</nav>
 		</header>

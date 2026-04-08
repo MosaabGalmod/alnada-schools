@@ -16,10 +16,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 		{{-- ===== SEO Meta ===== --}}
-		<title>@yield("title", \App\Models\SiteSetting::get('seo_title_default', 'مدارس الندى النموذجية الأهلية | التربية الخاصة والدمج - المدينة المنورة'))</title>
-		<meta name="description" content="@yield("meta_description", \App\Models\SiteSetting::get('seo_description_default', 'مدارس الندى النموذجية الأهلية – مؤسسة تعليمية رائدة في التربية الخاصة والدمج بالمدينة المنورة منذ 1429هـ. نقدم برامج التوحد، صعوبات التعلم، العلاج الوظيفي، علاج النطق، ورياض الأطفال.'))" />
-		<meta name="keywords" content="{{ \App\Models\SiteSetting::get('seo_keywords', 'مدارس الندى، التربية الخاصة، الدمج، المدينة المنورة، التوحد، صعوبات التعلم، علاج النطق، العلاج الوظيفي، مدارس أهلية') }}" />
-		<meta name="author" content="{{ \App\Models\SiteSetting::get('seo_author', 'مدارس الندى النموذجية الأهلية') }}" />
+		<title>@yield("title", \App\Models\SiteSetting::get("seo_title_default", "مدارس الندى النموذجية الأهلية | التربية الخاصة والدمج - المدينة المنورة"))</title>
+		<meta name="description" content="@yield("meta_description", \App\Models\SiteSetting::get("seo_description_default", "مدارس الندى النموذجية الأهلية – مؤسسة تعليمية رائدة في التربية الخاصة والدمج بالمدينة المنورة منذ 1429هـ. نقدم برامج التوحد، صعوبات التعلم، العلاج الوظيفي، علاج النطق، ورياض الأطفال."))" />
+		<meta name="keywords"
+			content="{{ \App\Models\SiteSetting::get("seo_keywords", "مدارس الندى، التربية الخاصة، الدمج، المدينة المنورة، التوحد، صعوبات التعلم، علاج النطق، العلاج الوظيفي، مدارس أهلية") }}" />
+		<meta name="author" content="{{ \App\Models\SiteSetting::get("seo_author", "مدارس الندى النموذجية الأهلية") }}" />
 		<meta name="robots" content="index, follow" />
 		<link href="{{ url()->current() }}" rel="canonical" />
 

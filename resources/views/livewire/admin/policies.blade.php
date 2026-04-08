@@ -45,7 +45,7 @@
 				</div>
 			</div>
 			<div class="settings-card-footer">
-				@include('livewire.admin._partials.save-btn', ['target' => 'saveTerms', 'label' => 'حفظ الشروط'])
+				@include("livewire.admin._partials.save-btn", ["target" => "saveTerms", "label" => "حفظ الشروط"])
 			</div>
 		</div>
 	</form>
