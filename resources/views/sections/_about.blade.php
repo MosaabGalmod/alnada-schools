@@ -2,12 +2,11 @@
 @php
 	$c = $section->content ?? [];
 	$sectionBg = $section->bgCss() ?: "background:#ffffff;";
-	// Only inject color vars for dark sections; light sections adapt via CSS dark-mode rules
+	// For dark-background sections, inject color vars inline (CSS can't override dark bg).
+	// For light sections, leave CSS vars to the stylesheet so dark-mode class can override them.
 	$colorVars = $section->isDark()
 	    ? "--about-title-color: {$section->headingColor()}; --about-body-color: {$section->textColor()};"
-	    : ($section->headingColor()
-	        ? "--about-title-color: {$section->headingColor()}; --about-body-color: {$section->textColor()};"
-	        : "");
+	    : "";
 @endphp
 <section class="section about-section" id="about" style="{{ $sectionBg }} {{ $colorVars }}" lang="ar"
 	dir="rtl">
